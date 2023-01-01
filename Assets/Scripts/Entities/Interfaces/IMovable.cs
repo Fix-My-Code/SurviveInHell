@@ -1,16 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class IMovable : MonoBehaviour
+interface IMovable 
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public float Speed { get; set; }
+    public Rigidbody2D RigidBody { get; set; }
+    public void Move(Vector2 direction);
 }
