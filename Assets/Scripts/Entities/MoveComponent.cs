@@ -3,73 +3,77 @@ using Utilities.Behaviours;
 using DI.Attributes.Register;
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
+using Entities.Interfaces;
 
-[RequireComponent(typeof(Rigidbody2D))]
-
-[Register(typeof(IMovable))]
-internal class MoveComponent : KernelEntityBehaviour, IMovable
+namespace Entities
 {
-    private float _speed;
+    [RequireComponent(typeof(Rigidbody2D))]
 
-    private Rigidbody2D _body;
-
-    private bool _isInitialize = false;
-
-    public float Speed
-    { 
-        get => _speed;
-        set
-        {
-            _speed = value;
-        } 
-    }
-
-    public Rigidbody2D RigidBody 
+    [Register(typeof(IMovable))]
+    internal class MoveComponent : KernelEntityBehaviour, IMovable
     {
-        get => _body;
-        set
-        {
-            _body = value;
-        }
-    }
+        private float _speed;
 
-    public void Move(Vector2 direction)
-    {
-        _body.AddForce(direction * _body.mass * Speed);
+        private Rigidbody2D _body;
 
-        if (Mathf.Abs(_body.velocity.x) > Speed)
+        private bool _isInitialize = false;
+
+        public float Speed
         {
-            _body.velocity = new Vector2(Mathf.Sign(_body.velocity.x) * Speed, _body.velocity.y);
+            get => _speed;
+            set
+            {
+                _speed = value;
+            }
         }
 
-        if (Mathf.Abs(_body.velocity.y) > Speed)
+        public Rigidbody2D RigidBody
         {
-            _body.velocity = new Vector2(_body.velocity.x, Mathf.Sign(_body.velocity.y) * Speed);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (!_isInitialize)
-        {
-            return;
+            get => _body;
+            set
+            {
+                _body = value;
+            }
         }
 
-        Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        public void Move(Vector2 direction)
+        {
+            _body.AddForce(direction * _body.mass * Speed);
+
+            if (Mathf.Abs(_body.velocity.x) > Speed)
+            {
+                _body.velocity = new Vector2(Mathf.Sign(_body.velocity.x) * Speed, _body.velocity.y);
+            }
+
+            if (Mathf.Abs(_body.velocity.y) > Speed)
+            {
+                _body.velocity = new Vector2(_body.velocity.x, Mathf.Sign(_body.velocity.y) * Speed);
+            }
+        }
+
+        void FixedUpdate()
+        {
+            if (!_isInitialize)
+            {
+                return;
+            }
+
+            Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        }
+
+        #region KernelEntity
+
+        [ConstructMethod]
+        private void Construct(IKernel kernel)
+        {
+            _body = GetComponent<Rigidbody2D>();
+            _body.freezeRotation = true;
+            _body.gravityScale = 0;
+
+            _speed = 10;
+            _isInitialize = true;
+        }
+
+        #endregion
     }
-
-    #region KernelEntity
-
-    [ConstructMethod]
-    private void Construct(IKernel kernel) 
-    {
-        _body = GetComponent<Rigidbody2D>();
-        _body.freezeRotation = true;
-        _body.gravityScale = 0;
-
-        _speed = 10;
-        _isInitialize= true;
-    }
-
-    #endregion
 }
