@@ -12,7 +12,6 @@ namespace Entities.Hero
         [ConstructField]
         private IHealthView healthView;
 
-
         private void Change()
         {
             CurrentHealth = healthView.CurrentHealth;
@@ -24,6 +23,5 @@ namespace Entities.Hero
             healthView.onHealthChanged += Change;
             Health = healthView.MaxHealth;
         }
-
     }
 }
