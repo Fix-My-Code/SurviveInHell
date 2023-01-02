@@ -7,8 +7,6 @@ using Entities.Interfaces;
 
 namespace Entities
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-
     [Register(typeof(IMovable))]
     internal class MoveComponent : KernelEntityBehaviour, IMovable
     {
@@ -66,7 +64,7 @@ namespace Entities
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
-            _body = GetComponent<Rigidbody2D>();
+            _body = GetComponentInParent<Rigidbody2D>();
             _body.freezeRotation = true;
             _body.gravityScale = 0;
 
