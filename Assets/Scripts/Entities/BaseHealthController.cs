@@ -10,7 +10,6 @@ using Utilities.Behaviours;
 
 namespace Entities
 {
-
     [Register(typeof(IHealthView))]
     internal class BaseHealthController : KernelEntityBehaviour, IHealthView
     {
@@ -30,16 +29,26 @@ namespace Entities
             {
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
                 onHealthChanged?.Invoke();
+
+                RegenerationSwitch();
             }
         }
 
         private float _maxHealth;
         private float _currentHealth;
 
-        [ContextMenu("Damage")]
-        public void TakeDamage()
+        private void RegenerationSwitch()
         {
-            CurrentHealth -= 5;
+            if (_regenerateComponent.onRegenerate && _maxHealth == _currentHealth)
+            {
+                _regenerateComponent.StopRegenerate();
+                return;
+            }
+
+            if (!_regenerateComponent.onRegenerate && _maxHealth != _currentHealth)
+            {
+                _regenerateComponent.StartRegenerate();
+            }
         }
 
         private void TakeDamage(IDamageDealer damageDealer)
@@ -57,13 +66,14 @@ namespace Entities
 
         private IEntityData _entityData;
         private IDamagable _damageController;
-
+        private IRegenerate _regenerateComponent;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             _damageController = kernel.GetInjection<IDamagable>();
             _entityData = kernel.GetInjection<IEntityData>();
+            _regenerateComponent = kernel.GetInjection<IRegenerate>();
 
             Initialize(_entityData);
 

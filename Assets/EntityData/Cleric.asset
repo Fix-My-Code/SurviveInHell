@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cleric
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  Regeneration: 5
+  Regeneration: 2

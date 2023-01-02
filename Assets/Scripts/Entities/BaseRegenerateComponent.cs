@@ -1,5 +1,5 @@
 using DI.Attributes.Construct;
-using DI.Interfaces.KernelInterfaces;
+using DI.Attributes.Register;
 using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
@@ -7,26 +7,41 @@ using Utilities.Behaviours;
 
 namespace Entities
 {
+    [Register(typeof(IRegenerate))]
     internal class BaseRegenerateComponent : KernelEntityBehaviour, IRegenerate
     {
-        private IEnumerator Regenerate()
-        {
-            while(true)
+        public bool onRegenerate 
+        { 
+            get
             {
-                _healthView.CurrentHealth += _entityData.Data.Regeneration;
-
-                yield return new WaitForSeconds(1f);
+                return _onRegenerate;
             }
         }
 
-        public void StarRegenerate()
+        private bool _onRegenerate = false;
+
+        public void StartRegenerate()
         {
+            _onRegenerate = true;
+
             StartCoroutine(nameof(Regenerate));
         }
 
         public void StopRegenerate()
         {
+            _onRegenerate = false;
+
             StopCoroutine(nameof(Regenerate));
+        }
+
+        private IEnumerator Regenerate()
+        {
+            while (true)
+            {
+                _healthView.CurrentHealth += _entityData.Data.Regeneration;
+
+                yield return new WaitForSeconds(1f);
+            }
         }
 
         #region KernelEntity
