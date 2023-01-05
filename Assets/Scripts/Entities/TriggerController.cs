@@ -1,5 +1,5 @@
 using DI.Attributes.Register;
-using Items;
+using Items.Gems;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
