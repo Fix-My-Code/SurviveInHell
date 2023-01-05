@@ -10,8 +10,10 @@ namespace DI.Tools {
     internal static class KernelUtils {
         private static readonly Dictionary<Type, Func<IKernel>> SingletonKernelMap = new Dictionary<Type, Func<IKernel>> {
             {typeof(GameKernel), () => GameKernel.Instance},
+            {typeof(PlayerKernel), () => PlayerKernel.Instance},
             {typeof(UiSceneKernel), () => UiSceneKernel.Instance},
             {typeof(LogicSceneKernel), () => LogicSceneKernel.Instance},
+            {typeof(ObjectKernel), () => ObjectKernel.Instance}
         };
 
         /// <summary>

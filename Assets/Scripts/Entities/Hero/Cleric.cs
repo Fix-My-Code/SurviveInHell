@@ -1,4 +1,5 @@
 using DI.Attributes.Construct;
+using DI.Attributes.Run;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
 
@@ -9,19 +10,24 @@ namespace Entities.Hero
         public float Health;
         public float CurrentHealth;
 
-        [ConstructField]
-        private IHealthView healthView;
-
         private void Change()
         {
             CurrentHealth = healthView.CurrentHealth;
         }
 
-        [ConstructMethod]
-        private void Construct(IKernel kernel)
+        #region KernelEntity
+
+        [ConstructField]
+        private IHealthView healthView;
+
+        [RunMethod]
+        private void Run(IKernel kernel)
         {
             healthView.onHealthChanged += Change;
             Health = healthView.MaxHealth;
+            CurrentHealth = healthView.CurrentHealth;
         }
+
+        #endregion
     }
 }

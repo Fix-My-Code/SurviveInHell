@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 namespace Entities
@@ -11,5 +9,7 @@ namespace Entities
         
         [Header("Regeneration per seconds")]
         public float Regeneration;
+
+        public int FirstLevelExperience;
     }
 }

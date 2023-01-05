@@ -26,7 +26,7 @@ namespace DI.Containers {
         /// <summary>
         /// Список сущностей, которые регистрируются в карте и контруируются
         /// </summary>
-        private List<IKernelEntity> _kernelsEntityToConstruct = new List<IKernelEntity>(short.MaxValue);
+        private List<IKernelEntityBehavior> _kernelsEntityToConstruct = new List<IKernelEntityBehavior>(short.MaxValue);
 
         private bool _isEnqueued;
 
@@ -55,12 +55,12 @@ namespace DI.Containers {
         /// Собирает все сущности в список (создает новые, если это необходимо)
         /// </summary>
         public void CollectKernelEntities() {
-            _kernelsEntityToConstruct.AddRange(inspectorKernelEntities.OfType<IKernelEntity>());
+            _kernelsEntityToConstruct.AddRange(inspectorKernelEntities.OfType<IKernelEntityBehavior>());
             if (searchInObject) {
-                _kernelsEntityToConstruct.AddRange(GetComponentsInChildren<IKernelEntity>(true).Except(_kernelsEntityToConstruct)); 
+                _kernelsEntityToConstruct.AddRange(GetComponentsInChildren<IKernelEntityBehavior>(true).Except(_kernelsEntityToConstruct)); 
             }
 
-            void CreateNewInstances(IEnumerable<IKernelEntity> source) {
+            void CreateNewInstances(IEnumerable<IKernelEntityBehavior> source) {
                 while (true) {
                     var newEntities = source.SelectMany(e => e.FullStackCreateInstances(this)).ToArray();
                     if (newEntities.Length == 0) {
