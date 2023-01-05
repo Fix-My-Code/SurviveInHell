@@ -2,11 +2,11 @@ using Items;
 
 namespace Gems
 {
-    internal class BlueGem : Gem
+    internal class RedGem : Gem
     {
         private void Awake()
         {
-            countExperience = 1;
+            countExperience = 5;
         }
     }
 }

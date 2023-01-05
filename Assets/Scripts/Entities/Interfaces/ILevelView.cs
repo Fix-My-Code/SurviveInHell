@@ -4,14 +4,14 @@ namespace Entities.Interfaces
 {
     interface ILevelView
     {
-        public event Action<int> onCurrentExpirienceChanged;
+        public event Action<int> onExperienceChanged;
 
-        public event Action<int, int> onCurrentLevelChanged;
+        public event Action<int, int> onLevelChanged;
 
         public int Level { get; }
 
-        public int CurrentExpirience { get; }
+        public int CurrentExperience { get; }
 
-        public int MaxExpirience { get; }
+        public int MaxExperience { get; }
     }
 }

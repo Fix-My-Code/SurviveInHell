@@ -1,4 +1,5 @@
 using DI.Attributes.Construct;
+using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
 using Items;
@@ -8,11 +9,12 @@ using Utilities.Behaviours;
 
 namespace Entities
 {
+    [Register(typeof(ILevelView))]
     internal class UpgradeController : KernelEntityBehaviour, ILevelView
     {
-        public event Action<int> onCurrentExpirienceChanged;
+        public event Action<int> onExperienceChanged;
 
-        public event Action<int, int> onCurrentLevelChanged;
+        public event Action<int, int> onLevelChanged;
 
         [SerializeField]
         [Range(0f, 1f)]
@@ -30,17 +32,17 @@ namespace Entities
             }
         }
 
-        public int CurrentExpirience
+        public int CurrentExperience
         { 
             get
             {
-                return _currentExpirience;
+                return _currentExperience;
             }
             private set
             {
-                if ((_currentExpirience = value) < _maxExpirience)
+                if ((_currentExperience = value) < _maxExperience)
                 {
-                    onCurrentExpirienceChanged?.Invoke(_currentExpirience);
+                    onExperienceChanged?.Invoke(_currentExperience);
                     return;
                 }
 
@@ -48,39 +50,39 @@ namespace Entities
             }
         }
 
-        public int MaxExpirience
+        public int MaxExperience
         {
             get 
             {
-                return _maxExpirience;
+                return _maxExperience;
             }
             private set
             {
-                _maxExpirience = value;
+                _maxExperience = value;
             }
         }
 
         private int _level;
 
-        private int _currentExpirience;
+        private int _currentExperience;
 
-        private int _maxExpirience;
+        private int _maxExperience;
 
-        private void AddExpirience(Gem gem)
+        private void AddExperience(Gem gem)
         {
-            CurrentExpirience += gem.GetExpirience();
+            CurrentExperience += gem.GetExperience();
         }
 
         private void LevelUp()
         {
             Level++;
 
-            MaxExpirience += MaxExpirience + (int)(MaxExpirience * levelScale);
+            MaxExperience += MaxExperience + (int)(MaxExperience * levelScale);
 
-            onCurrentLevelChanged?.Invoke(Level, MaxExpirience);
-            onCurrentExpirienceChanged?.Invoke(_currentExpirience);
+            onLevelChanged?.Invoke(Level, MaxExperience);
+            onExperienceChanged?.Invoke(_currentExperience);
            
-            if(CurrentExpirience > MaxExpirience)
+            if(CurrentExperience > MaxExperience)
             {
                 LevelUp();
             }
@@ -97,14 +99,14 @@ namespace Entities
         private void Construct(IKernel kernel)
         {
             _entityData = kernel.GetInjection<IEntityData>();
-            MaxExpirience = _entityData.Data.FirstLevelExpirience;
+            MaxExperience = _entityData.Data.FirstLevelExperience;
 
-            _triggerController.onTriggerEnter += AddExpirience;
+            _triggerController.onTriggerEnter += AddExperience;
         }
 
         protected override void OnDispose()
         {
-            _triggerController.onTriggerEnter -= AddExpirience;
+            _triggerController.onTriggerEnter -= AddExperience;
 
             base.OnDispose();
         }

@@ -5,11 +5,11 @@ namespace Items
     internal abstract class Gem : MonoBehaviour
     {
         [SerializeField]
-        protected int countExpirience;
+        protected int countExperience;
 
-        public int GetExpirience()
+        public int GetExperience()
         {
-            return countExpirience;
+            return countExperience;
         }
     }
 }

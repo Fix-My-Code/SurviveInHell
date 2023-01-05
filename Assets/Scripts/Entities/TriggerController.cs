@@ -18,7 +18,7 @@ namespace Entities
             {
                 onTriggerEnter?.Invoke(gem);
 
-                Destroy(gem);
+                Destroy(gem.gameObject);
             }
         }
     }
