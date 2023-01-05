@@ -5,7 +5,7 @@ using Entities.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Hero
+namespace Entities.Heroes
 {
     [Register(typeof(Hero))]
     [Register(typeof(IEntityData))]
