@@ -12,9 +12,9 @@ namespace Entities
     [Register(typeof(ILevelView))]
     internal class UpgradeController : KernelEntityBehaviour, ILevelView
     {
-        public event Action<int> onExperienceChanged;
+        public event Action onExperienceChanged;
 
-        public event Action<int, int> onLevelChanged;
+        public event Action onLevelChanged;
 
         [SerializeField]
         [Range(0f, 1f)]
@@ -42,7 +42,7 @@ namespace Entities
             {
                 if ((_currentExperience = value) < _maxExperience)
                 {
-                    onExperienceChanged?.Invoke(_currentExperience);
+                    onExperienceChanged?.Invoke();
                     return;
                 }
 
@@ -79,8 +79,8 @@ namespace Entities
 
             MaxExperience += MaxExperience + (int)(MaxExperience * levelScale);
 
-            onLevelChanged?.Invoke(Level, MaxExperience);
-            onExperienceChanged?.Invoke(_currentExperience);
+            onLevelChanged?.Invoke();
+            onExperienceChanged?.Invoke();
            
             if(CurrentExperience > MaxExperience)
             {

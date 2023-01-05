@@ -4,9 +4,9 @@ namespace Entities.Interfaces
 {
     interface ILevelView
     {
-        public event Action<int> onExperienceChanged;
+        public event Action onExperienceChanged;
 
-        public event Action<int, int> onLevelChanged;
+        public event Action onLevelChanged;
 
         public int Level { get; }
 
