@@ -11,5 +11,7 @@ namespace Entities
         
         [Header("Regeneration per seconds")]
         public float Regeneration;
+
+        public int FirstLevelExpirience;
     }
 }
