@@ -1,23 +1,18 @@
 using DI.Attributes.Register;
 using Entities.Interfaces;
 using System;
-using UnityEngine;
 using Utilities.Behaviours;
 
 namespace Entities
 {
-    [RequireComponent(typeof(Collider2D))]
     [Register(typeof(IDamagable))]
     internal class DamageController : KernelEntityBehaviour, IDamagable
     {
-        public event Action<IDamageDealer> onColliderEnter;
+        public event Action<int> onTakeDamage;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        public void ApplyDamage(int damage)
         {
-            if(collision.gameObject.TryGetComponent<IDamageDealer>(out var enemy))
-            {
-                onColliderEnter?.Invoke(enemy);
-            }
+            onTakeDamage?.Invoke(damage);
         }
     }
 }

@@ -1,15 +1,17 @@
+using Enums;
 using UnityEngine;
 
 namespace Items.Gems
 {
-    internal abstract class Gem : MonoBehaviour
+    [RequireComponent(typeof(Collider2D))]
+    internal class Gem : MonoBehaviour
     {
         [SerializeField]
-        protected int countExperience;
+        private GemTypes type;
 
         public int GetExperience()
         {
-            return countExperience;
+            return (int)type;
         }
     }
 }

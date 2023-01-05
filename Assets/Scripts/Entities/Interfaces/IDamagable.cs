@@ -5,6 +5,8 @@ namespace Entities.Interfaces
 {
     interface IDamagable
     {
-        event Action<IDamageDealer> onColliderEnter;
+        public event Action<int> onTakeDamage;
+
+        public void ApplyDamage(int damage);
     }
 }

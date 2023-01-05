@@ -51,9 +51,9 @@ namespace Entities
             }
         }
 
-        private void TakeDamage(IDamageDealer damageDealer)
+        private void ApplyDamage(int damage)
         {
-            CurrentHealth -= damageDealer.Damage;
+            CurrentHealth -= damage;
         }
 
         private void Initialize(IEntityData entity)
@@ -77,12 +77,12 @@ namespace Entities
 
             Initialize(_entityData);
 
-            _damageController.onColliderEnter += TakeDamage;
+            _damageController.onTakeDamage += ApplyDamage;
         }
 
         protected override void OnDispose()
         {
-            _damageController.onColliderEnter -= TakeDamage;
+            _damageController.onTakeDamage -= ApplyDamage;
         }
 
         #endregion
