@@ -12,6 +12,8 @@ namespace DI.Tools {
             {typeof(GameKernel), () => GameKernel.Instance},
             {typeof(UiSceneKernel), () => UiSceneKernel.Instance},
             {typeof(LogicSceneKernel), () => LogicSceneKernel.Instance},
+            {typeof(PlayerKernel), () => PlayerKernel.Instance},
+            {typeof(ObjectKernel), () => ObjectKernel.Instance}
         };
 
         /// <summary>
