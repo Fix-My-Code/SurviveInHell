@@ -1,6 +1,6 @@
 using Items;
 
-namespace Gems
+namespace Items.Gems
 {
     internal class BlueGem : Gem
     {

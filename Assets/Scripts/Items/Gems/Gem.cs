@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Items
+namespace Items.Gems
 {
     internal abstract class Gem : MonoBehaviour
     {
