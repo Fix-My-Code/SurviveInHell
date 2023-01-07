@@ -4,49 +4,38 @@ using DI.Attributes.Register;
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
+using Entities.Heroes;
 
 namespace Entities
 {
     [Register(typeof(IMovable))]
-    internal class MoveComponent : KernelEntityBehaviour, IMovable
+    internal class MovementController : KernelEntityBehaviour, IMovable
     {
-        private float _speed;
-
         private Rigidbody2D _body;
 
         private bool _isInitialize = false;
 
-        public float Speed
-        {
-            get => _speed;
-            set
-            {
-                _speed = value;
-            }
-        }
-
-        public Rigidbody2D RigidBody
-        {
-            get => _body;
-            set
-            {
-                _body = value;
-            }
-        }
+        private float _speed;
 
         public void Move(Vector2 direction)
         {
-            _body.AddForce(direction * _body.mass * Speed);
+            _body.AddForce(direction * _body.mass * _speed);
 
-            if (Mathf.Abs(_body.velocity.x) > Speed)
+            if (Mathf.Abs(_body.velocity.x) > _speed)
             {
-                _body.velocity = new Vector2(Mathf.Sign(_body.velocity.x) * Speed, _body.velocity.y);
+                _body.velocity = new Vector2(Mathf.Sign(_body.velocity.x) * _speed, _body.velocity.y);
             }
 
-            if (Mathf.Abs(_body.velocity.y) > Speed)
+            if (Mathf.Abs(_body.velocity.y) > _speed)
             {
-                _body.velocity = new Vector2(_body.velocity.x, Mathf.Sign(_body.velocity.y) * Speed);
+                _body.velocity = new Vector2(_body.velocity.x, Mathf.Sign(_body.velocity.y) * _speed);
             }
+
+            if (direction == Vector2.zero)
+            {
+                return;
+            }
+            _player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
         }
 
         void FixedUpdate()
@@ -60,6 +49,9 @@ namespace Entities
         }
 
         #region KernelEntity
+
+        [ConstructField]
+        private Hero _player;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)

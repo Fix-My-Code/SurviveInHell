@@ -5,10 +5,13 @@ using UnityEngine;
 
 namespace Entities.Enemy
 {
-    public class Enemy : MonoBehaviour, IDamageDealer
+    public class Enemy : MonoBehaviour, IDamageDealer, IMovable
     {
         [SerializeField]
         private EnemyDataObject enemyData;
+
+        [SerializeField]
+        private Rigidbody2D _rb;
 
         private GameObject _target;
 
@@ -45,11 +48,19 @@ namespace Entities.Enemy
 
         void Update()
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, 2 * Time.deltaTime);
+            Vector2 direction = _target.transform.position - transform.position;
+
+            Move(direction);
         }
+
         private void Awake()
         {
             _target = FindObjectOfType<Hero>().gameObject;
+        }
+
+        public void Move(Vector2 direction)
+        {
+            _rb.AddForce(direction * 100 * Time.deltaTime, ForceMode2D.Force);
         }
     }
 }
