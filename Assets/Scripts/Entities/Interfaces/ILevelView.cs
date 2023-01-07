@@ -6,7 +6,7 @@ namespace Entities.Interfaces
     {
         public event Action onExperienceChanged;
 
-        public event Action onLevelChanged;
+        public event Action<int> onLevelChanged;
 
         public int Level { get; }
 
