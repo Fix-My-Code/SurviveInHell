@@ -13,14 +13,14 @@ namespace UI.Experience
         [SerializeField]
         private TextMeshProUGUI levelTx;
 
-        private void OnLevelChangeHandler()
+        private void OnLevelChangeHandler(int level)
         {
             UpdateLevelText();
         }
 
         private void UpdateLevelText()
         {
-            levelTx.text = $"{_levelView.Level}";
+            levelTx.text = $"Level: {_levelView.Level}";
         }
 
         #region Kernel

@@ -13,7 +13,7 @@ namespace UI.Experience
         [SerializeField]
         private TextMeshProUGUI experienceTx;
 
-        private void OnMaxValueChangeHandler()
+        private void OnMaxValueChangeHandler(int level)
         {
             _slider.maxValue = _levelView.MaxExperience;
             _slider.minValue = _levelView.CurrentExperience;

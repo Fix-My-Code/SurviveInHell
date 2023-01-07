@@ -10,11 +10,12 @@ using Utilities.Behaviours;
 namespace Entities
 {
     [Register(typeof(ILevelView))]
-    internal class UpgradeController : KernelEntityBehaviour, ILevelView
+    [Register(typeof(ILevelUpCallBack))]
+    internal class UpgradeController : KernelEntityBehaviour, ILevelView, ILevelUpCallBack
     {
         public event Action onExperienceChanged;
 
-        public event Action onLevelChanged;
+        public event Action<int> onLevelChanged;
 
         [SerializeField]
         [Range(0f, 1f)]
@@ -79,7 +80,7 @@ namespace Entities
 
             MaxExperience += MaxExperience + (int)(MaxExperience * levelScale);
 
-            onLevelChanged?.Invoke();
+            onLevelChanged?.Invoke(Level);
             onExperienceChanged?.Invoke();
            
             if(CurrentExperience > MaxExperience)
