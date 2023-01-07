@@ -16,38 +16,38 @@ namespace UI.HP
 
         private void OnValueChangeHandler()
         {
-            _slider.value = _editHealth.CurrentHealth;
-            _slider.maxValue = _editHealth.MaxHealth;
+            _slider.value = _healthView.CurrentHealth;
+            _slider.maxValue = _healthView.MaxHealth;
 
             UpdateHPText();
         }
 
         private void UpdateHPText()
         {
-            hpTx.text = $"{_editHealth.CurrentHealth} / {_editHealth.MaxHealth}";
+            hpTx.text = $"{_healthView.CurrentHealth} / {_healthView.MaxHealth}";
         }
 
         #region Kernel
 
         [ConstructField(typeof(PlayerKernel))]
-        private IEditHealth _editHealth;
+        private IHealthView _healthView;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             _slider = GetComponent<Slider>();
 
-            _editHealth.onHealthChanged += OnValueChangeHandler;
+            _healthView.onHealthChanged += OnValueChangeHandler;
 
-            _slider.maxValue = _editHealth.MaxHealth;
-            _slider.value = _editHealth.CurrentHealth;
+            _slider.maxValue = _healthView.MaxHealth;
+            _slider.value = _healthView.CurrentHealth;
 
             UpdateHPText();
         }
 
         protected override void OnDispose()
         {
-            _editHealth.onHealthChanged -= OnValueChangeHandler;
+            _healthView.onHealthChanged -= OnValueChangeHandler;
 
             base.OnDispose();
         }

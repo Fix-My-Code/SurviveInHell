@@ -4,7 +4,8 @@ namespace Entities.Interfaces
 {
     interface IHealthView
     {
-        float MaxHealth { get; }
-        float CurrentHealth { get; }
+        public event Action onHealthChanged;
+        public float MaxHealth { get; }
+        public float CurrentHealth { get; }
     }
 }
