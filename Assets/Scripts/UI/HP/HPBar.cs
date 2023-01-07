@@ -1,6 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
+using Entities.HealthControllers;
 using Entities.Interfaces;
 using TMPro;
 using UnityEngine;
@@ -13,44 +14,40 @@ namespace UI.HP
         [SerializeField]
         private TextMeshProUGUI hpTx;
 
-        private void OnMaxValueChangeHandler(int max)
+        private void OnValueChangeHandler()
         {
-            _slider.maxValue = max;
-        }
-
-        private void OnCurrentValueChangeHandler()
-        {
-            _slider.value = _healthView.CurrentHealth;
+            _slider.value = _editHealth.CurrentHealth;
+            _slider.maxValue = _editHealth.MaxHealth;
 
             UpdateHPText();
         }
 
         private void UpdateHPText()
         {
-            hpTx.text = $"{_healthView.CurrentHealth} / {_healthView.MaxHealth}";
+            hpTx.text = $"{_editHealth.CurrentHealth} / {_editHealth.MaxHealth}";
         }
 
         #region Kernel
 
         [ConstructField(typeof(PlayerKernel))]
-        private IHealthView _healthView;
+        private IEditHealth _editHealth;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             _slider = GetComponent<Slider>();
 
-            _healthView.onHealthChanged += OnCurrentValueChangeHandler;
+            _editHealth.onHealthChanged += OnValueChangeHandler;
 
-            _slider.maxValue = _healthView.MaxHealth;
-            _slider.value = _healthView.CurrentHealth;
+            _slider.maxValue = _editHealth.MaxHealth;
+            _slider.value = _editHealth.CurrentHealth;
 
             UpdateHPText();
         }
 
         protected override void OnDispose()
         {
-            _healthView.onHealthChanged -= OnCurrentValueChangeHandler;
+            _editHealth.onHealthChanged -= OnValueChangeHandler;
 
             base.OnDispose();
         }
