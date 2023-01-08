@@ -1,10 +1,7 @@
-using Entities.ImproveComponents;
-using Entities.ImproveComponents.Interfaces;
-using System;
+using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
 
-
-namespace Entities.ImproveComponents
+namespace Entities.ImprovementComponents
 {
     interface IBuffMaxHP : IBuff { }
 

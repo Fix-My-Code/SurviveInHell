@@ -1,13 +1,13 @@
 using DI.Attributes.Register;
+using Entities.ImprovementComponents.Interfaces;
 using Entities.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Entities.HealthControllers
 {
     [Register(typeof(IHealthView))]
     [Register(typeof(IEditHealth))]
+    [Register(typeof(IImproveMaxHP))]
+    [Register(typeof(IHealable))]
     internal class HealthController : AdvancedHealthController, IHealthView
     {
 

@@ -1,15 +1,15 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
+using Entities.ImprovementComponents;
+using Entities.ImprovementComponents.Interfaces;
 using Entities.Interfaces;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace Entities.HealthControllers
 {
-    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate
+    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IImproveMaxHP, IHealable
     {
         public override float CurrentHealth 
         { 
@@ -51,7 +51,7 @@ namespace Entities.HealthControllers
         {
             while (true)
             {
-                CurrentHealth += _entityData.Data.Regeneration;
+                Heal(_entityData.Data.Regeneration);
 
                 yield return new WaitForSeconds(1f);
             }
@@ -75,6 +75,34 @@ namespace Entities.HealthControllers
                 StopRegenerate();
                 return;
             }
+        }
+
+        #endregion
+
+        #region IHealable
+
+        public void Heal(float value)
+        {
+            CurrentHealth += value;
+        }
+
+        #endregion
+
+        #region ImproveMaxHP
+
+        [SerializeField]
+        private int firstLevelValue;
+
+        [SerializeField]
+        [Range(0, 1)]
+        private float percentPerLevel;
+
+        private int _currentLevel;
+
+        public void ImproveMaxHP(IBuffMaxHP buff)
+        {
+            MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
+            _currentLevel++;
         }
 
         #endregion

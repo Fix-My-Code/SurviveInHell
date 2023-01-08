@@ -1,4 +1,4 @@
-namespace Entities.ImproveComponents.Interfaces
+namespace Entities.ImprovementComponents.Interfaces
 {
     interface IBuff
     {
