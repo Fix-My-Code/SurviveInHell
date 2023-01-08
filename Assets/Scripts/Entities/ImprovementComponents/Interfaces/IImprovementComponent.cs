@@ -1,7 +1,9 @@
 using System;
 
-
-interface IImprovementComponent<T>
+namespace Entities.ImprovementControllers
 {
-    event Action<T> onImprove;
+    interface IImprovementComponent<T>
+    {
+        event Action<T> onImprove;
+    }
 }

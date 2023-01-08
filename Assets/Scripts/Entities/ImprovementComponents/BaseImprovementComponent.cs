@@ -1,11 +1,11 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
-using Entities.ImproveComponents.Interfaces;
-using Entities.ImproveControllers;
+using Entities.ImprovementComponents.Interfaces;
+using Entities.ImprovementControllers;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.ImproveComponents
+namespace Entities.ImprovementComponents
 {
     internal abstract class BaseImprovementComponent : KernelEntityBehaviour, IBuff
     {
