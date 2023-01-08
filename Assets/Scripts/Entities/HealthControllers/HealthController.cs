@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Entities.HealthControllers
 {
     [Register(typeof(IHealthView))]
+    [Register(typeof(IEditHealth))]
     internal class HealthController : AdvancedHealthController, IHealthView
     {
 
