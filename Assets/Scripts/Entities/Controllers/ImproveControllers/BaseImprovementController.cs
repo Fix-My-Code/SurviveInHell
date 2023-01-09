@@ -10,22 +10,22 @@ namespace Entities.ImprovementControllers
     [Register]
     internal class BaseImprovementController : KernelEntityBehaviour
     {
-        internal virtual void Improve(IBuffMaxHP component)
+        internal virtual void Improve(IBuff<MaxHealth> component)
         {
             _improveMaxHP.ImproveMaxHP(component);
         }
 
-        internal virtual void Improve(ImprovementDamage component)
-        {
-            Debug.Log($"Блятский бафф урона на {component.GetValue()}");
-        }
-
-        internal virtual void Improve(ImprovementMovementSpeed component)
+        internal virtual void Improve(IBuff<MovementSpeed> component)
         {
             _improveMovementSpeed.ImproveMovementSpeed(component);
         }
 
-        internal virtual void Improve<T>(IBuff component) where T : class
+        internal virtual void Improve(IBuff<Damage> component)
+        {
+            Debug.Log($"Блятский бафф урона");
+        }
+
+        internal virtual void Improve<T>(IBuff<T> component) where T : class
         {
             Debug.Log("lox");
         }

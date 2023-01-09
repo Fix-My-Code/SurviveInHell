@@ -3,15 +3,12 @@ using UnityEngine;
 
 namespace Entities.ImprovementComponents
 {
-    interface IBuffMovementSpeed : IBuff { }
-
-    internal class ImprovementMovementSpeed : BaseImprovementComponent, IBuffMovementSpeed
+    internal class MovementSpeed : BaseImprovementComponent, IBuff<MovementSpeed>
     {
         [ContextMenu("Improve")]
-        public override void Improve()
+        public void Improve()
         {
             _improvementController.Improve(this);
         }
-
     }
 }

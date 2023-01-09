@@ -89,7 +89,7 @@ namespace Entities
             }
         }
 
-        #region Kernel
+        #region KernelEntity
 
         private IHeroData _heroData;
 
@@ -102,12 +102,12 @@ namespace Entities
             _heroData = kernel.GetInjection<IHeroData>();
             MaxExperience = _heroData.Data.FirstLevelExperience;
 
-            _triggerController.onTriggerEnter += AddExperience;
+            _triggerController.onTriggerEnterGem += AddExperience;
         }
 
         protected override void OnDispose()
         {
-            _triggerController.onTriggerEnter -= AddExperience;
+            _triggerController.onTriggerEnterGem -= AddExperience;
 
             base.OnDispose();
         }

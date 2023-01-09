@@ -2,6 +2,6 @@ namespace Entities.ImprovementComponents.Interfaces
 {
     interface IImproveMaxHP
     {
-        public void ImproveMaxHP(IBuffMaxHP buff);
+        public void ImproveMaxHP(IBuff<MaxHealth> buff);
     }
 }
