@@ -1,5 +1,3 @@
-using DI.Attributes.Construct;
-using DI.Interfaces.KernelInterfaces;
 using Entities.ImprovementComponents;
 using Entities.ImprovementComponents.Interfaces;
 using Entities.Interfaces;
@@ -11,8 +9,8 @@ namespace Entities.HealthControllers
 {
     internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IImproveMaxHP, IHealable
     {
-        public override float CurrentHealth 
-        { 
+        public override float CurrentHealth
+        {
             get => base.CurrentHealth;
             set
             {
@@ -21,8 +19,8 @@ namespace Entities.HealthControllers
             }
         }
 
-        public override float MaxHealth 
-        { 
+        public override float MaxHealth
+        {
             get => base.MaxHealth;
             set
             {
@@ -30,6 +28,17 @@ namespace Entities.HealthControllers
                 CheckRegenerationStatus();
             }
         }
+
+        public virtual float RegenerationSpeed
+        {
+            get => _regenetarionSpeed;
+            set
+            {
+                _regenetarionSpeed = value;
+            }
+        }
+
+        private float _regenetarionSpeed;
 
         #region Regenerate
 
@@ -51,7 +60,7 @@ namespace Entities.HealthControllers
         {
             while (true)
             {
-                Heal(_entityData.Data.Regeneration);
+                Heal(RegenerationSpeed);
 
                 yield return new WaitForSeconds(1f);
             }
@@ -103,24 +112,6 @@ namespace Entities.HealthControllers
         {
             MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
             _currentLevel++;
-        }
-
-        #endregion
-
-        #region KernelEntity
-
-        private IDamagable _damageController;
-
-        [ConstructMethod]
-        private void Construct(IKernel kernel)
-        {
-            _damageController = kernel.GetInjection<IDamagable>();
-            _damageController.onTakeDamage += ApplyDamage;
-        }
-
-        protected override void OnDispose()
-        {
-            _damageController.onTakeDamage -= ApplyDamage;
         }
 
         #endregion

@@ -1,15 +1,11 @@
-using DI.Attributes.Construct;
-using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utilities.Behaviours;
 
 namespace Entities.HealthControllers
 {
-    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable
+    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView
     {
         public event Action onHealthChanged;
 
@@ -36,15 +32,7 @@ namespace Entities.HealthControllers
         private float _maxHealth;
         private float _currentHealth;
 
-        private void Initialize(IEntityData entity)
-        {
-            MaxHealth = entity.Data.MaxHealth;
-            CurrentHealth = entity.Data.MaxHealth;
-        }
-
         #region IDamagable
-
-        public event Action<int> onTakeDamage;
 
         public void ApplyDamage(int damage)
         {
@@ -52,18 +40,6 @@ namespace Entities.HealthControllers
         }
 
         #endregion
-
-        #region KernelEntity
-
-        [ConstructField]
-        private protected IEntityData _entityData;
-
-        [ConstructMethod]
-        private void Construct(IKernel kernel)
-        {
-            Initialize(_entityData);
-        }
-
-        #endregion
+      
     }
 }

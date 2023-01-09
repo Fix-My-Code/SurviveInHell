@@ -8,20 +8,13 @@ using Utilities.Behaviours;
 namespace Entities.Heroes
 {
     [Register(typeof(Hero))]
-    [Register(typeof(IEntityData))]
-    internal abstract class Hero : KernelEntityBehaviour, IEntityData
+    [Register(typeof(IHeroData))]
+    internal abstract class Hero : KernelEntityBehaviour, IHeroData
     {
         [SerializeField]
-        private EntityDataObject entityData;
+        private HeroDataObject entityData;
 
-        public EntityDataObject Data 
-        {
-            get => entityData; 
-        }
+        public HeroDataObject Data => entityData;
 
-        [ConstructMethod]
-        private void Construct(IKernel kernel) {
-            //Todo инициализация всех компонентов
-        }
     }
 }

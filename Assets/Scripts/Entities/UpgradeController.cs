@@ -91,7 +91,7 @@ namespace Entities
 
         #region Kernel
 
-        private IEntityData _entityData;
+        private IHeroData _heroData;
 
         [ConstructField]
         private TriggerController _triggerController;
@@ -99,8 +99,8 @@ namespace Entities
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
-            _entityData = kernel.GetInjection<IEntityData>();
-            MaxExperience = _entityData.Data.FirstLevelExperience;
+            _heroData = kernel.GetInjection<IHeroData>();
+            MaxExperience = _heroData.Data.FirstLevelExperience;
 
             _triggerController.onTriggerEnter += AddExperience;
         }

@@ -5,9 +5,7 @@ namespace Entities.Interfaces
 {
     interface IDamageDealer
     {
-        void Attack();
-        void OnCollisionEnter2D(Collision2D collision);
-        void OnCollisionExit2D(Collision2D collision);
+        void Attack(IDamagable damagable);
         IEnumerator Reloading();
     }
 }

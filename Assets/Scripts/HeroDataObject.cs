@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Entities
 {
     [CreateAssetMenu(menuName = "Create/Entity Data")]
-    public class EntityDataObject : ScriptableObject
+    public class HeroDataObject : ScriptableObject
     {
         public int MaxHealth;
 
