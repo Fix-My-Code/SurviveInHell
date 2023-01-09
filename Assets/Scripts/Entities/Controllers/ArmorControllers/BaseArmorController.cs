@@ -5,39 +5,39 @@ using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.HealthControllers
+namespace Entities.ArmorControllers
 {
-    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable
+    internal abstract class BaseArmorController : KernelEntityBehaviour,  IDamagable, IEditArmor
     {
-        public event Action onHealthChanged;
+        public event Action onArmorChanged;
 
-        public virtual float MaxHealth
+        public virtual float MaxArmor
         {
-            get => _maxHealth;
+            get => _maxArmor;
             set
             {
-                _maxHealth = value;
-                onHealthChanged?.Invoke();
+                _maxArmor = value;
+                onArmorChanged?.Invoke();
             }
         }
 
-        public virtual float CurrentHealth
+        public virtual float CurrentArmor
         {
-            get => _currentHealth;
+            get => _currentArmor;
             set
             {
-                _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
-                onHealthChanged?.Invoke();
+                _currentArmor = Mathf.Clamp(value, 0, MaxArmor);
+                onArmorChanged?.Invoke();
             }
         }
 
-        private float _maxHealth;
-        private float _currentHealth;
+        private float _maxArmor;
+        private float _currentArmor;
 
         private void Initialize(IEntityData entity)
         {
-            MaxHealth = entity.Data.MaxHealth;
-            CurrentHealth = entity.Data.MaxHealth;
+            MaxArmor = entity.Data.MaxHealth;
+            CurrentArmor = entity.Data.MaxHealth;
         }
 
         #region IDamagable
@@ -46,7 +46,7 @@ namespace Entities.HealthControllers
 
         public void ApplyDamage(int damage)
         {
-            CurrentHealth -= damage;
+            CurrentArmor -= damage;
         }
 
         #endregion

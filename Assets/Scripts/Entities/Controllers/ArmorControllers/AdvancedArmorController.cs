@@ -1,42 +1,39 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.ImprovementComponents;
-using Entities.ImprovementComponents.Interfaces;
+using Entities.ArmorControllers;
 using Entities.Interfaces;
-using Items.Apple;
-using System;
 using System.Collections;
 using UnityEngine;
 
 namespace Entities.HealthControllers
 {
-    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IImproveMaxHP, IHealable
+    internal abstract class AdvancedArmorController : BaseArmorController, IRegenerate, IHealable
     {
-        public override float CurrentHealth 
-        { 
-            get => base.CurrentHealth;
-            set
-            {
-                base.CurrentHealth = value;
-                CheckRegenerationStatus();
-            }
-        }
-
-        public override float MaxHealth 
-        { 
-            get => base.MaxHealth;
-            set
-            {
-                base.MaxHealth = value;
-                CheckRegenerationStatus();
-            }
-        }
-
-        #region TakeApple
-
-        private void AddHealth(Apple apple)
+        public override float CurrentArmor
         {
-            Heal(MaxHealth * (apple.GetHealth() / 100f));
+            get => base.CurrentArmor;
+            set
+            {
+                base.CurrentArmor = value;
+                CheckRegenerationStatus();
+            }
+        }
+
+        public override float MaxArmor
+        {
+            get => base.MaxArmor;
+            set
+            {
+                base.MaxArmor = value;
+                CheckRegenerationStatus();
+            }
+        }
+
+        #region TakeShield
+
+        private void AddArmor(/*Shield shield*/)
+        {
+            //Heal(MaxArmor * (shield.GetArmor() / 100f));
         }
 
         #endregion
@@ -74,13 +71,13 @@ namespace Entities.HealthControllers
                 return;
             }
 
-            if (MaxHealth != CurrentHealth)
+            if (MaxArmor != CurrentArmor)
             {
                 StartRegenerate();
                 return;
             }
 
-            if (MaxHealth == CurrentHealth)
+            if (MaxArmor == CurrentArmor)
             {
                 StopRegenerate();
                 return;
@@ -93,36 +90,36 @@ namespace Entities.HealthControllers
 
         public void Heal(float value)
         {
-            CurrentHealth += value;
+            CurrentArmor += value;
         }
 
         #endregion
 
-        #region ImproveMaxHP
+        //#region ImproveMaxHP
 
-        [SerializeField]
-        private int firstLevelValue;
+        //[SerializeField]
+        //private int firstLevelValue;
 
-        [SerializeField]
-        [Range(0, 1)]
-        private float percentPerLevel;
+        //[SerializeField]
+        //[Range(0, 1)]
+        //private float percentPerLevel;
 
-        private int _currentLevel;
+        //private int _currentLevel;
 
-        public void ImproveMaxHP(IBuffMaxHP buff)
-        {
-            MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
-            _currentLevel++;
-        }
+        //public void ImproveMaxHP(IBuffMaxHP buff)
+        //{
+        //    MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
+        //    _currentLevel++;
+        //}
 
-        #endregion
+        //#endregion
 
         #region KernelEntity
 
         private IDamagable _damageController;
 
-        [ConstructField]
-        private TriggerController _triggerController;
+        //[ConstructField]
+        //private TriggerController _triggerController;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
@@ -130,13 +127,13 @@ namespace Entities.HealthControllers
             _damageController = kernel.GetInjection<IDamagable>();
 
             _damageController.onTakeDamage += ApplyDamage;
-            _triggerController.onTriggerEnterApple += AddHealth;
+            //_triggerController.onTriggerEnterApple += AddHealth;
         }
 
         protected override void OnDispose()
         {
             _damageController.onTakeDamage -= ApplyDamage;
-            _triggerController.onTriggerEnterApple -= AddHealth;
+            //_triggerController.onTriggerEnterApple -= AddHealth;
         }
 
         #endregion
