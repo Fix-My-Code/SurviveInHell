@@ -32,15 +32,6 @@ namespace Entities.HealthControllers
             }
         }
 
-        #region TakeApple
-
-        private void AddHealth(Apple apple)
-        {
-            Heal(MaxHealth * (apple.GetHealth() / 100f));
-        }
-
-        #endregion
-
         #region Regenerate
 
         private IEnumerator _regeneration;
@@ -96,6 +87,11 @@ namespace Entities.HealthControllers
             CurrentHealth += value;
         }
 
+        public void Heal(Apple apple)
+        {
+            CurrentHealth += MaxHealth * (apple.GetHealth() / 100f);
+        }
+
         #endregion
 
         #region ImproveMaxHP
@@ -130,13 +126,13 @@ namespace Entities.HealthControllers
             _damageController = kernel.GetInjection<IDamagable>();
 
             _damageController.onTakeDamage += ApplyDamage;
-            _triggerController.onTriggerEnterApple += AddHealth;
+            _triggerController.onTriggerEnterApple += Heal;
         }
 
         protected override void OnDispose()
         {
             _damageController.onTakeDamage -= ApplyDamage;
-            _triggerController.onTriggerEnterApple -= AddHealth;
+            _triggerController.onTriggerEnterApple -= Heal;
         }
 
         #endregion

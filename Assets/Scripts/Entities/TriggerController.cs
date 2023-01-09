@@ -22,6 +22,7 @@ namespace Entities
                 onTriggerEnterGem?.Invoke(gem);
 
                 Destroy(gem.gameObject);
+                return;
             }
 
             if (collider.gameObject.TryGetComponent<Apple>(out var apple))
@@ -29,6 +30,7 @@ namespace Entities
                 onTriggerEnterApple?.Invoke(apple);
 
                 Destroy(apple.gameObject);
+                return;
             }
         }
     }

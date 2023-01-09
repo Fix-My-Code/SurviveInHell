@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Entities.HealthControllers
 {
-    internal abstract class AdvancedArmorController : BaseArmorController, IRegenerate, IHealable
+    internal abstract class AdvancedArmorController : BaseArmorController, IRegenerate
     {
         public override float CurrentArmor
         {
