@@ -105,7 +105,7 @@ namespace Entities.HealthControllers
 
         private int _currentLevel;
 
-        public void ImproveMaxHP(IBuffMaxHP buff)
+        public void ImproveMaxHP(IBuff<MaxHealth> buff)
         {
             MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
             _currentLevel++;

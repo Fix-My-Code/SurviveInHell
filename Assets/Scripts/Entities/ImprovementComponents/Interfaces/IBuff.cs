@@ -1,8 +1,7 @@
 namespace Entities.ImprovementComponents.Interfaces
 {
-    interface IBuff
+    interface IBuff<T>
     {
         void Improve();
-        int GetValue();
     }
 }

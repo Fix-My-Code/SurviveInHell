@@ -3,15 +3,12 @@ using UnityEngine;
 
 namespace Entities.ImprovementComponents
 {
-    interface IBuffMaxHP : IBuff { }
-
-    internal class ImprovementMaxHealth : BaseImprovementComponent, IBuffMaxHP
+    internal class MaxHealth : BaseImprovementComponent, IBuff<MaxHealth>
     {
         [ContextMenu("Improve")]
-        public override void Improve()
+        public void Improve()
         {
             _improvementController.Improve(this);
         }
-
     }
 }

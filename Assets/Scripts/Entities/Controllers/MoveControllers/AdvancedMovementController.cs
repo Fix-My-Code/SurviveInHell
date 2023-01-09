@@ -17,7 +17,7 @@ namespace Entities.MovementControllers
 
         private int _currentLevel;
 
-        public void ImproveMovementSpeed(IBuffMovementSpeed buff)
+        public void ImproveMovementSpeed(IBuff<MovementSpeed> buff)
         {
             Speed += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
             _currentLevel++;
