@@ -5,7 +5,7 @@ namespace Entities.Interfaces
 {
     interface IDamageDealer
     {
-        void Attack(IDamagable damagable);
-        IEnumerator Reloading();
+        public void Attack(IDamagable damagable);
+        public IEnumerator Reloading();
     }
 }

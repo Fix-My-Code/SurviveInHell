@@ -8,6 +8,7 @@ namespace Entities.HealthControllers
     internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView
     {
         public event Action onHealthChanged;
+        public event Action onDead;
 
         public virtual float MaxHealth
         {
@@ -25,6 +26,10 @@ namespace Entities.HealthControllers
             set
             {
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+                if (_currentHealth == 0)
+                {
+                    onDead?.Invoke();
+                }
                 onHealthChanged?.Invoke();
             }
         }

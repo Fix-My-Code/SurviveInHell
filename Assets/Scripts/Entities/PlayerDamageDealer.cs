@@ -3,40 +3,41 @@ using DI.Interfaces.KernelInterfaces;
 using Entities.Enemy;
 using Entities.Interfaces;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-internal class PlayerDamageDealer : DamageDealer
+namespace Entities.Heroes
 {
-
-    public override void Attack(IDamagable enemy)
+    internal class PlayerDamageDealer : DamageDealer
     {
-        enemy.ApplyDamage(15);
-    }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+        public override void Attack(IDamagable enemy)
         {
-            Attack(enemy.GetComponentInChildren<IDamagable>());
+            enemy.ApplyDamage(15);
         }
-    }
 
-    public override IEnumerator Reloading()
-    {
-        while (true)
+        public void OnCollisionEnter2D(Collision2D collision)
         {
-            yield return new WaitForSeconds(AttackSpeed);
+            if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+            {
+                Attack(enemy.GetComponentInChildren<IDamagable>());
+            }
         }
-    }
-    [ConstructField]
-    private IHeroData _heroData;
+
+        public override IEnumerator Reloading()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(AttackSpeed);
+            }
+        }
+        [ConstructField]
+        private IHeroData _heroData;
 
 
-    [ConstructMethod]
-    private void Construct(IKernel kernel)
-    {
-        AttackSpeed = 0.5f;
+        [ConstructMethod]
+        private void Construct(IKernel kernel)
+        {
+            AttackSpeed = 0.5f;
+        }
     }
 }

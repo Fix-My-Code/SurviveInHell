@@ -10,6 +10,7 @@ namespace Entities.HealthControllers
     [Register(typeof(IEditHealth))]
     [Register(typeof(IImproveMaxHP))]
     [Register(typeof(IHealable))]
+    [Register(typeof(IDamagable))]
     internal class HealthController : AdvancedHealthController
     {
         internal virtual void Initialize(IHeroData entity)
