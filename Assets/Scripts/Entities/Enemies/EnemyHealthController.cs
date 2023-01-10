@@ -27,6 +27,7 @@ namespace Entities.Enemies
 
         [ConstructField]
         private IEnemyData _enemyData;
+
         [ConstructField]
         private IEnemy _parent;
 
@@ -35,6 +36,7 @@ namespace Entities.Enemies
         {
             Initialize(_enemyData);
         }
+
         #endregion
     }
 }

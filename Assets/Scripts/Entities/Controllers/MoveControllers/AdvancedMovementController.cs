@@ -1,3 +1,5 @@
+using DI.Attributes.Construct;
+using Entities.Heroes;
 using Entities.ImprovementComponents;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
@@ -6,6 +8,17 @@ namespace Entities.MovementControllers
 {
     internal class AdvancedMovementController : BaseMovementController, IImproveMovementSpeed
     {
+        public override void Move(Vector2 direction)
+        {
+            base.Move(direction);
+            LookAt(direction);
+        }
+
+        private void LookAt(Vector2 direction)
+        {
+            _player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
+        }
+
         #region IImproveMovementSpeed
 
         [SerializeField]
@@ -24,15 +37,5 @@ namespace Entities.MovementControllers
         }
 
         #endregion
-
-        void FixedUpdate()
-        {
-            if (!_isInitialize)
-            {
-                return;
-            }
-
-            Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        }
     }
 }

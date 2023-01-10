@@ -3,7 +3,7 @@ using Entities.Interfaces;
 using System;
 using Utilities.Behaviours;
 
-namespace Entities
+namespace Entities.Controllers
 {
     [Register(typeof(IDamagable))]
     internal class DamageController : KernelEntityBehaviour, IDamagable

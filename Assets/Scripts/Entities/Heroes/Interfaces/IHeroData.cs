@@ -1,3 +1,5 @@
+using Entities.Heroes;
+
 namespace Entities.Interfaces
 {
     interface IHeroData 

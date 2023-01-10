@@ -9,6 +9,8 @@ namespace Entities.Enemies
 
         public float MaxHealth;
 
+        public float Speed;
+
         [Range(0.2f, 3)]
         public float AttackSpeed;
     }
