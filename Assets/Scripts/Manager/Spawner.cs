@@ -8,6 +8,6 @@ internal class Spawner : Singleton<Spawner>
     private GameObject gem;
     public void SpawnGem(Transform transform)
     {
-        Instantiate(gem, transform, true);
+        Instantiate(gem, transform.position, Quaternion.identity);
     }
 }
