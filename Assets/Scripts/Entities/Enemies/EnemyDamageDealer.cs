@@ -5,44 +5,51 @@ using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-internal class EnemyDamageDealer : DamageDealer
+namespace Entities.Enemies
 {
-    private IDamagable _player;
-    public override void Attack(IDamagable enemy)
+    internal class EnemyDamageDealer : DamageDealer
     {
-        StartCoroutine(nameof(Reloading));
-    }
+        private IDamagable _player;
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Hero>(out var enemy))
+        public override void Attack(IDamagable enemy)
         {
-            _player = enemy.GetComponentInChildren<IDamagable>();
-            Attack(_player);
+            StartCoroutine(nameof(Reloading));
         }
-    }
 
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        StopCoroutine(nameof(Reloading));
-    }
-
-    public override IEnumerator Reloading()
-    {
-        while (true)
+        public void OnCollisionEnter2D(Collision2D collision)
         {
-            _player.ApplyDamage(_enemyData.Data.Damage);
-            yield return new WaitForSeconds(AttackSpeed);
+            if (collision.gameObject.TryGetComponent<Hero>(out var enemy))
+            {
+                _player = enemy.GetComponentInChildren<IDamagable>();
+                Attack(_player);
+            }
         }
-    }
 
-    [ConstructField]
-    private IEnemyData _enemyData;
+        public void OnCollisionExit2D(Collision2D collision)
+        {
+            StopCoroutine(nameof(Reloading));
+        }
 
+        public override IEnumerator Reloading()
+        {
+            while (true)
+            {
+                _player.ApplyDamage(_enemyData.Data.Damage);
+                yield return new WaitForSeconds(AttackSpeed);
+            }
+        }
 
-    [ConstructMethod]
-    private void Construct(IKernel kernel)
-    {
-        AttackSpeed = 0.5f;
+        #region KernelEntity
+
+        [ConstructField]
+        private IEnemyData _enemyData;
+
+        [ConstructMethod]
+        private void Construct(IKernel kernel)
+        {
+            AttackSpeed = 0.5f;
+        }
+
+        #endregion
     }
 }

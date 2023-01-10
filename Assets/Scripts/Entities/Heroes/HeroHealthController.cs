@@ -1,17 +1,18 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
+using Entities.HealthControllers;
 using Entities.ImprovementComponents.Interfaces;
 using Entities.Interfaces;
 
-namespace Entities.HealthControllers
+namespace Entities.Heroes
 {
     [Register(typeof(IHealthView))]
     [Register(typeof(IEditHealth))]
     [Register(typeof(IImproveMaxHP))]
     [Register(typeof(IHealable))]
     [Register(typeof(IDamagable))]
-    internal class HealthController : AdvancedHealthController
+    internal class HeroHealthController : AdvancedHealthController
     {
         internal virtual void Initialize(IHeroData entity)
         {
@@ -22,13 +23,15 @@ namespace Entities.HealthControllers
 
         #region KernelEntity
 
-        [ConstructField] private IHeroData _heroData;
+        [ConstructField]
+        private IHeroData _heroData;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             Initialize(_heroData);
         }
+
         #endregion
     }
 }

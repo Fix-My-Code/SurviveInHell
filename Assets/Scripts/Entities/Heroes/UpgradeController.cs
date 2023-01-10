@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities
+namespace Entities.Heroes
 {
     [Register(typeof(ILevelView))]
     [Register(typeof(ILevelUpCallBack))]

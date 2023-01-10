@@ -4,10 +4,11 @@ using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
 using Entities.Heroes;
+using DI.Kernels;
 
 namespace Entities.MovementControllers
 {
-    internal class BaseMovementController : KernelEntityBehaviour, IMovable, IEditSpeed
+    internal class BaseMovementController : KernelEntityBehaviour, IEditSpeed, IMovable
     {
         public virtual float Speed 
         { 
@@ -24,9 +25,9 @@ namespace Entities.MovementControllers
 
         private protected bool _isInitialize = false;
 
-        public void Move(Vector2 direction)
+        public virtual void Move(Vector2 direction)
         {
-            _body.AddForce(direction * _body.mass * Speed);
+            _body.AddForce(direction * _body.mass * Speed * Time.deltaTime);
 
             if (Mathf.Abs(_body.velocity.x) > Speed)
             {
@@ -42,22 +43,12 @@ namespace Entities.MovementControllers
             {
                 return;
             }
-
-            LookAt(direction);
-        }
-
-        private void LookAt(Vector2 direction)
-        {
-            _player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
         }
 
         #region KernelEntity
 
-        [ConstructField]
-        private Hero _player;
-
-        [ConstructField]
-        private protected IHeroData _heroData;
+        [ConstructField(typeof(PlayerKernel))]
+        private protected Hero _player;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
@@ -66,7 +57,6 @@ namespace Entities.MovementControllers
             _body.freezeRotation = true;
             _body.gravityScale = 0;
 
-            Speed = _heroData.Data.Speed;
             _isInitialize = true;
         }
 

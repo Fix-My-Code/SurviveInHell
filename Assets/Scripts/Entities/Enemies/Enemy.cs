@@ -11,12 +11,10 @@ namespace Entities.Enemies
     {
         [SerializeField]
         private EnemyDataObject enemyData;
+
         public EnemyDataObject Data => enemyData;
 
         public GameObject Instance => this.gameObject;
-
-
-     
 
     }
 }

@@ -7,9 +7,8 @@ using UnityEngine;
 
 namespace Entities.Heroes
 {
-    internal class PlayerDamageDealer : DamageDealer
+    internal class HeroDamageController : DamageDealer
     {
-
         public override void Attack(IDamagable enemy)
         {
             enemy.ApplyDamage(15);
@@ -30,14 +29,18 @@ namespace Entities.Heroes
                 yield return new WaitForSeconds(AttackSpeed);
             }
         }
+
+        #region KernelEntity
+
         [ConstructField]
         private IHeroData _heroData;
-
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             AttackSpeed = 0.5f;
         }
+
+        #endregion
     }
 }

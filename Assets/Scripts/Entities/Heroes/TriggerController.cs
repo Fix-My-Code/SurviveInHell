@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities
+namespace Entities.Heroes
 {
     [RequireComponent(typeof(Collider2D))]
     [Register]
