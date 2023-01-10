@@ -32,6 +32,17 @@ namespace Entities.HealthControllers
             }
         }
 
+        public virtual float RegenerationSpeed
+        {
+            get => _regenerationSpeed;
+            set
+            {
+                _regenerationSpeed = value;
+            }
+        }
+
+        private float _regenerationSpeed;
+
         #region Regenerate
 
         private IEnumerator _regeneration;
@@ -52,7 +63,7 @@ namespace Entities.HealthControllers
         {
             while (true)
             {
-                Heal(_entityData.Data.Regeneration);
+                Heal(RegenerationSpeed);
 
                 yield return new WaitForSeconds(1f);
             }
@@ -125,13 +136,11 @@ namespace Entities.HealthControllers
         {
             _damageController = kernel.GetInjection<IDamagable>();
 
-            _damageController.onTakeDamage += ApplyDamage;
             _triggerController.onTriggerEnterApple += Heal;
         }
 
         protected override void OnDispose()
         {
-            _damageController.onTakeDamage -= ApplyDamage;
             _triggerController.onTriggerEnterApple -= Heal;
         }
 

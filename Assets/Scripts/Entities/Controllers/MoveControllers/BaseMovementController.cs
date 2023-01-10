@@ -57,7 +57,7 @@ namespace Entities.MovementControllers
         private Hero _player;
 
         [ConstructField]
-        private protected IEntityData _entityData;
+        private protected IHeroData _heroData;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
@@ -66,7 +66,7 @@ namespace Entities.MovementControllers
             _body.freezeRotation = true;
             _body.gravityScale = 0;
 
-            Speed = _entityData.Data.Speed;
+            Speed = _heroData.Data.Speed;
             _isInitialize = true;
         }
 
