@@ -1,10 +1,8 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Enemy;
 using Entities.Heroes;
 using Entities.Interfaces;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 internal class EnemyDamageDealer : DamageDealer

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Entities.Enemy.Interfaces
+namespace Entities.Enemies.Interfaces
 {
 
     interface IEnemy 
-    {
+    {   
         public GameObject Instance { get; }
     }
 }

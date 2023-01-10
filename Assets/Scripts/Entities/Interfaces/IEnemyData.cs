@@ -1,4 +1,4 @@
-using Entities.Enemy;
+using Entities.Enemies;
 using Entities.Interfaces;
 
 interface IEnemyData

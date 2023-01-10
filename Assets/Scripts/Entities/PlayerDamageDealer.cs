@@ -1,6 +1,6 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Enemy;
+using Entities.Enemies;
 using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;

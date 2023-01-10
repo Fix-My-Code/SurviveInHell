@@ -1,13 +1,9 @@
 using DI.Attributes.Register;
-using Entities.Enemy.Interfaces;
-using Entities.Heroes;
-using Entities.Interfaces;
-using System.Collections;
+using Entities.Enemies.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-namespace Entities.Enemy
+namespace Entities.Enemies
 {
     [Register(typeof(IEnemyData))]
     [Register(typeof(IEnemy))]
