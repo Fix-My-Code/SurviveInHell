@@ -9,7 +9,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Entities.HealthControllers
+namespace Entities.Controllers
 {
     internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IImproveMaxHP, IHealable
     {

@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using Entities.HealthControllers;
+using Entities.Controllers;
 using Entities.Interfaces;
 using TMPro;
 using UnityEngine;

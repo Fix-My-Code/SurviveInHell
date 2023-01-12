@@ -1,7 +1,7 @@
 using DI.Attributes.Register;
 using Entities.Interfaces;
 using Entities.ImprovementComponents.Interfaces;
-using Entities.MovementControllers;
+using Entities.Controllers;
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using UnityEngine;

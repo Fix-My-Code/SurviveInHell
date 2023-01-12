@@ -1,16 +1,20 @@
-using DI.Attributes.Construct;
-using Entities.Heroes;
 using Entities.ImprovementComponents;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
 
-namespace Entities.MovementControllers
+namespace Entities.Controllers
 {
     internal class AdvancedMovementController : BaseMovementController, IImproveMovementSpeed
     {
         public override void Move(Vector2 direction)
         {
             base.Move(direction);
+
+            if (direction == Vector2.zero)
+            {
+                return;
+            }
+
             LookAt(direction);
         }
 

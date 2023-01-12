@@ -1,7 +1,6 @@
 using Entities.Enemies;
 using Entities.Interfaces;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Weapon
@@ -16,7 +15,7 @@ namespace Weapon
 
         public void Attack(IDamagable damagable)
         {
-            damagable.ApplyDamage(5);
+            damagable.ApplyDamage(10);
             Destroy(gameObject);
         }
 

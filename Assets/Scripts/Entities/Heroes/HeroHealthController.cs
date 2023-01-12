@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.HealthControllers;
+using Entities.Controllers;
 using Entities.ImprovementComponents.Interfaces;
 using Entities.Interfaces;
 
