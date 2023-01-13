@@ -6,7 +6,7 @@ using Entities.Interfaces;
 using Entities.Heroes;
 using DI.Kernels;
 
-namespace Entities.MovementControllers
+namespace Entities.Controllers
 {
     internal class BaseMovementController : KernelEntityBehaviour, IEditSpeed, IMovable
     {
@@ -37,11 +37,6 @@ namespace Entities.MovementControllers
             if (Mathf.Abs(_body.velocity.y) > Speed)
             {
                 _body.velocity = new Vector2(_body.velocity.x, Mathf.Sign(_body.velocity.y) * Speed);
-            }
-
-            if (direction == Vector2.zero)
-            {
-                return;
             }
         }
 

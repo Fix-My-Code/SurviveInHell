@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
-using Entities.MovementControllers;
+using Entities.Controllers;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.HealthControllers
+namespace Entities.Controllers
 {
     internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView
     {
@@ -45,6 +45,5 @@ namespace Entities.HealthControllers
         }
 
         #endregion
-      
     }
 }

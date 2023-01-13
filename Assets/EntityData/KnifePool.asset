@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a262a4f4ef4d21e408274c7c35da0ba1, type: 3}
-  m_Name: Enemy
+  m_Script: {fileID: 11500000, guid: 36d570466d1c5c044ab08de4cf1c99bb, type: 3}
+  m_Name: KnifePool
   m_EditorClassIdentifier: 
-  Damage: 15
-  MaxHealth: 30
-  Speed: 200
-  AttackSpeed: 0.5
+  prefab: {fileID: 1517298319446723785, guid: 26d38fca7820ea248991f374c625ea7f, type: 3}
+  poolCount: 3
+  autoExpand: 1

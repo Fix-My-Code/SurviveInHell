@@ -2,7 +2,7 @@ using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Enemies.Interfaces;
-using Entities.HealthControllers;
+using Entities.Controllers;
 using Entities.Interfaces;
 
 namespace Entities.Enemies
