@@ -34,7 +34,7 @@ namespace Entities.Controllers
 
         private int _currentLevel;
 
-        public void ImproveMovementSpeed(IBuff<MovementSpeed> buff)
+        void IImproveMovementSpeed.Improve()
         {
             Speed += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
             _currentLevel++;

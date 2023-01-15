@@ -16,5 +16,9 @@ namespace UI.ScrollContainer {
             base.Initialize(index, clicked, data);
             label.text = data;
         }
+
+
+
+        
     }
 }

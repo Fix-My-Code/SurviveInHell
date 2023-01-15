@@ -2,7 +2,7 @@
 /// <summary>
 /// Интерфейс сущности, региструемой в ядре
 /// </summary>
-internal interface IKernelEntityBehavior {
+internal interface IKernelEntity {
     void KernelInitialize(IKernel kernel);
 
     /// <summary>

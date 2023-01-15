@@ -117,7 +117,7 @@ namespace Entities.Controllers
 
         private int _currentLevel;
 
-        public void ImproveMaxHP(IBuff<MaxHealth> buff)
+        void IImproveMaxHP.Improve()
         {
             MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
             _currentLevel++;

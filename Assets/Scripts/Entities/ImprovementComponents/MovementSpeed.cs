@@ -6,7 +6,7 @@ namespace Entities.ImprovementComponents
     internal class MovementSpeed : BaseImprovementComponent, IBuff<MovementSpeed>
     {
         [ContextMenu("Improve")]
-        public void Improve()
+        public override void Improve()
         {
             _improvementController.Improve(this);
         }

@@ -30,7 +30,7 @@ namespace DI.Containers {
         /// <summary>
         /// Список сущностей, которые регистрируются в карте и контруируются
         /// </summary>
-        private List<IKernelEntityBehavior> _kernelsEntityToConstruct = new List<IKernelEntityBehavior>(short.MaxValue);
+        private List<IKernelEntity> _kernelsEntityToConstruct = new List<IKernelEntity>(short.MaxValue);
 
         private bool _isEnqueued;
         
@@ -61,16 +61,16 @@ namespace DI.Containers {
             }
 
             try {
-                _kernelsEntityToConstruct.AddRange(inspectorKernelEntities.OfType<IKernelEntityBehavior>());
+                _kernelsEntityToConstruct.AddRange(inspectorKernelEntities.OfType<IKernelEntity>());
             } catch (Exception ex) {
                 Debug.LogError($"Failed to load [{GetType()}]: {ex}");
             }
             
             if (searchInObject) {
-                _kernelsEntityToConstruct.AddRange(GetComponentsInChildren<IKernelEntityBehavior>(true).Except(_kernelsEntityToConstruct)); 
+                _kernelsEntityToConstruct.AddRange(GetComponentsInChildren<IKernelEntity>(true).Except(_kernelsEntityToConstruct)); 
             }
 
-            void CreateNewInstances(IEnumerable<IKernelEntityBehavior> source) {
+            void CreateNewInstances(IEnumerable<IKernelEntity> source) {
                 while (true) {
                     var newEntities = source.SelectMany(ke => ke.FullStackCreateInstances(this)).ToArray();
                     if (newEntities.Length == 0) {

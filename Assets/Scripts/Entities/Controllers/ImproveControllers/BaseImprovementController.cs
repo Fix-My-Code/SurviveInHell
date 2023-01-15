@@ -12,12 +12,12 @@ namespace Entities.ImprovementControllers
     {
         internal virtual void Improve(IBuff<MaxHealth> component)
         {
-            _improveMaxHP.ImproveMaxHP(component);
+            //_improveMaxHP.ImproveMaxHP(component);
         }
 
         internal virtual void Improve(IBuff<MovementSpeed> component)
         {
-            _improveMovementSpeed.ImproveMovementSpeed(component);
+            //_improveMovementSpeed.ImproveMovementSpeed(component);
         }
 
         internal virtual void Improve(IBuff<Damage> component)
