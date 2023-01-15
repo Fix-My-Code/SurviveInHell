@@ -30,7 +30,7 @@ namespace Entities.Controllers
 
             if (item.TryGetComponent<Apple>(out var apple))
             {
-                apple.SetGemType(appleType);
+                apple.SetAppleType(appleType);
             }
         }
 

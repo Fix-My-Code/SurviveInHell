@@ -26,7 +26,7 @@ namespace Items.Apple
             return (int)type;
         }
 
-        public void SetGemType(AppleTypes appleType)
+        public void SetAppleType(AppleTypes appleType)
         {
             type = appleType;
             SetColorApple();
