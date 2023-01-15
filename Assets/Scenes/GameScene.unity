@@ -352,6 +352,18 @@ PrefabInstance:
       propertyPath: poolData
       value: 
       objectReference: {fileID: 11400000, guid: 6be4517c62f0d5a41bbb89b5e5e55bba, type: 2}
+    - target: {fileID: 269750605, guid: 9bbbea8b640461241ae030dfc9a2198a, type: 3}
+      propertyPath: attackSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 269750605, guid: 9bbbea8b640461241ae030dfc9a2198a, type: 3}
+      propertyPath: projectileSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 269750605, guid: 9bbbea8b640461241ae030dfc9a2198a, type: 3}
+      propertyPath: projectileDamage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4371195363838510969, guid: 9bbbea8b640461241ae030dfc9a2198a, type: 3}
       propertyPath: m_Name
       value: ~Player
@@ -419,12 +431,12 @@ GameObject:
   - component: {fileID: 223654923}
   - component: {fileID: 223654922}
   m_Layer: 5
-  m_Name: MaxSpeedBuff (1)
+  m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &223654921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -442,10 +454,10 @@ RectTransform:
   m_Father: {fileID: 8853152114893130039}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 397.9854, y: -211.93723}
+  m_SizeDelta: {x: 735.9708, y: 94.624825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223654922
 MonoBehaviour:
@@ -525,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_AnchorMin.x
@@ -533,15 +545,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 735.9708
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 94.624825
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,11 +585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 397.9854
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -97.31241
       objectReference: {fileID: 0}
     - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1954,7 +1966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6218306948433076145, guid: 82bcf09cf8afc3b4abfce2f20f880f04, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -299.71613
       objectReference: {fileID: 0}
     - target: {fileID: 7108121532883532048, guid: 82bcf09cf8afc3b4abfce2f20f880f04, type: 3}
       propertyPath: m_CellSize.x
@@ -2062,7 +2074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8853152114910951023, guid: 82bcf09cf8afc3b4abfce2f20f880f04, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bcf09cf8afc3b4abfce2f20f880f04, type: 3}
@@ -2086,4 +2098,5 @@ MonoBehaviour:
   buffs:
   - {fileID: 1074897649}
   - {fileID: 859946785972084696}
+  - {fileID: 223654920}
   container: {fileID: 8853152114893130039}
