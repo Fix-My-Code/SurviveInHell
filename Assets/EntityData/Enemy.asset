@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 15
   MaxHealth: 30
-  Speed: 200
+  Speed: 500
   AttackSpeed: 0.5
   GemType: 10

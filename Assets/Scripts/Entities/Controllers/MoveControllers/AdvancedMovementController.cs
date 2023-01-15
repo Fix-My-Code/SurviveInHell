@@ -25,19 +25,9 @@ namespace Entities.Controllers
 
         #region IImproveMovementSpeed
 
-        [SerializeField]
-        private int firstLevelValue;
-
-        [SerializeField]
-        [Range(0, 1)]
-        private float percentPerLevel;
-
-        private int _currentLevel;
-
-        void IImproveMovementSpeed.Improve()
+        void IImproveMovementSpeed.Improve(int value)
         {
-            Speed += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
-            _currentLevel++;
+            Speed += value;
         }
 
         #endregion

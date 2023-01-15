@@ -12,6 +12,8 @@ public class BuffListtUI : MonoBehaviour
     private Transform container;
 
     private List<GameObject> _buffs = new List<GameObject>();
+
+
     private void OnEnable()
     {
         _buffs.AddRange(buffs.ToArray());
@@ -23,7 +25,7 @@ public class BuffListtUI : MonoBehaviour
                 return;
             }
             var randomInt = Randomizer.RandomIntValue(0, _buffs.Count);
-            buffs[randomInt].SetActive(true);
+            _buffs[randomInt].SetActive(true);
             _buffs.RemoveAt(randomInt);
         }
     }

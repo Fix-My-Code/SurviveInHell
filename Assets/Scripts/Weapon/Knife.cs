@@ -10,6 +10,7 @@ namespace Weapon
     {
         [SerializeField]
         private PoolObject poolData;
+        private int damage = 50;
 
         public PoolObject GetPoolData() 
         {
@@ -23,13 +24,24 @@ namespace Weapon
 
         public void Attack(IDamagable damagable)
         {
-            damagable.ApplyDamage(10);
+            var health = damagable.CurrentHealth;
+            if (damagable.CurrentHealth < damage)
+            {
+                damagable.ApplyDamage(damage);
+                damage -= (int)health;
+                return;
+            }
+            damagable.ApplyDamage(damage);
             Dispawn();
         }
 
         private void OnEnable()
         {
             StartCoroutine(DispawnDelay());
+        }
+        private void OnDisable()
+        {
+            damage = 50;
         }
 
         private void Dispawn()

@@ -2,6 +2,6 @@ namespace Entities.ImprovementComponents.Interfaces
 {
     interface IImproveMovementSpeed
     {
-        public void Improve();
+        public void Improve(int value);
     }
 }

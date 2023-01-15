@@ -1,30 +1,27 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Utilities.Behaviours;
 
-internal class BuffMaxSpeed : KernelEntityBehaviour, IPointerClickHandler
+internal class BuffMaxSpeed : BaseBuffItem
 {
     [SerializeField]
-    private int Value;
-    [SerializeField]
-    private string Discriptinos;
-
+    private int value;
 
     private void Improve()
     {
-        _maxSpeed.Improve();
+        _maxSpeed.Improve(value);
+        _levelMenu.SetActive(false);
+        gameObject.SetActive(false);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         Improve();
     }
 
     [ConstructField(typeof(PlayerKernel))]
     private IImproveMovementSpeed _maxSpeed;
+
 }

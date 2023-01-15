@@ -13,7 +13,6 @@ namespace DI.Tools {
             {typeof(PlayerKernel), () => PlayerKernel.Instance},
             {typeof(UiSceneKernel), () => UiSceneKernel.Instance},
             {typeof(LogicSceneKernel), () => LogicSceneKernel.Instance},
-            {typeof(ObjectKernel), () => ObjectKernel.Instance}
         };
 
         /// <summary>
