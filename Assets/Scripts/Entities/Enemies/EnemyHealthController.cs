@@ -19,7 +19,7 @@ namespace Entities.Enemies
 
         private void OnDeadHeandler()
         {
-            Spawner.Instance.SpawnGem(_parent.Instance.transform);
+            SpawnInteractObject.Instance.SpawnGem(_enemyData.Data.GemType, _parent.Instance.transform);
             Destroy(_parent.Instance);
         }
 
@@ -35,6 +35,11 @@ namespace Entities.Enemies
         private void Construct(IKernel kernel)
         {
             Initialize(_enemyData);
+        }
+
+        protected override void OnDispose()
+        {
+            onDead -= OnDeadHeandler;
         }
 
         #endregion

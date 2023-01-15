@@ -1,6 +1,7 @@
 using DI.Attributes.Register;
 using Items.Apple;
-using Items.Gems;
+using Items.Gem;
+using ObjectPooller;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
@@ -21,7 +22,7 @@ namespace Entities.Heroes
             {
                 onTriggerEnterGem?.Invoke(gem);
 
-                Destroy(gem.gameObject);
+                Spawner.Instance.DispawnObject(gem.gameObject, gem.GetPoolData());
                 return;
             }
 
@@ -29,7 +30,7 @@ namespace Entities.Heroes
             {
                 onTriggerEnterApple?.Invoke(apple);
 
-                Destroy(apple.gameObject);
+                Spawner.Instance.DispawnObject(apple.gameObject, apple.GetPoolData());
                 return;
             }
         }
