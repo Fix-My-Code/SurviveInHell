@@ -14,7 +14,10 @@ internal abstract class BaseBuffItem : KernelEntityBehaviour, IPointerClickHandl
     [SerializeField]
     private string descriptinos;
 
-    public abstract void OnPointerClick(PointerEventData eventData);
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        _levelMenu.SetActive(false);
+    }
 
     protected virtual void OnEnable()
     {

@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using Utilities.Behaviours;
 
 namespace Entities.Controllers
 {
-    abstract internal class BaseSpawnComponent : KernelEntityBehaviour
+    abstract internal class BaseSpawnComponent : MonoBehaviour
     {
         [SerializeField]
         private protected int count;
@@ -14,11 +13,6 @@ namespace Entities.Controllers
 
         [SerializeField]
         private protected GameObject prefab;
-
-        private void OnEnable()
-        {
-            StartCoroutine(Spawn());
-        }
 
         private void OnDisable()
         {

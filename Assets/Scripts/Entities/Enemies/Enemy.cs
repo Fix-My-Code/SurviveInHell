@@ -1,4 +1,6 @@
+using DI.Attributes.Construct;
 using DI.Attributes.Register;
+using DI.Interfaces.KernelInterfaces;
 using Entities.Enemies.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
@@ -16,5 +18,10 @@ namespace Entities.Enemies
 
         public GameObject Instance => this.gameObject;
 
+        [ConstructMethod]
+        private void Construct(IKernel kernel)
+        {
+            Debug.Log("υσι");
+        }   
     }
 }

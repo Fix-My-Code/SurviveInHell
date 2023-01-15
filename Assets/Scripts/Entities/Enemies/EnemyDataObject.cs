@@ -1,4 +1,5 @@
 using Enums;
+using ObjectPooller;
 using UnityEngine;
 
 namespace Entities.Enemies
@@ -16,5 +17,7 @@ namespace Entities.Enemies
         public float AttackSpeed;
 
         public GemTypes GemType;
+
+        public PoolObject PoolData;
     }
 }

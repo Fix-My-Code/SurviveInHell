@@ -36,6 +36,15 @@ namespace ObjectPooller
             return poolObject;
         }
 
+        public GameObject SpawnObject(PoolObject poolData, Vector2 position)
+        {
+            _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
+            GameObject poolObject = pool.GetFreeElement();
+            poolObject.transform.position = position;
+            poolObject.SetActive(true);
+            return poolObject;
+        }
+
         public void DispawnObject(GameObject poolObject, PoolObject poolData)
         {
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
