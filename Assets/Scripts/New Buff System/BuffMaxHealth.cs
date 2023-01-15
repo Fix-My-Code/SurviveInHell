@@ -2,8 +2,7 @@ using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities.Behaviours;
@@ -11,22 +10,29 @@ using Utilities.Behaviours;
 internal class BuffMaxHealth : KernelEntityBehaviour, IPointerClickHandler
 {
     [SerializeField]
-    private int Value;
+    private TextMeshProUGUI descriptionsTx;
     [SerializeField]
-    private string Discriptinos;
+    private int value;
+    [SerializeField]
+    private string descriptinos;
 
-    
-    private void Improve()
+
+    protected void OnEnable()
     {
-        _maxHP.Improve();
+        descriptionsTx.text = descriptinos;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Improve();
+        _maxHP.Improve(value);
+        _levelMenu.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     [ConstructField(typeof(PlayerKernel))]
     private IImproveMaxHP _maxHP;
+
+    [ConstructField(typeof(UiSceneKernel))]
+    private ILabilized _levelMenu;
 
 }

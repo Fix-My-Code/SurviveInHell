@@ -8,6 +8,7 @@ using Items.Apple;
 using System;
 using System.Collections;
 using UnityEngine;
+using DI.Attributes.Register;
 
 namespace Entities.Controllers
 {
@@ -108,19 +109,9 @@ namespace Entities.Controllers
 
         #region ImproveMaxHP
 
-        [SerializeField]
-        private int firstLevelValue;
-
-        [SerializeField]
-        [Range(0, 1)]
-        private float percentPerLevel;
-
-        private int _currentLevel;
-
-        void IImproveMaxHP.Improve()
+        void IImproveMaxHP.Improve(int value)
         {
-            MaxHealth += (firstLevelValue + ((int)(firstLevelValue * (percentPerLevel * _currentLevel))));
-            _currentLevel++;
+            MaxHealth += value;
         }
 
         #endregion
