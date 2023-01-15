@@ -9,9 +9,9 @@ namespace Entities.Heroes
 {
     [Register(typeof(IHealthView))]
     [Register(typeof(IEditHealth))]
-    [Register(typeof(IImproveMaxHP))]
     [Register(typeof(IHealable))]
     [Register(typeof(IDamagable))]
+    [Register(typeof(IImproveMaxHP))]
     internal class HeroHealthController : AdvancedHealthController
     {
         internal virtual void Initialize(IHeroData entity)

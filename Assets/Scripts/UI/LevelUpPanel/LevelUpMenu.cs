@@ -1,4 +1,5 @@
 using DI.Attributes.Construct;
+using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using Entities.Interfaces;
@@ -9,14 +10,15 @@ using Utilities.Behaviours;
 
 namespace UI
 {
-    internal class LevelUpMenu : KernelEntityBehaviour
+    [Register(typeof(ILabilized))]
+    internal class LevelUpMenu : KernelEntityBehaviour, ILabilized
     {
         [SerializeField]
         private GameObject content;
 
         private IPanelClickCallBack _panelClickCallBack;
 
-        private void MenuActive(bool value)
+        public void SetActive(bool value)
         {
             content.SetActive(value);
             _pauseManager.Pause(value);       
@@ -24,12 +26,12 @@ namespace UI
 
         private void OnPanelClickHandler()
         {
-            MenuActive(false);
+            SetActive(false);
         }
 
         private void OnLevelChangedHandler(int level)
         {
-            MenuActive(true);
+            SetActive(true);
         }
 
         #region Kernel
@@ -43,7 +45,7 @@ namespace UI
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
-            MenuActive(false);
+            SetActive(false);       
 
             _panelClickCallBack = GetComponentInChildren<IPanelClickCallBack>(true);
 

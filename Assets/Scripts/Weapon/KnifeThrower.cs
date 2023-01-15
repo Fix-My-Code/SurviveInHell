@@ -39,7 +39,7 @@ namespace Weapon
                     var knife = Spawner.Instance.SpawnObject(_poolData, spawnPoint);
                     var _rb = knife.GetComponent<Rigidbody2D>();
 
-                    _rb.AddForce(transform.right * 300 * Time.deltaTime, ForceMode2D.Impulse);
+                    _rb.AddForce(transform.right * 1000 * Time.deltaTime, ForceMode2D.Impulse);
                     yield return new WaitForSeconds(0.3f);
                 }
 

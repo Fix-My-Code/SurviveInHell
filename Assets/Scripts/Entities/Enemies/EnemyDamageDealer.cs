@@ -11,9 +11,10 @@ namespace Entities.Enemies
     {
         private IDamagable _player;
 
+
         public override void Attack(IDamagable enemy)
         {
-            StartCoroutine(nameof(Reloading));
+            _player.ApplyDamage(_enemyData.Data.Damage);
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
@@ -37,6 +38,11 @@ namespace Entities.Enemies
                 _player.ApplyDamage(_enemyData.Data.Damage);
                 yield return new WaitForSeconds(AttackSpeed);
             }
+        }
+
+        private void OnDestroy()
+        {
+            StopCoroutine(nameof(Reloading));
         }
 
         #region KernelEntity

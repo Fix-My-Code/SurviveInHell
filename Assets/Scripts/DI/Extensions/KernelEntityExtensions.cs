@@ -15,7 +15,7 @@ using Utilities.Extensions;
 namespace DI.Extensions {
     internal static class KernelEntityExtensions {
         private static readonly Type ComponentType = typeof(Component);
-        private static readonly Type BaseKernelEntityType = typeof(IKernelEntityBehavior);
+        private static readonly Type BaseKernelEntityType = typeof(IKernelEntity);
         
         private const BindingFlags BINDING_FILTER = BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -28,7 +28,7 @@ namespace DI.Extensions {
         
 #region Create
 
-        internal static IEnumerable<IKernelEntityBehavior> FullStackCreateInstances(this IKernelEntityBehavior kernelEntity, IKernel kernel) {
+        internal static IEnumerable<IKernelEntity> FullStackCreateInstances(this IKernelEntity kernelEntity, IKernel kernel) {
             var kernelEntityType = kernelEntity.GetType();
             foreach (var newEntity in kernelEntity.CreateInstancesFromField(kernelEntityType)) {
                 yield return newEntity;
@@ -42,7 +42,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Создает сущности, помеченные атрибутом "CreateFieldAttribute" и возвращает их, если они принадлежат типу "IKernelEntity"
         /// </summary>
-        private static IEnumerable<IKernelEntityBehavior> CreateInstancesFromField(this IKernelEntityBehavior kernelEntity, Type kernelEntityType) {
+        private static IEnumerable<IKernelEntity> CreateInstancesFromField(this IKernelEntity kernelEntity, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var fieldInfos = declareEntityType.GetFields(BINDING_FILTER)
@@ -72,7 +72,7 @@ namespace DI.Extensions {
                     }
                     fieldInfo.MemberInfo.SetValue(kernelEntity, fieldInstance);
 
-                    if (fieldInstance is IKernelEntityBehavior fieldKernelEntity) {
+                    if (fieldInstance is IKernelEntity fieldKernelEntity) {
                         yield return fieldKernelEntity;
                     }
                 }
@@ -84,7 +84,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Вызывает методы, помеченные атрибутом "CreateMethodAttribute", получает перечисления KernelEntity из методов и возвращает IKernelEntity
         /// </summary>
-        private static IEnumerable<IKernelEntityBehavior> CreateInstancesFromMethod(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static IEnumerable<IKernelEntity> CreateInstancesFromMethod(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var methodInfos = declareEntityType.GetMethods(BINDING_FILTER)
@@ -97,7 +97,7 @@ namespace DI.Extensions {
                                                    .ToArray();
                 foreach (var methodInfo in methodInfos) {
                     var kernelArg = methodInfo.Attribute.Kernel ?? kernel;
-                    foreach (var newEntity in (IEnumerable<IKernelEntityBehavior>) methodInfo.MemberInfo.Invoke(kernelEntity, new object[] {kernelArg})) {
+                    foreach (var newEntity in (IEnumerable<IKernelEntity>) methodInfo.MemberInfo.Invoke(kernelEntity, new object[] {kernelArg})) {
                         yield return newEntity;
                     }
                 }
@@ -115,7 +115,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция вызова всех способов регистраций сущности в ядре (IKernelEntity.Register + KernelEntityAttribute.Register)
         /// </summary>
-        internal static void FullStackRegister(this IKernelEntityBehavior kernelEntity, IKernel kernel) {
+        internal static void FullStackRegister(this IKernelEntity kernelEntity, IKernel kernel) {
             var kernelEntityType = kernelEntity.GetType();
             kernelEntity.RegisterFromClassAttribute(kernel, kernelEntityType);
             kernelEntity.RegisterFromFieldAttribute(kernel, kernelEntityType);
@@ -125,7 +125,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция вызова регистрации сущности в ядре из Аттрибута "KernelEntityAttribute" 
         /// </summary>
-        private static void RegisterFromClassAttribute(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void RegisterFromClassAttribute(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             foreach (var attribute in kernelEntityType.GetCustomAttributes<RegisterAttribute>()) {
                 attribute.Register(kernel, kernelEntity);
             }
@@ -134,7 +134,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Создает сущности, помеченные атрибутом "RegisterFieldAttribute" и возвращает их, если они принадлежат типу "IKernelEntity"
         /// </summary>
-        private static void RegisterFromFieldAttribute(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void RegisterFromFieldAttribute(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var fieldInfos = declareEntityType.GetFields(BINDING_FILTER)
@@ -164,7 +164,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Вызываемт методы регситрирует сущностей, помеченные атрибутом "RegisterMethodAttribute" и возвращает их, если они принадлежат типу "IKernelEntity"
         /// </summary>
-        private static void RegisterFromMethodAttribute(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void RegisterFromMethodAttribute(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var methodInfos = declareEntityType.GetMethods(BINDING_FILTER)
@@ -193,7 +193,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция вызова всех способов "конструирования" (заполнение элементами из ядра)  
         /// </summary>
-        internal static void FullStackConstruct(this IKernelEntityBehavior kernelEntity, IKernel kernel) {
+        internal static void FullStackConstruct(this IKernelEntity kernelEntity, IKernel kernel) {
             var kernelEntityType = kernelEntity.GetType();
             kernelEntity.ConstructFromFieldAttribute(kernel, kernelEntityType);
             kernelEntity.ConstructFromMethodAttribute(kernel, kernelEntityType);
@@ -202,7 +202,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция заполнения сущностей, помеченных атрибутами в полях объекта (BindingFlags.NonPublic | BindingFlags.Instance)
         /// </summary>
-        private static void ConstructFromFieldAttribute(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void ConstructFromFieldAttribute(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var fieldInfos = declareEntityType.GetFields(BINDING_FILTER)
@@ -266,7 +266,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция вызова методов "конструирования", помеченных атрибутом ConstructMethodAttribute, для IKernelEntity  
         /// </summary>
-        private static void ConstructFromMethodAttribute(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void ConstructFromMethodAttribute(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
                 var methodInfos = declareEntityType.GetMethods(BINDING_FILTER)
@@ -294,14 +294,14 @@ namespace DI.Extensions {
         /// <summary>
         /// Функция вызова всех способов "конструирования" (заполнение элементами из ядра)  
         /// </summary>
-        internal static void RunEntity(this IKernelEntityBehavior kernelEntity, IKernel kernel) {
+        internal static void RunEntity(this IKernelEntity kernelEntity, IKernel kernel) {
             kernelEntity.RunEntity(kernel, kernelEntity.GetType());
         }
         
         /// <summary>
         /// Mark this KernelEntity as Constructed ( = all dependencies are injected)
         /// </summary>
-        private static void RunEntity(this IKernelEntityBehavior kernelEntity, IKernel kernel, Type kernelEntityType) {
+        private static void RunEntity(this IKernelEntity kernelEntity, IKernel kernel, Type kernelEntityType) {
             var declareEntityType = kernelEntityType;
             while (declareEntityType != null && BaseKernelEntityType.IsAssignableFrom(declareEntityType)) {
 
@@ -328,7 +328,7 @@ namespace DI.Extensions {
         /// <summary>
         /// Вызывает метод, передавая параметр IKernel.
         /// </summary>
-        private static void InvokeKernelMethod(MethodInfo methodInfo, IKernelEntityBehavior kernelEntity, IKernel kernelArg) {
+        private static void InvokeKernelMethod(MethodInfo methodInfo, IKernelEntity kernelEntity, IKernel kernelArg) {
 #if UNITY_EDITOR
             // Отписывает где сигнатура неверная.
             var parameters = methodInfo.GetParameters();

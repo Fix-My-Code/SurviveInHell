@@ -4,5 +4,5 @@ using DI.Interfaces.KernelInterfaces;
 
 namespace DI.Kernels
 {
-    internal sealed class ObjectKernel : SingletonMonoKernel<ObjectKernel>, ISceneKernel { }
+    internal sealed class ObjectKernel : BaseMonoKernel, ISceneKernel { }
 }

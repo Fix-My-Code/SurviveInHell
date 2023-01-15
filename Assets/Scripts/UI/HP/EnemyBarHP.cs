@@ -16,7 +16,7 @@ internal class EnemyBarHP : Bar
 
     #region Kernel
 
-    [ConstructField(typeof(ObjectKernel))]
+    [ConstructField]
     private IHealthView _healthView;
 
     [ConstructMethod]

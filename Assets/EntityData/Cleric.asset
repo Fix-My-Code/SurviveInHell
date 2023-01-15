@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cleric
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  Speed: 300
+  Speed: 700
   Regeneration: 3
   FirstLevelExperience: 10

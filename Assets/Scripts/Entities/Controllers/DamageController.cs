@@ -5,8 +5,8 @@ using Utilities.Behaviours;
 
 namespace Entities.Controllers
 {
-    [Register(typeof(IDamagable))]
-    internal class DamageController : KernelEntityBehaviour, IDamagable
+
+    internal class DamageController : KernelEntityBehaviour
     {
         public event Action<int> onTakeDamage;
 
