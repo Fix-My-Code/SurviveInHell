@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utillites;
 
-public class BuffListtUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField]
-    private List<GameObject> buffs;
-
-    [SerializeField]
-    private Transform container;
-
-    private List<GameObject> _buffs = new List<GameObject>();
-
-
-    private void OnEnable()
+    public class BuffListtUI : MonoBehaviour
     {
-        _buffs.AddRange(buffs.ToArray());
+        [SerializeField]
+        private List<GameObject> buffs;
 
-        for (int i = 0; i < 3; i++)
+        [SerializeField]
+        private Transform container;
+
+        private List<GameObject> _buffs = new List<GameObject>();
+
+
+        private void OnEnable()
         {
-            if(_buffs.Count == 0)
+            _buffs.AddRange(buffs.ToArray());
+
+            for (int i = 0; i < 3; i++)
             {
-                return;
+                if (_buffs.Count == 0)
+                {
+                    return;
+                }
+                var randomInt = Randomizer.RandomIntValue(0, _buffs.Count);
+                _buffs[randomInt].SetActive(true);
+                _buffs.RemoveAt(randomInt);
             }
-            var randomInt = Randomizer.RandomIntValue(0, _buffs.Count);
-            _buffs[randomInt].SetActive(true);
-            _buffs.RemoveAt(randomInt);
         }
     }
 }
