@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utillites;
@@ -15,7 +14,6 @@ namespace UI
 
         private List<GameObject> _buffs = new List<GameObject>();
 
-
         private void OnEnable()
         {
             _buffs.AddRange(buffs.ToArray());
@@ -26,9 +24,19 @@ namespace UI
                 {
                     return;
                 }
+
                 var randomInt = Randomizer.RandomIntValue(0, _buffs.Count);
+
                 _buffs[randomInt].SetActive(true);
                 _buffs.RemoveAt(randomInt);
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach(var buff in buffs)
+            {
+                buff.SetActive(false);
             }
         }
     }

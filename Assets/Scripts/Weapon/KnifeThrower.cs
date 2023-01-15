@@ -1,27 +1,25 @@
+using Buffs.Weapon.Interfaces;
+using DI.Attributes.Register;
 using ObjectPooller;
 using System.Collections;
 using UnityEngine;
 
 namespace Weapon
 {
-    public class KnifeThrower : MonoBehaviour
+    [Register(typeof(IImproveKnifeThrower))]
+    internal class KnifeThrower : ProjectileWeapon, IImproveKnifeThrower
     {
         [SerializeField]
-        private int count;
-
-        [SerializeField]
-        private Transform spawnPoint;
+        private protected Transform spawnPoint;
 
         [SerializeField]
         private Knife prefab;
 
-        private PoolObject _poolData;
+        private protected PoolObject _poolData;
 
         private void OnEnable()
         {
-            _poolData = prefab.GetPoolData();
-            Spawner.Instance.PreparationPool(_poolData);
-
+            CreatePool();
             StartCoroutine(Throw());
         }
 
@@ -30,20 +28,29 @@ namespace Weapon
             StopCoroutine(Throw());
         }
 
+        private void CreatePool()
+        {
+            _poolData = prefab.GetPoolData();
+            Spawner.Instance.PreparationPool(_poolData);
+        }
+
         private IEnumerator Throw()
         {
             while (true)
             {
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < projectileCount; i++)
                 {
-                    var knife = Spawner.Instance.SpawnObject(_poolData, spawnPoint);
-                    var _rb = knife.GetComponent<Rigidbody2D>();
+                    var knifeObject = Spawner.Instance.SpawnObject(_poolData, spawnPoint);
+                    var _rb = knifeObject.GetComponent<Rigidbody2D>();
+                    var knife = knifeObject.GetComponent<Knife>();
 
-                    _rb.AddForce(transform.right * 1000 * Time.deltaTime, ForceMode2D.Impulse);
+                    knife.Damage = projectileDamage;
+
+                    _rb.AddForce(transform.right * projectileSpeed * Time.deltaTime, ForceMode2D.Impulse);
                     yield return new WaitForSeconds(0.3f);
                 }
 
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(attackSpeed);
             }
         }
     }
