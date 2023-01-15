@@ -1,5 +1,8 @@
 
-interface ILabilized 
+namespace UI.Interfaces
 {
-    void SetActive(bool value);
+    interface ILabilized
+    {
+        void SetActive(bool value);
+    }
 }

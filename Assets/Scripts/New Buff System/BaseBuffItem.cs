@@ -1,6 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
 using TMPro;
+using UI.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities.Behaviours;
