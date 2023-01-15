@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1470822091947813500}
   - component: {fileID: 4205372771902920524}
   m_Layer: 0
-  m_Name: BlueGem
+  m_Name: Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,3 +157,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  spriteRenderer: {fileID: 5356595682643502454}
+  poolData: {fileID: 11400000, guid: 6a2687c50b13c1a4ca91a39e58d89acf, type: 2}

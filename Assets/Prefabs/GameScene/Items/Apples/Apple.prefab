@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5239128810233556323}
   - component: {fileID: 3825519724894774852}
   m_Layer: 0
-  m_Name: RedApple
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 10
+  spriteRenderer: {fileID: 3031410305641569126}
+  poolData: {fileID: 11400000, guid: 5f2b211e168a9724f98fb6d0c0a96142, type: 2}

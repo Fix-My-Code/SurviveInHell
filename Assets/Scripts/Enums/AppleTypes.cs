@@ -1,6 +1,6 @@
 namespace Enums
 {
-    internal enum AppleTypes
+    public enum AppleTypes
     {
         RedApple = 10,
         GreenApple = 30,

@@ -1,6 +1,6 @@
 namespace Enums
 {
-    internal enum GemTypes
+    public enum GemTypes
     {
         BlueGem = 1,
         GreenGem = 3,
