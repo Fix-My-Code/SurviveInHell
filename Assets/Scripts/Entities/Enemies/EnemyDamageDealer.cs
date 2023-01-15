@@ -11,6 +11,7 @@ namespace Entities.Enemies
     {
         private IDamagable _player;
 
+
         public override void Attack(IDamagable enemy)
         {
             _player.ApplyDamage(_enemyData.Data.Damage);
