@@ -2,7 +2,7 @@ using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Interfaces;
-using Items.Gems;
+using Items.Gem;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;

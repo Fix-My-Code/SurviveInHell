@@ -1,4 +1,5 @@
 using Enums;
+using ObjectPooller;
 using UnityEngine;
 
 namespace Items.Apple
@@ -9,9 +10,55 @@ namespace Items.Apple
         [SerializeField]
         private AppleTypes type;
 
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
+
+        [SerializeField]
+        private PoolObject poolData;
+
+        public PoolObject GetPoolData()
+        {
+            return poolData;
+        }
+
         public int GetHealth()
         {
             return (int)type;
+        }
+
+        public void SetGemType(AppleTypes appleType)
+        {
+            type = appleType;
+            SetColorApple();
+        }
+
+        private void SetColorApple()
+        {
+            switch (type)
+            {
+                case AppleTypes.RedApple:
+                    spriteRenderer.color = Color.red;
+                    break;
+                case AppleTypes.GreenApple:
+                    spriteRenderer.color = Color.green;
+                    break;
+                case AppleTypes.PurpleApple:
+                    spriteRenderer.color = Color.magenta;
+                    break;
+                case AppleTypes.GoldenApple:
+                    spriteRenderer.color = Color.yellow;
+                    break;
+            }
+        }
+
+        private void OnEnable()
+        {
+            SetColorApple();
+        }
+
+        public void Dispawn()
+        {
+            Spawner.Instance.DispawnObject(gameObject, poolData);
         }
     }
 }

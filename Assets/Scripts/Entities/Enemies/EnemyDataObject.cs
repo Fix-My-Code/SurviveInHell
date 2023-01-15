@@ -1,3 +1,4 @@
+using Enums;
 using UnityEngine;
 
 namespace Entities.Enemies
@@ -13,5 +14,7 @@ namespace Entities.Enemies
 
         [Range(0.2f, 3)]
         public float AttackSpeed;
+
+        public GemTypes GemType;
     }
 }
