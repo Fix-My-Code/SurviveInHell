@@ -26,7 +26,7 @@ namespace Entities.Controllers
 
         public void SpawnApple(AppleTypes appleType, Transform transform)
         {
-            var item = Spawner.Instance.SpawnObject(gemPoolData, transform);
+            var item = Spawner.Instance.SpawnObject(applePoolData, transform);
 
             if (item.TryGetComponent<Apple>(out var apple))
             {

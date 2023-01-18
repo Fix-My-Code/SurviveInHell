@@ -16,7 +16,7 @@ namespace Entities.Enemies
 
         public EnemyDataObject Data => enemyData;
 
-        public GameObject Instance => this.gameObject;
+        public GameObject Instance => gameObject;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
