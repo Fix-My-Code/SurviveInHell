@@ -10,6 +10,8 @@ namespace Entities.Controllers
         public event Action onHealthChanged;
         public event Action onDead;
 
+        private protected int j;
+
         public virtual float MaxHealth
         {
             get => _maxHealth;
@@ -28,6 +30,7 @@ namespace Entities.Controllers
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
                 if (_currentHealth == 0)
                 {
+                    j++;
                     onDead?.Invoke();
                 }
                 onHealthChanged?.Invoke();

@@ -4,6 +4,8 @@ using DI.Interfaces.KernelInterfaces;
 using Entities.Enemies.Interfaces;
 using Entities.Controllers;
 using Entities.Interfaces;
+using ObjectPooller;
+using Cysharp.Threading.Tasks;
 
 namespace Entities.Enemies
 {
@@ -14,13 +16,17 @@ namespace Entities.Enemies
         {
             MaxHealth = entity.Data.MaxHealth;
             CurrentHealth = entity.Data.MaxHealth;
-            onDead += OnDeadHeandler;
         }
 
         private void OnDeadHeandler()
         {
             SpawnInteractObject.Instance.SpawnGem(_enemyData.Data.GemType, _parent.Instance.transform);
-            Destroy(_parent.Instance);
+            Spawner.Instance.DispawnObject(_parent.Instance.gameObject, _enemyData.Data.PoolData);
+        }
+
+        private void OnInitializeHandler()
+        {
+            Initialize(_enemyData);
         }
 
         #region KernelEntity
@@ -34,10 +40,16 @@ namespace Entities.Enemies
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
-            Initialize(_enemyData);
+            IsInitialize = true;
+            onDead += OnDeadHeandler;
+        }
+        private async UniTaskVoid OnEnable()
+        {
+            await UniTask.WaitUntil(() => IsInitialize);
+            OnInitializeHandler();
         }
 
-        protected override void OnDispose()
+        protected void OnDestroy()
         {
             onDead -= OnDeadHeandler;
         }

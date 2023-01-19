@@ -32,8 +32,8 @@ namespace Entities.Enemies
 
                     if (Vector2.Distance(transform.position, spawn) > Vector2.Distance(transform.position, new Vector2(transform.position.x + viewRadius, transform.position.y + viewRadius)))
                     {
-                        //SpawnEnemy((Vector2)spawn);
-                        Instantiate(prefab, spawn, Quaternion.identity);
+                        SpawnEnemy((Vector2)spawn);
+                        //Instantiate(prefab, spawn, Quaternion.identity);
                     }
 
                     yield return new WaitForSeconds(0.1f);
@@ -51,7 +51,7 @@ namespace Entities.Enemies
 
         private void Start()
         {
-            //Spawner.Instance.PreparationPool(enemyPoolData);
+            Spawner.Instance.PreparationPool(enemyPoolData);
             StartCoroutine(Spawn());
             //Spawner.Instance.SpawnObject(enemyPoolData, transform.position * 2);
             //var enemy = Instantiate(prefab, transform.position * 2, Quaternion.identity);

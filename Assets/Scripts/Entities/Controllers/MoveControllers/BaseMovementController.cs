@@ -48,7 +48,7 @@ namespace Entities.Controllers
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
-            _body = GetComponentInParent<Rigidbody2D>();
+            _body = GetComponentInParent<Rigidbody2D>(true);
             _body.freezeRotation = true;
             _body.gravityScale = 0;
 

@@ -7,7 +7,9 @@ namespace Utilities.Behaviours {
     /// MonoBehaviour, регистрируемый в ядре
     /// </summary>
     internal abstract class KernelEntityBehaviour : MonoBehaviour, IKernelEntity {
-#region Dispose
+        #region Dispose
+
+        protected bool IsInitialize { get; private protected set; }
 
         private protected bool IsDisposed { get; private set; }
         private protected IKernel OriginKernel { get; private set; }

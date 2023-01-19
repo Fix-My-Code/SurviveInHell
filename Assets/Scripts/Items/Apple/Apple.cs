@@ -56,9 +56,5 @@ namespace Items.Apple
             SetColorApple();
         }
 
-        public void Dispawn()
-        {
-            Spawner.Instance.DispawnObject(gameObject, poolData);
-        }
     }
 }
