@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 859946785877203638}
   - component: {fileID: 859946785877203639}
   - component: {fileID: 859946785877203637}
-  - component: {fileID: 2688932553216764570}
   m_Layer: 5
   m_Name: MaxHealthBuff
   m_TagString: Untagged
@@ -304,22 +303,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptionsTx: {fileID: 859946785815054620}
-  value: 25
   descriptinos: ' Increases maximum health by 25'
---- !u!114 &2688932553216764570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859946785877203641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5257c326818c7b6499ec6917216a9297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyOnlyComponent: 1
-  searchInObject: 1
-  autoStart: 1
-  inspectorKernelEntities:
-  - {fileID: 859946785877203637}
+  value: 25
