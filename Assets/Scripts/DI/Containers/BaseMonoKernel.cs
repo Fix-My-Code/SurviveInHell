@@ -110,7 +110,7 @@ namespace DI.Containers {
             State = State.GetMax(KernelState.Disposed);
 
             _kernelsEntityToConstruct.Clear();
-            _kernelsEntityToConstruct = null;
+            _isEnqueued = false;
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace DI.Containers {
                 : injections.FirstOrDefault(predicate);
         }
 
-        private void OnDisable() {
+        private void OnDestroy() {
             CallDispose();
         }
     }

@@ -50,6 +50,10 @@ namespace ObjectPooller
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
 
             var element = pool.GetBusyElements().Where(x => x == poolObject).FirstOrDefault();
+            if(element == null)
+            {
+                return;
+            }
 
             element.transform.position = ObjectPoolContainer.transform.position;
             element.transform.parent = ObjectPoolContainer.transform;

@@ -53,7 +53,7 @@ namespace ObjectPooller {
 
         private GameObject CreateObject(bool isActive = false) {
             var createdObject = Object.Instantiate(this.prefab, this.container);
-            createdObject.gameObject.SetActive(isActive);
+            createdObject.SetActive(isActive);
             _pool.Add(createdObject);
             return createdObject;
         }
