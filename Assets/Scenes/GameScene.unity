@@ -460,8 +460,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2688932553216764570, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
 --- !u!1 &376039370 stripped
 GameObject:
@@ -715,6 +714,141 @@ MonoBehaviour:
   destroyOnlyComponent: 1
   gemPoolData: {fileID: 11400000, guid: 6a2687c50b13c1a4ca91a39e58d89acf, type: 2}
   applePoolData: {fileID: 11400000, guid: 5f2b211e168a9724f98fb6d0c0a96142, type: 2}
+--- !u!1001 &1059355655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8853152114893130039}
+    m_Modifications:
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 735.9708
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 94.624825
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 397.9854
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -97.31241
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203640, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203641, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_Name
+      value: TemporaryMaxHealthBuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 859946785877203641, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 859946785877203637, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+--- !u!114 &1059355656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 859946785815054620, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+  m_PrefabInstance: {fileID: 1059355655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1059355657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 859946785877203641, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+  m_PrefabInstance: {fileID: 1059355655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1059355658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059355657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d6e562d8e168c45831f01fd46b197c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  descriptionsTx: {fileID: 1059355656}
+  descriptinos: Temporary buff HP on 100 on 10 seconds
+  value: 100
+  seconds: 10
 --- !u!1 &1074897649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 859946785877203641, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
@@ -1202,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1733584052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2282,4 +2416,5 @@ MonoBehaviour:
   - {fileID: 1198923388}
   - {fileID: 1522190491}
   - {fileID: 376039370}
+  - {fileID: 1059355657}
   container: {fileID: 8853152114893130039}

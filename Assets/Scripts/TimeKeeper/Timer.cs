@@ -1,10 +1,11 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using UnityEngine;
 
 namespace TimeKeeper
 {
-    public class Timer : MonoBehaviour, ITimer
+    public class Timer : ITimer
     {
         public event Action<float> OnTimerUpdate;
 
@@ -14,7 +15,7 @@ namespace TimeKeeper
         private float time;
 
         [SerializeField]
-        private float timeDelation;
+        private float timeDelation = 1;
 
         private float Time
         {
@@ -29,9 +30,14 @@ namespace TimeKeeper
             }
         }
 
-        void Start()
+        public Timer(int seconds) 
         {
-            StartCoroutine(CoroutineTime());
+            Time = seconds;
+        }
+
+        public async UniTaskVoid StartTimer()
+        {
+            await CoroutineTime();
         }
 
         public IEnumerator CoroutineTime()

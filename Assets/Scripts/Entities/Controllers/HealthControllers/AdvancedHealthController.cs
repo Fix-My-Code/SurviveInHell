@@ -112,6 +112,7 @@ namespace Entities.Controllers
         void IImproveMaxHP.Improve(int value)
         {
             MaxHealth += value;
+            CurrentHealth += value;
         }
 
         #endregion
