@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities.Other
 {
-    [CreateAssetMenu(menuName = "Create/Tree Data")]
+    [CreateAssetMenu(menuName = "Create/Data/DestructionObjects/Tree")]
     public class TreeDataObject : DestructionDataObject
     {
         public AppleTypes appleType;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Entities.Heroes
 {
-    [CreateAssetMenu(menuName = "Create/Entity Data")]
+    [CreateAssetMenu(menuName = "Create/Data/Heroes/Cleric")]
     public class HeroDataObject : ScriptableObject
     {
         public int MaxHealth;
