@@ -1,5 +1,6 @@
 using System;
-namespace Timer
+
+namespace TimeKeeper
 {
     public interface ITimer
     {

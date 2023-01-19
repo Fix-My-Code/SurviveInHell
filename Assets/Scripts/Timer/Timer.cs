@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Timer
+namespace TimeKeeper
 {
     public class Timer : MonoBehaviour, ITimer
     {
