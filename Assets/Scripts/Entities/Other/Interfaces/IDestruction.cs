@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Entities.Enemies.Interfaces
+namespace Entities.Other.Interfaces
 {
-    interface IEnemy 
-    {   
+    interface IDestruction
+    {
         public GameObject Instance { get; }
     }
 }

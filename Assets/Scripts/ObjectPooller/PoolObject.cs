@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace ObjectPooller 
+namespace ObjectPooller
 {
-    [CreateAssetMenu(menuName = "CustomObject/PoolObject")]
+    [CreateAssetMenu(menuName = "Create/PoolObject")]
     public class PoolObject : ScriptableObject 
     {
         public GameObject prefab;

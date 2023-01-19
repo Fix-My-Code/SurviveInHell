@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db7078e6e7de34da9a364b3d950370, type: 3}
+  m_Script: {fileID: 11500000, guid: a756a7dfe7ba4ed4ebd97486bd63647a, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  MaxHealth: 30
-  AppleType: 30
+  MaxHealth: 5
+  appleType: 30

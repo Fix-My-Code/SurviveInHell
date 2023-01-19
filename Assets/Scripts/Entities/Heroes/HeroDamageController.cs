@@ -16,10 +16,17 @@ namespace Entities.Heroes
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
-            {
-                Attack(enemy.GetComponentInChildren<IDamagable>());
-            }
+            Attack(collision.gameObject.GetComponentInChildren<IDamagable>());
+
+            //if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+            //{
+            //    Attack(enemy.GetComponentInChildren<IDamagable>());
+            //}
+
+            //if (collision.gameObject.TryGetComponent<Entities.Other.Tree>(out var tree))
+            //{
+            //    Attack(tree.GetComponentInChildren<IDamagable>());
+            //}
         }
 
         public override IEnumerator Reloading()

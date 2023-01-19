@@ -33,13 +33,13 @@ namespace Entities.Enemies
                     if (Vector2.Distance(transform.position, spawn) > Vector2.Distance(transform.position, new Vector2(transform.position.x + viewRadius, transform.position.y + viewRadius)))
                     {
                         //SpawnEnemy((Vector2)spawn);
-                        Instantiate(prefab, transform.position * 2, Quaternion.identity);
+                        Instantiate(prefab, spawn, Quaternion.identity);
                     }
 
                     yield return new WaitForSeconds(0.1f);
                 }
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(5f);
             };
         }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Entities.Enemies
 {
-    [CreateAssetMenu(menuName = "Create/Enemy Data")]
+    [CreateAssetMenu(menuName = "Create/Data/Enemies/Enemy")]
     public class EnemyDataObject : ScriptableObject
     {
         public int Damage;  
