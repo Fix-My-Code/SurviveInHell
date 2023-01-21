@@ -11,7 +11,5 @@ public class BuffListObject : ScriptableObject
     [SerializeField, Header("Base Attribute Buffs")]
     internal List<BaseBuffUIItem> baseAttributeBuffItems;
 
-    [SerializeField, Header("WeaponsBuffs")]
-    internal List<WeaponBuffs> weaponsBuffsItems;
 }
 
