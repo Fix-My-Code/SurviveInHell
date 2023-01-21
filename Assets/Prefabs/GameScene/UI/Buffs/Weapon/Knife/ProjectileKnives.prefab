@@ -91,9 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440dc314033c9774885bc0530cee9fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  descriptionsTx: {fileID: 5997176678713370857}
-  descriptinos: Increase the number of throwing knives by 1
-  value: 1
+  buffList:
+  - {fileID: 4083507234613264666, guid: af84177c5d6c8204198ee6dafb016d7e, type: 3}
+  - {fileID: 2007474030405616493, guid: 5b4dc6ffa14e7004d8189a783f8eb229, type: 3}
+  - {fileID: 4470347865314079485, guid: a755a76e1690b50438be1e0896eaa45e, type: 3}
 --- !u!1 &5997176678713370839
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,15 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Buffs.Temporary
 {
     internal class TemporarySpeedBuff : TemporaryBuff
     {
-        public override void OnPointerClick(PointerEventData eventData)
-        {
-            OnTake();
-            base.OnPointerClick(eventData);
-        }
+        [SerializeField]
+        private protected int value;
 
         private protected override void Increase()
         {

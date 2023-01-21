@@ -6,15 +6,13 @@ using UnityEngine.EventSystems;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponBuffProjectileSpeed<T> : BaseBuffItem where T : IImproveProjectileWeapon
+    internal class WeaponBuffProjectileSpeed<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {
-        [SerializeField]
-        private int value;
+        private protected int value;
 
-        public override void OnPointerClick(PointerEventData eventData)
+        private protected override void Action()
         {
             _projectileThrower.ProjectileSpeed(value);
-            base.OnPointerClick(eventData);
         }
 
         [ConstructField(typeof(PlayerKernel))]

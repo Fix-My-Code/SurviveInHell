@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bf11b0ad188224da559dbf22d357c3, type: 3}
+  m_Name: Buffs
+  m_EditorClassIdentifier: 
+  baseAttributeBuffItems:
+  - {fileID: 859946785877203637, guid: 6a77f71e65fd903488c234882e7100db, type: 3}
+  - {fileID: 2949879925232194214, guid: fb6bb24485a25264b83691db1aee1326, type: 3}
+  weaponsBuffsItems: []

@@ -11,22 +11,20 @@ namespace TimeKeeper
 
         public event Action OnTimerEnd;
 
-        [SerializeField]
-        private float time;
+        private float _time;
 
-        [SerializeField]
-        private float timeDelation = 1;
+        private float _timeDelation = 1;
 
         private float Time
         {
             set
             {
-                time = value < 0 ? 0 : value;
-                OnTimerUpdate?.Invoke(time);
+                _time = value < 0 ? 0 : value;
+                OnTimerUpdate?.Invoke(_time);
             }
             get
             {
-                return time;
+                return _time;
             }
         }
 
@@ -44,9 +42,9 @@ namespace TimeKeeper
         {
             while (Time > 0)
             {
-                Time = MathF.Round(time - timeDelation, 2);
+                Time = MathF.Round(_time - _timeDelation, 2);
 
-                yield return new WaitForSeconds(timeDelation);
+                yield return new WaitForSeconds(_timeDelation);
             }
 
             OnTimerEnd?.Invoke();

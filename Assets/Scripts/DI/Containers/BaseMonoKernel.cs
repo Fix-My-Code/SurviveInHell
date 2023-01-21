@@ -12,7 +12,7 @@ namespace DI.Containers {
         [SerializeField]
         private bool searchInObject = true;
         [SerializeField]
-        private bool autoStart = true;
+        private protected bool autoStart = true;
         [SerializeField]
         private List<MonoBehaviour> inspectorKernelEntities;
 
@@ -30,7 +30,7 @@ namespace DI.Containers {
 
         private bool _isEnqueued;
 
-        private void Start() {
+        private protected virtual void Start() {
             BeforeStartInternal();
             if (autoStart) {
                 EnqueueKernel();
@@ -105,7 +105,7 @@ namespace DI.Containers {
         /// <summary>
         /// Вызывает Dispose у всех сущностей.
         /// </summary>
-        private void CallDispose() {
+        private protected void CallDispose() {
             _kernelsEntityToConstruct.ForEach(e => e.KernelDispose());
             State = State.GetMax(KernelState.Disposed);
 
@@ -169,7 +169,12 @@ namespace DI.Containers {
                 : injections.FirstOrDefault(predicate);
         }
 
-        private void OnDestroy() {
+
+        protected virtual void OnEnable() { }
+        protected virtual void OnDisable() { }
+
+
+        private protected virtual void OnDestroy() {
             CallDispose();
         }
     }

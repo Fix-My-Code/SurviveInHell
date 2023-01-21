@@ -27,6 +27,7 @@ namespace Entities.Enemies
         private void OnInitializeHandler()
         {
             Initialize(_enemyData);
+            onDead += OnDeadHeandler;
         }
 
         #region KernelEntity
@@ -40,17 +41,18 @@ namespace Entities.Enemies
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
+            OnInitializeHandler();
             IsInitialize = true;
-            onDead += OnDeadHeandler;
         }
         private async UniTaskVoid OnEnable()
         {
             await UniTask.WaitUntil(() => IsInitialize);
-            OnInitializeHandler();
+            Initialize(_enemyData);
         }
 
         protected void OnDestroy()
         {
+            IsInitialize = false;
             onDead -= OnDeadHeandler;
         }
 

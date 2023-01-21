@@ -1,20 +1,26 @@
+using Buffs;
 using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-internal class BuffMaxHealth : BaseBuffItem
+internal class BuffMaxHealth : BaseBuffUIItem
 {
     [SerializeField]
-    private int value;
+    private int value = 20;
 
-    public override void OnPointerClick(PointerEventData eventData)
+
+    private protected override void Action()
     {
         _maxHP.Improve(value);
-        _levelMenu.SetActive(false);
-        gameObject.SetActive(false);
-    } 
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        descriptinos = $"Блятский баф хп на {value}";
+        descriptionsTx.text = descriptinos;
+    }
 
     [ConstructField(typeof(PlayerKernel))]
     private IImproveMaxHP _maxHP;
