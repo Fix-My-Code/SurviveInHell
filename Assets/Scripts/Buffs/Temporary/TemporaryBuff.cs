@@ -6,17 +6,13 @@ namespace Buffs.Temporary
     internal abstract class TemporaryBuff : BaseBuffItem
     {
         [SerializeField]
-        private protected int value;
-
-        [SerializeField]
         private int seconds;
 
         private protected ITimer _timer;
 
-        public void OnTake()
+        private protected override void Action()
         {
             Increase();
-
             StartTimer();
             _timer.OnTimerEnd += Decrease;
         }

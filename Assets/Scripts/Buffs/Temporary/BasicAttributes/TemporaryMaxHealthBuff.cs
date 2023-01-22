@@ -1,17 +1,14 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
-using UnityEngine.EventSystems;
+using UnityEngine;
 
 namespace Buffs.Temporary
 {
     internal class TemporaryMaxHealthBuff : TemporaryBuff
     {
-        public override void OnPointerClick(PointerEventData eventData)
-        {
-            OnTake();
-            base.OnPointerClick(eventData);
-        }
+        [SerializeField]
+        private protected int value;
 
         private protected override void Increase()
         {

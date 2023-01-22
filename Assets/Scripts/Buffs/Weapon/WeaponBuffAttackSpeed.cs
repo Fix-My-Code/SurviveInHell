@@ -2,19 +2,16 @@ using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponBuffAttackSpeed<T> : BaseBuffItem where T : IImproveProjectileWeapon
+    internal class WeaponBuffAttackSpeed<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {
-        [SerializeField]
-        private float value;
+        private protected float value;
 
-        public override void OnPointerClick(PointerEventData eventData)
+        private protected override void Action()
         {
             _projectileThrower.AttackSpeed(value);
-            base.OnPointerClick(eventData);
         }
 
         [ConstructField(typeof(PlayerKernel))]

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5998751041149105689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5313492504688387378}
+  - component: {fileID: 5185487760024156669}
+  m_Layer: 0
+  m_Name: KnifeThrowerBuffs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5313492504688387378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998751041149105689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5185487760024156669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998751041149105689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ff8da3cea87b94a87cd4c0cd34eccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffList:
+  - {fileID: 5997176678330777729, guid: dc0e93f863b60514d94cf93fc2c31bc8, type: 3}
+  - {fileID: 4083507234613264666, guid: af84177c5d6c8204198ee6dafb016d7e, type: 3}
+  - {fileID: 2007474030405616493, guid: 5b4dc6ffa14e7004d8189a783f8eb229, type: 3}
+  - {fileID: 4470347865314079485, guid: a755a76e1690b50438be1e0896eaa45e, type: 3}
+  Name: 

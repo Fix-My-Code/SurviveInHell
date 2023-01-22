@@ -1,24 +1,23 @@
+using Buffs;
 using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-internal class BuffMaxSpeed : BaseBuffItem
+internal class BuffMaxSpeed : BaseBuffUIItem
 {
-    [SerializeField]
-    private int value;
+    private int value = 50;
 
-    private void Improve()
+    private protected override void Action()
     {
         _maxSpeed.Improve(value);
-        _levelMenu.SetActive(false);
-        gameObject.SetActive(false);
     }
-
-    public override void OnPointerClick(PointerEventData eventData)
+    protected override void OnEnable()
     {
-        Improve();
+        base.OnEnable();
+        descriptinos = $"Блятский баф скорости на {value}";
+        descriptionsTx.text = descriptinos;
     }
 
     [ConstructField(typeof(PlayerKernel))]
