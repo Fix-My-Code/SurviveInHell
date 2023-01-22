@@ -1,24 +1,19 @@
-using Buffs;
+using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using Entities.ImprovementComponents.Interfaces;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
-internal class BuffMaxSpeed : BaseBuffUIItem
+namespace Buffs
 {
-    private protected override void Action()
+    internal class BuffMaxSpeed : BaseBuffUIItem, ISpeedBuffRouting
     {
-        _maxSpeed.Improve((int)value);
-    }
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        descriptinos = $"Блятский баф скорости на {value}";
-        descriptionsTx.text = descriptinos;
-    }
+        public float Value => value;
 
-    [ConstructField(typeof(PlayerKernel))]
-    private IImproveMovementSpeed _maxSpeed;
+        private protected override void Action()
+        {
+            _buffRouter.Increase(this);
+        }
 
+        [ConstructField(typeof(PlayerKernel))]
+        private IBuffRouter _buffRouter;
+    }
 }

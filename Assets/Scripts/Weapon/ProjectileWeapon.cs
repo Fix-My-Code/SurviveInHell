@@ -29,14 +29,24 @@ namespace Weapon
             projectileSpeed += value;
         }
 
-        public void Damage(int value)
+        public void IncreaseDamage(int value)
         {
             projectileDamage += value;
         }
 
-        public void AttackSpeed(float value)
+        public void DecreaseDamage(int value)
+        {
+            projectileDamage -= value;
+        }
+
+        public void IncreaseAttackSpeed(float value)
         {
             attackSpeed += value;
+        }
+
+        public void DecreaseAttackSpeed(int value)
+        {
+            attackSpeed -= value;
         }
     }
 }

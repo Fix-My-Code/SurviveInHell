@@ -9,7 +9,7 @@ namespace Buffs.Weapon
     {
         private protected override void Action()
         {
-            _projectileThrower.AttackSpeed(value);
+            _projectileThrower.IncreaseAttackSpeed(value);
         }
 
         [ConstructField(typeof(PlayerKernel))]

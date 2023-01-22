@@ -1,14 +1,11 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.ImprovementComponents;
 using Entities.ImprovementComponents.Interfaces;
 using Entities.Heroes;
 using Entities.Interfaces;
 using Items.Apple;
-using System;
 using System.Collections;
 using UnityEngine;
-using DI.Attributes.Register;
 
 namespace Entities.Controllers
 {
@@ -124,6 +121,7 @@ namespace Entities.Controllers
             MaxHealth += value;
             CurrentHealth += value;
         }
+
         #endregion
 
         #region KernelEntity

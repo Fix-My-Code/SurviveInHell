@@ -35,6 +35,5 @@ namespace Buffs.Weapon
             onAction?.Invoke(GetBuffs());
             onAction = null;
         }
-
     }
 }
