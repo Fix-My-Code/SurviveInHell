@@ -5,12 +5,10 @@ using Utilities.Behaviours;
 
 namespace Entities.Controllers
 {
-    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView
+    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView, ICanDead
     {
         public event Action onHealthChanged;
         public event Action onDead;
-
-        private protected int j;
 
         public virtual float MaxHealth
         {
@@ -28,9 +26,8 @@ namespace Entities.Controllers
             set
             {
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
-                if (_currentHealth == 0)
+                if (_currentHealth == 0 && IsInitialize)
                 {
-                    j++;
                     onDead?.Invoke();
                 }
                 onHealthChanged?.Invoke();

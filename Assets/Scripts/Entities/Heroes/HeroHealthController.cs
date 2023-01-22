@@ -12,6 +12,7 @@ namespace Entities.Heroes
     [Register(typeof(IHealable))]
     [Register(typeof(IDamagable))]
     [Register(typeof(IImproveMaxHP))]
+    [Register(typeof(ICanDead))]
     internal class HeroHealthController : AdvancedHealthController
     {
         internal virtual void Initialize(IHeroData entity)
@@ -30,6 +31,7 @@ namespace Entities.Heroes
         private void Construct(IKernel kernel)
         {
             Initialize(_heroData);
+            IsInitialize = true;
         }
 
         #endregion
