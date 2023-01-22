@@ -15,4 +15,4 @@ MonoBehaviour:
   MaxHealth: 100
   Speed: 700
   Regeneration: 3
-  FirstLevelExperience: 10
+  FirstLevelExperience: 3

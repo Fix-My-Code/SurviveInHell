@@ -14,6 +14,6 @@ namespace Buffs
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private IBuffRouter _buffRouter;
+        private IAttributeBuffRouter _buffRouter;
     }
 }

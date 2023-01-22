@@ -17,6 +17,7 @@ namespace Entities.Other
             MaxHealth = entity.Data.MaxHealth;
             CurrentHealth = entity.Data.MaxHealth;
             onDead += OnDeadHeandler;
+            IsInitialize = true;
         }
 
         private void OnDeadHeandler()

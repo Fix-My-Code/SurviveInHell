@@ -9,14 +9,18 @@ namespace Entities.Enemies
 {
     internal class EnemyMovementController : BaseMovementController
     {
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
+
         void FixedUpdate()
         {
             if (!_isInitialize)
             {
                 return;
             }
-
-            Move(new Vector2(_player.transform.position.x - transform.position.x, _player.transform.position.y - transform.position.y).normalized);
+            var direction = new Vector2(_player.transform.position.x - transform.position.x, _player.transform.position.y - transform.position.y).normalized;
+            Move(direction);
+            spriteRenderer.flipX = isFacingRight(direction);
         }
 
         #region KernelEntity
