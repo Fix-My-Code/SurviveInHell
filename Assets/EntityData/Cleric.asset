@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e09079cf891e9440bee73c320c0f100, type: 3}
   m_Name: Cleric
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 300
   Speed: 700
   Regeneration: 3
   FirstLevelExperience: 3

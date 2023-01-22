@@ -1,6 +1,8 @@
+using UI.Interfaces;
+
 namespace Buffs.Weapon.Interfaces
 {
-    internal interface IImpoveCircleWeapon : IImproveWeapon
+    internal interface IImpoveSplashWeapon : IImproveWeapon, ILabilized
     {
         public void IncreaseRadius(float value);
     }

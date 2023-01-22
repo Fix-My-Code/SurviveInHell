@@ -1,4 +1,5 @@
 using Buffs;
+using Buffs.Interfaces;
 using Buffs.Weapon;
 using Cysharp.Threading.Tasks;
 using DI.Attributes.Construct;
@@ -8,12 +9,20 @@ using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities.Behaviours;
 using Utillites;
 
-internal class BuffTypeList : MonoBehaviour
+
+interface IWantDelete
+{
+    void Delete(WeaponBuffEnabler weaponBuffEnabler);
+}
+
+[Register(typeof(IWantDelete))]
+internal class BuffTypeList : KernelEntityBehaviour, IWantDelete
 {
     [SerializeField]
     private List<GameObject> allBuffs;
@@ -47,7 +56,6 @@ internal class BuffTypeList : MonoBehaviour
             var buff = Instantiate(_baseBuffItems[randomInt], transform);
             if (buff.TryGetComponent<WeaponBuffEnabler>(out var weaponEnabler))
             {
-
                 weaponEnabler.onAction += AddBuffsInList;
             }
             _baseBuffItems.RemoveAt(randomInt);
@@ -57,11 +65,36 @@ internal class BuffTypeList : MonoBehaviour
         _baseBuffItems.Clear();
     }
 
-    private void AddBuffsInList(List<GameObject> buffs)
+    private void AddBuffsInList(List<GameObject> buffs, WeaponBuffEnabler weaponBuffEnabler)
     {
         if (!allBuffs.Contains(buffs[0]))
         {
             allBuffs.AddRange(buffs);
         }
+        GameObject currentBuffObject = gameObject;
+
+        foreach (var buff in allBuffs)
+        {
+            if(buff.TryGetComponent<WeaponBuffEnabler>(out var currentBuff))
+            {
+                var type = currentBuff.GetType();
+                var type1 = weaponBuffEnabler.GetType();
+
+                if (type == type1)
+                {
+                    currentBuffObject = buff;
+                    break;
+                }                    
+
+            }
+        }
+
+        allBuffs.Remove(currentBuffObject);
+
+    }
+
+    public void Delete(WeaponBuffEnabler weaponBuffEnabler)
+    {
+        
     }
 }

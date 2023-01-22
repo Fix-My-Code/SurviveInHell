@@ -4,11 +4,11 @@ using DI.Kernels;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponEnabler<T> : WeaponBuffEnabler where T : IEnablerImproveWeapon
+    internal class WeaponEnabler<T> : WeaponBuffEnabler where T : IImpoveSplashWeapon
     {
         private protected override void Action()
         {
-            _enablerImproveWeapon.Enable();
+            _enablerImproveWeapon.SetActive(true);
             base.Action();
         }
 

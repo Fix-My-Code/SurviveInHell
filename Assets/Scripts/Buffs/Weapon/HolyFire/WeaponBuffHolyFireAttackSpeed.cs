@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Buffs.Weapon;
+using Buffs.Weapon.Interfaces;
 
-public class WeaponBuffHolyFireAttackSpeed : MonoBehaviour
+internal class WeaponBuffHolyFireAttackSpeed : WeaponBuffAttackSpeed<IImproveHolyFire>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
