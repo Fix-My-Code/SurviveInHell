@@ -7,28 +7,38 @@ using UnityEngine;
 
 namespace Weapon
 {
-    internal class HolyFire : MonoBehaviour, IDamageDealer
+    [Register(typeof(IImproveHolyFire))]
+    internal class HolyFire : SplashWeapon, IDamageDealer, IImproveHolyFire
     {
         private SpriteRenderer spriteRenderer;
-        private IHolyFireData holyFireData;
+
+        public override float Radius
+        {
+            get => base.Radius;
+            set
+            {
+                SpriteRendererUpdate();
+                base.Radius = value;
+            }
+        }
 
         public IEnumerator Reloading()
         {
             while (true)
             {
                 FindEnemy();
-                yield return new WaitForSeconds(holyFireData.GetAttackSpeed());
+                yield return new WaitForSeconds(attackSpeed);
             }
         }
 
         public virtual void Attack(IDamagable damagable)
         {
-            damagable.ApplyDamage(holyFireData.GetDamage());
+            damagable.ApplyDamage(damage);
         }
 
         internal void FindEnemy()
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, holyFireData.Radius, holyFireData.GetLayer());
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, layer);
             foreach (Collider2D hitCollider in hitColliders)
             {
                 if (hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
@@ -40,22 +50,19 @@ namespace Weapon
 
         private void OnEnable()
         {
-            holyFireData = GetComponentInParent<HolyFireActivator>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            holyFireData.onRadiusChanged += SpriteRendererUpdate;
             SpriteRendererUpdate();
             StartCoroutine(Reloading());
         }
 
         private void SpriteRendererUpdate()
         {
-            spriteRenderer.transform.localScale = new Vector2(holyFireData.Radius, holyFireData.Radius) * 2;
+            spriteRenderer.transform.localScale = new Vector2(Radius, Radius) * 2;
         }
 
         private void OnDisable()
         {
             StopCoroutine(Reloading());
-            holyFireData.onRadiusChanged -= SpriteRendererUpdate;
         }
 
     }

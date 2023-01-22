@@ -9,9 +9,6 @@ internal class SplashWeapon : KernelEntityBehaviour, IImpoveSplashWeapon
     public event Action onRadiusChanged;
 
     [SerializeField]
-    private GameObject splashObject;
-
-    [SerializeField]
     private protected int damage;
 
     [SerializeField]
@@ -56,26 +53,6 @@ internal class SplashWeapon : KernelEntityBehaviour, IImpoveSplashWeapon
     public virtual void DecreaseAttackSpeed(int value)
     {
         attackSpeed -= value;
-    }
-
-    public float GetAttackSpeed()
-    {
-        return attackSpeed;
-    }
-
-    public int GetDamage()
-    {
-        return damage;
-    }
-
-    public LayerMask GetLayer()
-    {
-        return layer;
-    }
-
-    public void SetActive(bool value)
-    {
-        splashObject.SetActive(value);
     }
 
     private void OnEnable()

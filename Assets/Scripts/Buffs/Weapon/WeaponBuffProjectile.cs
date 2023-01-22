@@ -4,7 +4,7 @@ using DI.Kernels;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponBuffProjectile<T> : WeaponBuffEnabler where T : IImproveProjectileWeapon
+    internal class WeaponBuffProjectile<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {
         private protected override void Action()
         {
