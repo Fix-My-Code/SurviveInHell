@@ -18,8 +18,8 @@ namespace Entities.Heroes
         public event Action<int> onLevelChanged;
 
         [SerializeField]
-        [Range(0f, 1f)]
-        private float levelScale;
+        [Range(0f, 3f)]
+        private float levelScale = 1.2f;
 
         public int Level
         { 
@@ -78,7 +78,7 @@ namespace Entities.Heroes
         {
             Level++;
 
-            MaxExperience += MaxExperience + (int)(MaxExperience * levelScale);
+            MaxExperience += (int)(MaxExperience * levelScale);
 
             onLevelChanged?.Invoke(Level);
             onExperienceChanged?.Invoke();
