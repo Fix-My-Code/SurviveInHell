@@ -10,7 +10,7 @@ namespace Entities.Heroes
 {
     [Register(typeof(IMovable))]
     [Register(typeof(IEditSpeed))] 
-    [Register(typeof(IImproveMovementSpeed))]
+    [Register(typeof(ISpeedBuff))]
     internal class HeroMovementController : AdvancedMovementController
     {
         void FixedUpdate()

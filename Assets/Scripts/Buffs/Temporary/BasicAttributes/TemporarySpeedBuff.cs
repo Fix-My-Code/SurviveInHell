@@ -1,27 +1,24 @@
+using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using Entities.ImprovementComponents.Interfaces;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Buffs.Temporary
 {
-    internal class TemporarySpeedBuff : TemporaryBuff
+    internal class TemporarySpeedBuff : TemporaryBuff, ISpeedBuffRouting
     {
-        [SerializeField]
-        private protected int value;
+        public float Value => value;
 
         private protected override void Increase()
         {
-            _movementSpeed.Improve(value);
+            _buffRouter.Increase(this);
         }
 
         private protected override void Decrease()
         {
-            _movementSpeed.Improve(-value);
+            _buffRouter.Decrease(this);
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private IImproveMovementSpeed _movementSpeed;
+        private IAttributeBuffRouter _buffRouter;
     }
 }

@@ -37,7 +37,7 @@ namespace Items.Apple
             switch (type)
             {
                 case AppleTypes.RedApple:
-                    spriteRenderer.color = Color.red;
+                    
                     break;
                 case AppleTypes.GreenApple:
                     spriteRenderer.color = Color.green;

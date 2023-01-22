@@ -16,12 +16,6 @@ namespace Entities.Enemies
 
         public EnemyDataObject Data => enemyData;
 
-        public GameObject Instance => gameObject;
-
-        [ConstructMethod]
-        private void Construct(IKernel kernel)
-        {
-            Debug.Log("υσι");
-        }   
+        public GameObject Instance => gameObject; 
     }
 }

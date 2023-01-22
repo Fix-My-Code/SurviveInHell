@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a756a7dfe7ba4ed4ebd97486bd63647a, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  MaxHealth: 5
-  appleType: 30
+  MaxHealth: 250
+  appleType: 10

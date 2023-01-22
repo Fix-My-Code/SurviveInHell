@@ -1,27 +1,19 @@
-using Buffs;
+using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using Entities.ImprovementComponents.Interfaces;
-using UnityEngine;
 
-internal class BuffMaxHealth : BaseBuffUIItem
+namespace Buffs
 {
-    [SerializeField]
-    private int value = 20;
-
-
-    private protected override void Action()
+    internal class BuffMaxHealth : BaseBuffUIItem, IHealthBuffRouting
     {
-        _maxHP.Improve(value);
-    }
+        public float Value => value;
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        descriptinos = $"Блятский баф хп на {value}";
-        descriptionsTx.text = descriptinos;
-    }
+        private protected override void Action()
+        {
+            _buffRouter.Increase(this);
+        }
 
-    [ConstructField(typeof(PlayerKernel))]
-    private IImproveMaxHP _maxHP;
+        [ConstructField(typeof(PlayerKernel))]
+        private IAttributeBuffRouter _buffRouter;
+    }
 }

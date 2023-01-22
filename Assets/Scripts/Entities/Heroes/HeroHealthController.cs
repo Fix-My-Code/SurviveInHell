@@ -11,7 +11,7 @@ namespace Entities.Heroes
     [Register(typeof(IEditHealth))]
     [Register(typeof(IHealable))]
     [Register(typeof(IDamagable))]
-    [Register(typeof(IImproveMaxHP))]
+    [Register(typeof(IHealthBuff))]
     [Register(typeof(ICanDead))]
     internal class HeroHealthController : AdvancedHealthController
     {

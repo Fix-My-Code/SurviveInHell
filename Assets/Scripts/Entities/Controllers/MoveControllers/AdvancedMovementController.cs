@@ -1,10 +1,9 @@
-using Entities.ImprovementComponents;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
 
 namespace Entities.Controllers
 {
-    internal class AdvancedMovementController : BaseMovementController, IImproveMovementSpeed
+    internal class AdvancedMovementController : BaseMovementController, ISpeedBuff
     {
         public override void Move(Vector2 direction)
         {
@@ -23,9 +22,19 @@ namespace Entities.Controllers
             _player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
         }
 
-        #region IImproveMovementSpeed
+        #region ISpeedBuff
 
-        void IImproveMovementSpeed.Improve(int value)
+        public void Increase(int value)
+        {
+            ChangeValue(value);
+        }
+
+        public void Decrease(int value)
+        {
+            ChangeValue(-value);
+        }
+
+        private void ChangeValue(int value)
         {
             Speed += value;
         }

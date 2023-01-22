@@ -40,6 +40,11 @@ namespace Entities.Controllers
             }
         }
 
+        private protected bool isFacingRight(Vector2 direction)
+        {
+            return direction.x < 0 ? false : true;
+        }
+
         #region KernelEntity
 
         [ConstructField(typeof(PlayerKernel))]

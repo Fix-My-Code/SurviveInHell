@@ -8,11 +8,9 @@ namespace Buffs.Weapon
 {
     internal class WeaponBuffProjectileSpeed<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {
-        private protected int value;
-
         private protected override void Action()
         {
-            _projectileThrower.ProjectileSpeed(value);
+            _projectileThrower.ProjectileSpeed((int)value);
         }
 
         [ConstructField(typeof(PlayerKernel))]

@@ -16,5 +16,5 @@ MonoBehaviour:
   MaxHealth: 30
   Speed: 500
   AttackSpeed: 0.5
-  GemType: 10
+  GemType: 1
   PoolData: {fileID: 11400000, guid: 7b91925f8852f1343922cf88505b4273, type: 2}
