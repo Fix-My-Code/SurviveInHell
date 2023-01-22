@@ -4,14 +4,15 @@ using DI.Kernels;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponBuffDamage<T> : BaseBuffUIItem where T : IImproveWeapon
+    internal class WeaponEnabler<T> : WeaponBuffEnabler where T : IEnablerImproveWeapon
     {
         private protected override void Action()
         {
-            _weapon.IncreaseDamage((int)value);
+            _enablerImproveWeapon.Enable();
+            base.Action();
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private T _weapon;
+        private T _enablerImproveWeapon;
     }
 }
