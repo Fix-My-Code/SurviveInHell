@@ -3,25 +3,55 @@ using DI.Attributes.Construct;
 using DI.Kernels;
 using Entities.ImprovementComponents.Interfaces;
 using UnityEngine;
+using Utilities.Behaviours;
 
-internal class BuffMaxHealth : BaseBuffUIItem
+interface IValue
 {
-    [SerializeField]
-    private int value = 20;
+    float Value { get; }
+}
 
+interface IBuff
+{
+    
+}
+interface IPropetyChange
+{
+    public void Increase(int value);
+    public void Decrease(int value);
+}
+
+interface IHealthBuffRouting : IValue
+{
+   
+}
+
+internal class BuffMaxHealth : BaseBuffUIItem, IHealthBuffRouting
+{
+    public float Value => value;
 
     private protected override void Action()
     {
-        _maxHP.Improve(value);
-    }
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        descriptinos = $"Блятский баф хп на {value}";
-        descriptionsTx.text = descriptinos;
+        _buffRouter.Increase(this);
     }
 
     [ConstructField(typeof(PlayerKernel))]
-    private IImproveMaxHP _maxHP;
+    //private IBuffRouter _buffRouter;
+
+}
+
+//[Register(typeof(IBuffRouter))]
+internal class BuffRouter : KernelEntityBehaviour
+{
+    public void Increase(IHealthBuffRouting buffHealth)
+    {
+        _maxHP.Increase((int)buffHealth.Value);
+    }
+
+    public void Decrease(IHealthBuffRouting buffHealth)
+    {
+        _maxHP.Decrease((int)buffHealth.Value);
+    }
+
+    [ConstructField(typeof(PlayerKernel))]
+    private IHealthBuff _maxHP;
 }

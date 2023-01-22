@@ -9,11 +9,9 @@ namespace Buffs.Weapon
 {
     internal class WeaponBuffProjectile<T> : WeaponBuffEnabler where T : IImproveProjectileWeapon
     {
-        private protected int value;
-
         private protected override void Action()
         {
-            _projectileThrower.ProjectileCount(value);
+            _projectileThrower.ProjectileCount((int)value);
             base.Action();
         }
 

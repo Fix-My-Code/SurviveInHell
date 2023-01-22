@@ -7,11 +7,9 @@ using UnityEngine.EventSystems;
 
 internal class BuffMaxSpeed : BaseBuffUIItem
 {
-    private int value = 50;
-
     private protected override void Action()
     {
-        _maxSpeed.Improve(value);
+        _maxSpeed.Improve((int)value);
     }
     protected override void OnEnable()
     {

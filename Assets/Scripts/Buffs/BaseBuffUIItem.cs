@@ -12,7 +12,10 @@ namespace Buffs
 {
     internal class BaseBuffUIItem : BaseBuffItem, IPointerClickHandler
     {
+        [SerializeField]
+        private protected float value;
 
+        [SerializeField]
         private protected string descriptinos;
         private protected TextMeshProUGUI descriptionsTx;
 
@@ -32,7 +35,7 @@ namespace Buffs
         private void Construct(IKernel kernel)
         {
             descriptionsTx = GetComponentInChildren<TextMeshProUGUI>(true);
-            descriptionsTx.text = descriptinos;
+            descriptionsTx.text = $"{descriptinos} {value}";
         }
 
         [ConstructField(typeof(UiSceneKernel))]

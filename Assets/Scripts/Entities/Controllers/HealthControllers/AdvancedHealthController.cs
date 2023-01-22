@@ -12,7 +12,7 @@ using DI.Attributes.Register;
 
 namespace Entities.Controllers
 {
-    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IImproveMaxHP, IHealable
+    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IHealthBuff, IHealable
     {
         public override float CurrentHealth 
         { 
@@ -107,14 +107,23 @@ namespace Entities.Controllers
 
         #endregion
 
-        #region ImproveMaxHP
+        #region IHealthBuff
 
-        void IImproveMaxHP.Improve(int value)
+        public void Increase(int value)
+        {
+            ChangeValue(value);
+        }
+
+        public void Decrease(int value)
+        {
+            ChangeValue(-value);
+        }
+
+        private void ChangeValue(int value)
         {
             MaxHealth += value;
             CurrentHealth += value;
         }
-
         #endregion
 
         #region KernelEntity

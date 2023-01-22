@@ -12,15 +12,15 @@ namespace Buffs.Temporary
 
         private protected override void Increase()
         {
-            _maxHP.Improve(value);
+            _maxHP.Increase(value);
         }
 
         private protected override void Decrease()
         {
-            _maxHP.Improve(-value);
+            _maxHP.Decrease(value);
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private IImproveMaxHP _maxHP;
+        private IHealthBuff _maxHP;
     }
 }

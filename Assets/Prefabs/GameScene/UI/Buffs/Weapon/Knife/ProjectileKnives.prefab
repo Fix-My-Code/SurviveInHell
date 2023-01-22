@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440dc314033c9774885bc0530cee9fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 1
+  descriptinos: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444
+    \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u043D\u043E\u0436\u0435\u0439
+    \u043D\u0430"
   buffList:
   - {fileID: 4083507234613264666, guid: af84177c5d6c8204198ee6dafb016d7e, type: 3}
   - {fileID: 2007474030405616493, guid: 5b4dc6ffa14e7004d8189a783f8eb229, type: 3}

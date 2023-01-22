@@ -226,9 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360ca62007af9ad4a89f3c129ff782f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  descriptionsTx: {fileID: 4470347864508785190}
-  descriptinos: Increase the speed of throwing knives by 200
   value: 200
+  descriptinos: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444
+    \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u043F\u043E\u043B\u0435\u0442\u0430
+    \u043D\u043E\u0436\u0435\u0439 \u043D\u0430"
 --- !u!1 &4470347865899370225
 GameObject:
   m_ObjectHideFlags: 0

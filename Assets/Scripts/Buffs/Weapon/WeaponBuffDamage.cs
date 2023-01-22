@@ -7,11 +7,9 @@ namespace Buffs.Weapon
 {
     internal class WeaponBuffDamage<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {
-        private protected int value;
-
         private protected override void Action()
         {
-            _projectileThrower.Damage(value);
+            _projectileThrower.Damage((int)value);
         }
 
         [ConstructField(typeof(PlayerKernel))]
