@@ -1,13 +1,9 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.ImprovementComponents.Interfaces;
-using Entities.Heroes;
-using Entities.Interfaces;
-using Items.Apple;
 using System.Collections;
 using UnityEngine;
 
-namespace Entities.Controllers
+namespace GameContext.Components
 {
     internal abstract class AdvancedHealthController : BaseHealthController, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
     {

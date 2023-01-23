@@ -1,7 +1,7 @@
 using UnityEngine;
 using Utilities.TimeKeeper;
 
-namespace Buffs.Temporary
+namespace PlayerContext.BuffSystem.Abstracts
 {
     internal abstract class TemporaryBuff : BaseBuffItem
     {

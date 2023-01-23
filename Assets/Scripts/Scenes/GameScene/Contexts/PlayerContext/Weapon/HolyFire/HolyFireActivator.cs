@@ -2,14 +2,17 @@ using DI.Attributes.Register;
 using UnityEngine;
 using Utilities.Behaviours;
 
-[Register(typeof(IHolyFireActivator))]
-internal class HolyFireActivator : KernelEntityBehaviour, IHolyFireActivator
+namespace PlayerContext.Weapon.HolyFire
 {
-    [SerializeField]
-    private GameObject holyFire;
-
-    public void SetActive(bool value)
+    [Register(typeof(IHolyFireActivator))]
+    internal class HolyFireActivator : KernelEntityBehaviour, IHolyFireActivator
     {
-        holyFire.SetActive(value);
+        [SerializeField]
+        private GameObject holyFire;
+
+        public void SetActive(bool value)
+        {
+            holyFire.SetActive(value);
+        }
     }
 }

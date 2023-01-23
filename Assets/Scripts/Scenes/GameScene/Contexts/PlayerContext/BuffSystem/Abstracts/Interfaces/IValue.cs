@@ -1,4 +1,7 @@
-internal interface IValue
+namespace PlayerContext.BuffSystem.Abstracts.Interfaces
 {
-    public float Value { get; }
+    internal interface IValue
+    {
+        public float Value { get; }
+    }
 }

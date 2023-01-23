@@ -1,16 +1,14 @@
 using DI.Attributes.Register;
-using Entities.Interfaces;
-using Entities.ImprovementComponents.Interfaces;
 using Entities.Controllers;
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using UnityEngine;
 
-namespace Entities.Heroes
+namespace PlayerContext.Controllers
 {
-    [Register(typeof(IMovable))]
-    [Register(typeof(IEditSpeed))] 
-    [Register(typeof(ISpeedBuff))]
+    [Register(typeof(IMovable),
+              typeof(IEditSpeed),
+              typeof(ISpeedBuff))]
     internal class HeroMovementController : AdvancedMovementController
     {
         void FixedUpdate()

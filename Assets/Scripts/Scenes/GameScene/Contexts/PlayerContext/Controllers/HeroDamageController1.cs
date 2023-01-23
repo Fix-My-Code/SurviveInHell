@@ -1,11 +1,9 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Enemies;
-using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-namespace Entities.Heroes
+namespace PlayerContext.Controllers
 {
     internal class HeroDamageController : DamageDealer
     {

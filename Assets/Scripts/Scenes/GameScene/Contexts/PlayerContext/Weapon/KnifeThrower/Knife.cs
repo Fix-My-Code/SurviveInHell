@@ -1,10 +1,9 @@
 using Entities.Enemies;
-using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace Weapon
+namespace PlayerContext.Weapon.KnifeThrower
 {
     internal class Knife : MonoBehaviour, IDamageDealer
     {

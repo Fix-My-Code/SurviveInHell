@@ -1,6 +1,4 @@
-using Entities.Heroes;
-
-namespace Entities.Interfaces
+namespace PlayerContext.Abstract.Interfaces
 {
     interface IHeroData 
     {

@@ -1,7 +1,7 @@
-using Buffs.Weapon;
-using Buffs.Weapon.Interfaces;
-
-internal class WeaponBuffHolyFireAttackSpeed : WeaponBuffAttackSpeed<IImproveHolyFire>
+namespace PlayerContext.BuffSystem.Weapon.HolyFire
 {
+    internal class WeaponBuffHolyFireAttackSpeed : WeaponBuffAttackSpeed<IImproveHolyFire>
+    {
 
+    }
 }

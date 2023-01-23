@@ -1,6 +1,4 @@
-using Buffs.Weapon.Interfaces;
-
-namespace Buffs.Weapon.Knife
+namespace PlayerContext.BuffSystem.Weapon.KnifeThrower
 {
     internal class WeaponBuffKnifeProjectileSpeed : WeaponBuffProjectileSpeed<IImproveKnifeThrower>
     {

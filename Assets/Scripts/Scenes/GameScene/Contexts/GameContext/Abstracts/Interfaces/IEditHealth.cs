@@ -1,6 +1,6 @@
 using System;
 
-namespace Entities.Interfaces
+namespace GameContext.Abstracts.Interfaces
 {
     internal interface IEditHealth
     {

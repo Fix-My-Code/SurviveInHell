@@ -1,6 +1,4 @@
-using UI.Interfaces;
-
-namespace Buffs.Weapon.Interfaces
+namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
     internal interface IImpoveSplashWeapon : IImproveWeapon
     {

@@ -1,8 +1,7 @@
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
 
-namespace Buffs.Weapon
+namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
     internal class WeaponBuffAttackSpeed<T> : BaseBuffUIItem where T : IImproveWeapon
     {

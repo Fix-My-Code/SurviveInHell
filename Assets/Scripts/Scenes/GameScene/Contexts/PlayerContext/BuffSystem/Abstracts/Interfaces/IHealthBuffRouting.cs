@@ -1,4 +1,4 @@
-namespace Buffs.Interfaces
+namespace PlayerContext.BuffSystem.Abstracts.Interfaces
 {
     internal interface IHealthBuffRouting : IValue
     {

@@ -1,10 +1,7 @@
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace Buffs.Weapon
+namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
     internal class WeaponBuffProjectileSpeed<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
     {

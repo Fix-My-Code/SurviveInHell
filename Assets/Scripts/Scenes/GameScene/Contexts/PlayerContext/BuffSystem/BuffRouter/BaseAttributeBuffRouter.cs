@@ -1,12 +1,9 @@
-using Buffs.Interfaces;
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Kernels;
-using Entities.ImprovementComponents.Interfaces;
 using Utilities.Behaviours;
 
-namespace Buffs
+namespace PlayerContext.BuffSystem.BuffRouter
 {
     [Register(typeof(IAttributeBuffRouter))]
     internal class BaseAttributeBuffRouter : KernelEntityBehaviour, IAttributeBuffRouter

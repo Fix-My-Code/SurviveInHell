@@ -1,6 +1,7 @@
-using Buffs.Weapon.Interfaces;
-
-internal class WeaponBuffHolyFireRadius : WeaponBuffRadius<IImproveHolyFire>
+namespace PlayerContext.BuffSystem.Weapon.HolyFire
 {
+    internal class WeaponBuffHolyFireRadius : WeaponBuffRadius<IImproveHolyFire>
+    {
 
+    }
 }

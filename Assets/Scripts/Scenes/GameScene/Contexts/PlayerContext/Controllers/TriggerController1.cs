@@ -6,7 +6,7 @@ using UnityEngine;
 using Utilities.Behaviours;
 using Utilities.ObjectPooller;
 
-namespace Entities.Heroes
+namespace PlayerContext.Controllers
 {
     [RequireComponent(typeof(Collider2D))]
     [Register]
