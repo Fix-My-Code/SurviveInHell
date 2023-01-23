@@ -1,18 +1,17 @@
 using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using UnityEngine;
 
 namespace Buffs.Weapon
 {
-    internal class WeaponBuffDamage<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
+    internal class WeaponBuffDamage<T> : BaseBuffUIItem where T : IImproveWeapon
     {
         private protected override void Action()
         {
-            _projectileThrower.IncreaseDamage((int)value);
+            _weapon.IncreaseDamage((int)value);
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private T _projectileThrower;
+        private T _weapon;
     }
 }

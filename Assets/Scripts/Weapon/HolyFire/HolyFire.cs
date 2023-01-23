@@ -1,71 +1,69 @@
+using Buffs.Weapon.Interfaces;
+using DI.Attributes.Register;
 using Entities.Enemies;
-using Entities.Heroes;
 using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-
-public class HolyFire : MonoBehaviour
+namespace Weapon
 {
-    [SerializeField]
-    private int damage;
-
-    [SerializeField]
-    private float radius;
-
-    [SerializeField]
-    private float attackSpeed;
-
-    [SerializeField]
-    private SpriteRenderer sprite;
-
-    [SerializeField]
-    private LayerMask layer;
-
-    private float _radius;
-
-    public float Radius
+    [Register(typeof(IImproveHolyFire))]
+    internal class HolyFire : SplashWeapon, IDamageDealer, IImproveHolyFire
     {
-        get
+        private SpriteRenderer spriteRenderer;
+
+        public override float Radius
         {
-            return _radius;
+            get => base.Radius;
+            set
+            {
+                SpriteRendererUpdate();
+                base.Radius = value;
+            }
         }
-        set
+
+        public IEnumerator Reloading()
         {
-            _radius = value;
-            sprite.transform.localScale = new Vector2(_radius, _radius) * 2;
+            while (true)
+            {
+                FindEnemy();
+                yield return new WaitForSeconds(attackSpeed);
+            }
         }
-    }
 
-
-    internal void Attack()
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, layer);
-        foreach (Collider2D hitCollider in hitColliders)
+        public virtual void Attack(IDamagable damagable)
         {
-            if(hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
-                enemy.GetComponentInChildren<IDamagable>().ApplyDamage(damage);
+            damagable.ApplyDamage(damage);
         }
-    }
 
-    private void OnEnable()
-    {
-        Radius = radius;
-        StartCoroutine(Reloading());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(Reloading());
-    }
-
-    private IEnumerator Reloading()
-    {
-        while (true)
+        internal void FindEnemy()
         {
-            Attack();
-            yield return new WaitForSeconds(attackSpeed);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, layer);
+            foreach (Collider2D hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
+                {
+                    Attack(enemy.GetComponentInChildren<IDamagable>());
+                }
+            }
         }
-    }
 
+        private void OnEnable()
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            SpriteRendererUpdate();
+            StartCoroutine(Reloading());
+        }
+
+        private void SpriteRendererUpdate()
+        {
+            spriteRenderer.transform.localScale = new Vector2(Radius, Radius) * 2;
+        }
+
+        private void OnDisable()
+        {
+            StopCoroutine(Reloading());
+        }
+
+    }
 }
