@@ -21,12 +21,12 @@ namespace Buffs
             _healthBuff.DecreaseHealth((int)buff.Value);
         }
 
-        public void Increase(IRegenerateBuffRouting buff)
+        public void Increase(IRegenerationSpeedBuffRouting buff)
         {
             _regenerationSpeedBuff.IncreaseRegenerationSpeed((int)buff.Value);
         }
 
-        public void Decrease(IRegenerateBuffRouting buff)
+        public void Decrease(IRegenerationSpeedBuffRouting buff)
         {
             _regenerationSpeedBuff.DecreaseRegenerationSpeed((int)buff.Value);
         }

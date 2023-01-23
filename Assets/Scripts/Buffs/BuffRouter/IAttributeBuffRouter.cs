@@ -8,9 +8,9 @@ namespace Buffs
 
         public void Decrease(IHealthBuffRouting value);
 
-        public void Increase(IRegenerateBuffRouting buff);
+        public void Increase(IRegenerationSpeedBuffRouting buff);
 
-        public void Decrease(IRegenerateBuffRouting buff);
+        public void Decrease(IRegenerationSpeedBuffRouting buff);
 
         public void Increase(ISpeedBuffRouting value);
 

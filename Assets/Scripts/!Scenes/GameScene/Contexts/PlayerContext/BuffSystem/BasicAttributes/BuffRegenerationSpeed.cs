@@ -4,7 +4,7 @@ using DI.Kernels;
 
 namespace Buffs
 {
-    internal class BuffRegenerationSpeed : BaseBuffUIItem, IRegenerateBuffRouting
+    internal class BuffRegenerationSpeed : BaseBuffUIItem, IRegenerationSpeedBuffRouting
     {
         public float Value => value;
 
