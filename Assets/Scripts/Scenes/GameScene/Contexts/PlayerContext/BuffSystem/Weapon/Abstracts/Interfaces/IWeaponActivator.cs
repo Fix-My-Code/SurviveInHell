@@ -1,4 +1,4 @@
-using UI.Interfaces;
+using UIContext.Abstracts.Interfaces;
 
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {

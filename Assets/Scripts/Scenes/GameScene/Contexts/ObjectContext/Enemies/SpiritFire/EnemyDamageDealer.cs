@@ -1,8 +1,9 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Heroes;
-using Entities.Interfaces;
+using GameContext.Abstracts;
+using GameContext.Abstracts.Interfaces;
 using ObjectContext.Enemies.Abstracts.Interfaces;
+using PlayerContext.Abstract;
 using System.Collections;
 using UnityEngine;
 

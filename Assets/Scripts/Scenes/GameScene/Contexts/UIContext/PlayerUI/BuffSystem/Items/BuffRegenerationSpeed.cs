@@ -1,6 +1,8 @@
-using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.BuffRouter;
+using UIContext.Abstracts;
 
 namespace UIContext.PlayerUI.BuffSystem.Items
 {

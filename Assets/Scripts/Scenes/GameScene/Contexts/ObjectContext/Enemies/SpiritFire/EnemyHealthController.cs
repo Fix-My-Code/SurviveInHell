@@ -1,17 +1,17 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Controllers;
-using Entities.Interfaces;
 using Cysharp.Threading.Tasks;
 using Utilities.Emergence;
 using Utilities.ObjectPooller;
 using ObjectContext.Enemies.Abstracts.Interfaces;
+using GameContext.Abstracts.Interfaces;
+using GameContext.Components;
 
 namespace ObjectContext.Enemies
 {
     [Register(typeof(IHealthView))]
-    internal class EnemyHealthController : BaseHealthController
+    internal class EnemyHealthController : BaseHealthComponent
     {
         internal virtual void Initialize(IEnemyData entity)
         {

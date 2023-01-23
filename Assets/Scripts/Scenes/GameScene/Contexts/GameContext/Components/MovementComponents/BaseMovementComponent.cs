@@ -2,13 +2,13 @@ using UnityEngine;
 using Utilities.Behaviours;
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Interfaces;
-using Entities.Heroes;
 using DI.Kernels;
+using GameContext.Abstracts.Interfaces;
+using PlayerContext.Abstract;
 
-namespace Entities.Controllers
+namespace GameContext.Components
 {
-    internal class BaseMovementController : KernelEntityBehaviour, IEditSpeed, IMovable
+    internal class BaseMovementComponent : KernelEntityBehaviour, IEditSpeed, IMovable
     {
         public virtual float Speed 
         { 

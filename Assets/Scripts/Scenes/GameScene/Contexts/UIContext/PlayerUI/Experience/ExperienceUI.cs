@@ -1,10 +1,10 @@
 using DI.Attributes.Construct;
-using Entities.Interfaces;
 using TMPro;
 using UnityEngine;
 using Utilities.Behaviours;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
+using PlayerContext.Abstract.Interfaces;
 
 namespace UIContext.PlayerUI.Experience
 {

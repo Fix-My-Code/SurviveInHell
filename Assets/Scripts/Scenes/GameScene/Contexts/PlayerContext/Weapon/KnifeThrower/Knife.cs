@@ -1,4 +1,5 @@
-using Entities.Enemies;
+using GameContext.Abstracts.Interfaces;
+using ObjectContext.Enemies;
 using System.Collections;
 using UnityEngine;
 using Utilities.ObjectPooller;

@@ -1,4 +1,6 @@
 using DI.Attributes.Register;
+using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
+using PlayerContext.Weapon.Abstracts;
 using System.Collections;
 using UnityEngine;
 using Utilities.ObjectPooller;

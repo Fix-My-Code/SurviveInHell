@@ -1,11 +1,15 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
+using GameContext.Abstracts.Interfaces;
+using ObjectContext.Apple;
+using PlayerContext.Abstract.Interfaces;
+using PlayerContext.Controllers;
 using System.Collections;
 using UnityEngine;
 
 namespace GameContext.Components
 {
-    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
+    internal abstract class AdvancedHealthComponent : BaseHealthComponent, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
     {
         public override float CurrentHealth 
         { 

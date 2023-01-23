@@ -1,6 +1,8 @@
-using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
+using PlayerContext.BuffSystem.Abstracts;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.BuffRouter;
 
 namespace ObjectContext.Food.Buffs.Temporary.BasicAttributes
 {

@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using Entities.Interfaces;
+using PlayerContext.Abstract.Interfaces;
 using TMPro;
 using UIContext.Abstracts;
 using UnityEngine;

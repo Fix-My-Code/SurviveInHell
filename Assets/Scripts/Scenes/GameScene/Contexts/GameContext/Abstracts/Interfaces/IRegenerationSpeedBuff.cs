@@ -1,3 +1,5 @@
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
+
 namespace GameContext.Abstracts.Interfaces
 {
     interface IRegenerationSpeedBuff : IBuff

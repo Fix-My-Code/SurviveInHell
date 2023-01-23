@@ -1,6 +1,6 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Interfaces;
+using GameContext.Abstracts.Interfaces;
 using UnityEngine.UI;
 
 namespace UIContext.Abstracts.Interfaces

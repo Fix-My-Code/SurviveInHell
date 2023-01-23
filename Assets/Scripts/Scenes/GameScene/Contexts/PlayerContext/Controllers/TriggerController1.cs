@@ -1,6 +1,6 @@
 using DI.Attributes.Register;
-using Items.Apple;
-using Items.Gem;
+using ObjectContext.Apple;
+using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;

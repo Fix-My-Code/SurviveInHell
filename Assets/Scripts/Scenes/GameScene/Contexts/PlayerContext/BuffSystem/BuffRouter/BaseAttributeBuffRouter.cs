@@ -1,6 +1,8 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Kernels;
+using GameContext.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using Utilities.Behaviours;
 
 namespace PlayerContext.BuffSystem.BuffRouter
@@ -37,7 +39,6 @@ namespace PlayerContext.BuffSystem.BuffRouter
         {
             _speedBuff.Decrease((int)buff.Value);
         }
-
 
         #region KernelEntity   
 

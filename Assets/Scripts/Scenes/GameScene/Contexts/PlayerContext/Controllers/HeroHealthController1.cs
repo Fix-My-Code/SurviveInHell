@@ -1,6 +1,10 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
+using GameContext.Abstracts.Interfaces;
+using GameContext.Components;
+using PlayerContext.Abstract.Interfaces;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 
 namespace PlayerContext.Controllers
 {
@@ -11,7 +15,7 @@ namespace PlayerContext.Controllers
               typeof(IHealthBuff),
               typeof(IRegenerationSpeedBuff),
               typeof(ICanDead))]
-    internal class HeroHealthController : AdvancedHealthController
+    internal class HeroHealthController : AdvancedHealthComponent
     {
         internal virtual void Initialize(IHeroData entity)
         {

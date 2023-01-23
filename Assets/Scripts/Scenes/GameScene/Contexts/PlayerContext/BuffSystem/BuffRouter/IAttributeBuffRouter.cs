@@ -1,3 +1,5 @@
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
+
 namespace PlayerContext.BuffSystem.BuffRouter
 {
     internal interface IAttributeBuffRouter

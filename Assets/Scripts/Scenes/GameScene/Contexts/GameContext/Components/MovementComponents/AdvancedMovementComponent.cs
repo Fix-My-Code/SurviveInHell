@@ -1,9 +1,9 @@
-using Entities.ImprovementComponents.Interfaces;
+using GameContext.Abstracts.Interfaces;
 using UnityEngine;
 
-namespace Entities.Controllers
+namespace GameContext.Components
 {
-    internal class AdvancedMovementController : BaseMovementController, ISpeedBuff
+    internal class AdvancedMovementComponent : BaseMovementComponent, ISpeedBuff
     {
         public override void Move(Vector2 direction)
         {

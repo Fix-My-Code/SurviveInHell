@@ -1,15 +1,17 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Controllers;
-using Entities.Interfaces;
+using GameContext.Abstracts.Interfaces;
+using GameContext.Components;
+using ObjectContext.Enemies.Abstracts.Interfaces;
+using ObjectContext.Tree.Abstarts.Interfaces;
 using Utilities.Emergence;
 
 namespace ObjectContext.Tree.Abstarts
 {
-    [Register(typeof(IHealthView))]
-    [Register(typeof(IDamagable))]
-    internal class TreeHealthController : BaseHealthController
+    [Register(typeof(IHealthView),
+              typeof(IDamagable))]
+    internal class TreeHealthController : BaseHealthComponent
     {
         internal virtual void Initialize(ITreeDataObject entity)
         {

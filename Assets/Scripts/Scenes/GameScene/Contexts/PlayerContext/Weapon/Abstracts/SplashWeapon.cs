@@ -1,10 +1,10 @@
+using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
 namespace PlayerContext.Weapon.Abstracts
 {
-
     internal class SplashWeapon : KernelEntityBehaviour, IImpoveSplashWeapon
     {
         public event Action onRadiusChanged;

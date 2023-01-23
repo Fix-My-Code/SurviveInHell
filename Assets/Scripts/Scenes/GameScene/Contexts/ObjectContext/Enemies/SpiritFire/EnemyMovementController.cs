@@ -1,12 +1,12 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Controllers;
 using UnityEngine;
 using ObjectContext.Enemies.Abstracts.Interfaces;
+using GameContext.Components;
 
 namespace ObjectContext.Enemies
 {
-    internal class EnemyMovementController : BaseMovementController
+    internal class EnemyMovementController : BaseMovementComponent
     {
         [SerializeField]
         private SpriteRenderer spriteRenderer;

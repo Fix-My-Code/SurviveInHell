@@ -1,10 +1,12 @@
+using GameContext.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
 namespace GameContext.Components
 {
-    internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView, ICanDead
+    internal abstract class BaseHealthComponent : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView, ICanDead
     {
         public event Action onHealthChanged;
         public event Action onDead;

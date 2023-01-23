@@ -1,5 +1,5 @@
 using DI.Attributes.Register;
-using Manager.Interfaces;
+using LogicSceneContext.Managers.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 

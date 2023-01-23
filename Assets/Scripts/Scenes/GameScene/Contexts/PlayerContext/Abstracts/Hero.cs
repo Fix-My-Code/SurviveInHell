@@ -1,6 +1,5 @@
-using DI.Attributes.Construct;
 using DI.Attributes.Register;
-using DI.Interfaces.KernelInterfaces;
+using PlayerContext.Abstract.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -14,6 +13,5 @@ namespace PlayerContext.Abstract
         private HeroDataObject entityData;
 
         public HeroDataObject Data => entityData;
-
     }
 }

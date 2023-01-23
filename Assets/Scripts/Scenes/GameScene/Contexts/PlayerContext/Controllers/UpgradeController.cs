@@ -1,6 +1,8 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
+using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
+using PlayerContext.Abstract.Interfaces;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;

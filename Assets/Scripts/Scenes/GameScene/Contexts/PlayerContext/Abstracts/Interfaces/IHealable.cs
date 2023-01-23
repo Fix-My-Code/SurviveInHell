@@ -1,3 +1,5 @@
+using ObjectContext.Apple;
+
 namespace PlayerContext.Abstract.Interfaces
 {
     interface IHealable

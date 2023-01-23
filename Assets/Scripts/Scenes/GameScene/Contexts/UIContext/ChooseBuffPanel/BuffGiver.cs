@@ -1,5 +1,5 @@
-using Buffs.Weapon;
 using DI.Extensions;
+using PlayerContext.BuffSystem.Weapon.Abstracts;
 using System.Collections.Generic;
 using UIContext.Abstracts;
 using UnityEngine;
@@ -77,7 +77,6 @@ namespace UIContext.ChooseBuffPanel
             }
 
             allBuffs.Remove(currentBuffObject);
-
         }
 
     }

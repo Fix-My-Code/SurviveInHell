@@ -1,8 +1,8 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using Entities.Interfaces;
 using LogicSceneContext.Managers.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -12,7 +12,6 @@ namespace UIContext.GameOver
     {
         [SerializeField]
         private GameObject panel;
-
 
         [ConstructField(typeof(PlayerKernel))]
         private ICanDead _isDead;

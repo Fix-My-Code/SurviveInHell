@@ -1,5 +1,8 @@
 using DI.Attributes.Register;
-using Entities.Enemies;
+using GameContext.Abstracts.Interfaces;
+using ObjectContext.Enemies;
+using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
+using PlayerContext.Weapon.Abstracts;
 using System.Collections;
 using UnityEngine;
 
@@ -62,6 +65,5 @@ namespace PlayerContext.Weapon.HolyFire
         {
             StopCoroutine(Reloading());
         }
-
     }
 }
