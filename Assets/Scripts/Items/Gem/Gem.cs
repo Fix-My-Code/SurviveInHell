@@ -1,6 +1,6 @@
 using Enums;
-using ObjectPooller;
 using UnityEngine;
+using Utilities.ObjectPooller;
 
 namespace Items.Gem
 {

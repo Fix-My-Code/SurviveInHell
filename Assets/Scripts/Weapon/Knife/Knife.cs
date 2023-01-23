@@ -1,8 +1,8 @@
 using Entities.Enemies;
 using Entities.Interfaces;
-using ObjectPooller;
 using System.Collections;
 using UnityEngine;
+using Utilities.ObjectPooller;
 
 namespace Weapon
 {

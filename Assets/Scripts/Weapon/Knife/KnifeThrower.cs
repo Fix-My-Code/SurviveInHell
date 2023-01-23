@@ -1,8 +1,8 @@
 using Buffs.Weapon.Interfaces;
 using DI.Attributes.Register;
-using ObjectPooller;
 using System.Collections;
 using UnityEngine;
+using Utilities.ObjectPooller;
 
 namespace Weapon
 {

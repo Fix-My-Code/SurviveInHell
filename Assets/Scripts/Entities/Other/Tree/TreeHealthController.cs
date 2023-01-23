@@ -5,6 +5,7 @@ using Entities.Controllers;
 using Entities.Enemies.Interfaces;
 using Entities.Interfaces;
 using Entities.Other.Interfaces;
+using Utilities.Emergence;
 
 namespace Entities.Other
 {
