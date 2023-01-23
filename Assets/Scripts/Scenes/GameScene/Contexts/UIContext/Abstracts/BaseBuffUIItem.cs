@@ -31,7 +31,7 @@ namespace UIContext.Abstracts
         private void Construct(IKernel kernel)
         {
             descriptionsTx = GetComponentInChildren<TextMeshProUGUI>(true);
-            descriptionsTx.text = value == 0 ? $"{descriptins} {value}" : descriptins;
+            descriptionsTx.text = value == 0 ? descriptins : $"{descriptins} {value}";
         }
 
         [ConstructField(typeof(UiSceneKernel))]
