@@ -2,7 +2,8 @@
 using System;
 using UnityEngine;
 
-namespace UI.ScrollContainer {
+namespace UIContext.PlayerUI.ScrollContainer
+{
     /// <summary>
     /// Базовый элемент контейнера с прокруткой.
     /// </summary>

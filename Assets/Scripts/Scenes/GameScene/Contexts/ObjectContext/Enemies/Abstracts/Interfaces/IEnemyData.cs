@@ -1,7 +1,9 @@
 using Entities.Enemies;
-using Entities.Interfaces;
 
-interface IEnemyData
+namespace ObjectContext.Enemies.Abstracts.Interfaces
 {
-    public EnemyDataObject Data { get; }
+    interface IEnemyData
+    {
+        public EnemyDataObject Data { get; }
+    }
 }

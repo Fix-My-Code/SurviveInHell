@@ -1,14 +1,11 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using System;
-using System.Collections.Generic;
 using TMPro;
-using UI.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Buffs
+namespace UIContext.Abstracts
 {
     internal class BaseBuffUIItem : BaseBuffItem, IPointerClickHandler
     {

@@ -1,14 +1,13 @@
-using DI.Attributes.Construct;
 using DI.Attributes.Register;
-using DI.Interfaces.KernelInterfaces;
-using Entities.Enemies.Interfaces;
+using ObjectContext.Enemies.Abstracts;
+using ObjectContext.Enemies.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Enemies
+namespace ObjectContext.Enemies
 {
-    [Register(typeof(IEnemyData))]
-    [Register(typeof(IEnemy))]
+    [Register(typeof(IEnemyData),
+              typeof(IEnemy))]
     internal class Enemy : KernelEntityBehaviour, IEnemyData, IEnemy
     {
         [SerializeField]

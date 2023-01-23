@@ -1,4 +1,4 @@
-namespace Manager.Interfaces
+namespace LogicSceneContext.Managers.Abstracts.Interfaces
 {
     interface IPauseManager
     {

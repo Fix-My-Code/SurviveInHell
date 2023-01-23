@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.ScrollContainer  {
-
+namespace UIContext.PlayerUI.ScrollContainer
+{
     internal class ScrollContainerComposite : MonoBehaviour {
         [Header("Item")]
         [SerializeField] private GameObject itemPrefab;

@@ -3,10 +3,11 @@ using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using Entities.Interfaces;
 using TMPro;
+using UIContext.Abstracts;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Experience
+namespace UIContext.PlayerUI.Experience
 {
     internal class ExperienceBar : Bar
     {

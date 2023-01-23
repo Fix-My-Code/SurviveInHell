@@ -1,6 +1,6 @@
 using System;
 
-namespace UI.Interfaces
+namespace UIContext.Abstracts.Interfaces
 {
     interface IPanelClickCallBack
     {

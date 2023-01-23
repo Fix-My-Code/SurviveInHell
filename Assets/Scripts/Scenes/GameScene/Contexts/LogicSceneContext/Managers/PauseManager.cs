@@ -3,7 +3,7 @@ using Manager.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Manager
+namespace LogicSceneContext.Managers
 {
     [Register(typeof(IPauseManager))]
     internal class PauseManager : KernelEntityBehaviour, IPauseManager

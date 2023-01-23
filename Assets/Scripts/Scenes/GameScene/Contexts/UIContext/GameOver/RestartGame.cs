@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class RestartGame : MonoBehaviour, IPointerClickHandler
+namespace UIContext.GameOver
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public class RestartGame : MonoBehaviour, IPointerClickHandler
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

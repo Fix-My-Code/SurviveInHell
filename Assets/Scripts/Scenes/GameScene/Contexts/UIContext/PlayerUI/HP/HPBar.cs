@@ -1,13 +1,13 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using Entities.Controllers;
 using Entities.Interfaces;
 using TMPro;
+using UIContext.Abstracts;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.HP
+namespace UIContext.PlayerUI.HP
 {
     internal class HPBar : Bar
     {

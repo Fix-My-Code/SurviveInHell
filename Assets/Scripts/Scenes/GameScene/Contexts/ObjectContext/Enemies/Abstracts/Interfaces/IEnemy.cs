@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Entities.Enemies.Interfaces
+namespace ObjectContext.Enemies.Abstracts.Interfaces
 {
     interface IEnemy 
     {   

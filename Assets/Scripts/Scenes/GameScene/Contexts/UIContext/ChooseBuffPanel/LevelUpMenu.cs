@@ -3,12 +3,11 @@ using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using Entities.Interfaces;
-using Manager.Interfaces;
-using UI.Interfaces;
+using UIContext.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace UI
+namespace UIContext.ChooseBuffPanel
 {
     [Register(typeof(ILabilized))]
     internal class LevelUpMenu : KernelEntityBehaviour, ILabilized

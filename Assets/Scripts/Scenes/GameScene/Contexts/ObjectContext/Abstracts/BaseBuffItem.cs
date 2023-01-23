@@ -1,7 +1,7 @@
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Buffs
+namespace ObjectContext.Abstracts
 {
     internal abstract class BaseBuffItem : KernelEntityBehaviour
     {

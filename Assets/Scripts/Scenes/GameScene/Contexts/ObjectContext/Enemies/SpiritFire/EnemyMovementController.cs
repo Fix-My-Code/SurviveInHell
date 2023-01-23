@@ -1,18 +1,17 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Interfaces;
 using Entities.Controllers;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using ObjectContext.Enemies.Abstracts.Interfaces;
 
-namespace Entities.Enemies
+namespace ObjectContext.Enemies
 {
     internal class EnemyMovementController : BaseMovementController
     {
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (!_isInitialize)
             {

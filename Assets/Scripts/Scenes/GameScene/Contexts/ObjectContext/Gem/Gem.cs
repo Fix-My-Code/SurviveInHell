@@ -2,7 +2,7 @@ using Enums;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace Items.Gem
+namespace ObjectContext.Food.Buffs.Temporary.BasicAttributes
 {
     [RequireComponent(typeof(Collider2D))]
     internal class Gem : MonoBehaviour

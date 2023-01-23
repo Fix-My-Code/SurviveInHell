@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Entities.Other.Interfaces
+namespace ObjectContext.Abstracts.Interfaces
 {
     interface IDestruction
     {

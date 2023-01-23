@@ -2,7 +2,8 @@
 using System;
 using UnityEngine.EventSystems;
 
-namespace UI.ScrollContainer {
+namespace UIContext.PlayerUI.ScrollContainer
+{
     /// <summary>
     /// Элемент контейнера с прокруткой, возвращающий тот же тип, что принимает.
     /// Обрабатывает клик.

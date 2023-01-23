@@ -1,7 +1,7 @@
 using Enums;
 using UnityEngine;
 
-namespace Entities.Other
+namespace ObjectContext.Tree.Abstarts
 {
     [CreateAssetMenu(menuName = "Create/Data/DestructionObjects/Tree")]
     public class TreeDataObject : DestructionDataObject

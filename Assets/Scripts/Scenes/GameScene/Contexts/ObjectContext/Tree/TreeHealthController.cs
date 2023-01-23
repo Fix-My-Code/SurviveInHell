@@ -2,12 +2,10 @@ using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Controllers;
-using Entities.Enemies.Interfaces;
 using Entities.Interfaces;
-using Entities.Other.Interfaces;
 using Utilities.Emergence;
 
-namespace Entities.Other
+namespace ObjectContext.Tree.Abstarts
 {
     [Register(typeof(IHealthView))]
     [Register(typeof(IDamagable))]

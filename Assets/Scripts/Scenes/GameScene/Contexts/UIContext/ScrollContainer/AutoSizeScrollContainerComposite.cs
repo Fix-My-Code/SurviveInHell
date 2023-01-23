@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UI.ScrollContainer {
+namespace UIContext.PlayerUI.ScrollContainer {
     internal sealed class AutoSizeScrollContainerComposite : ScrollContainerComposite {
         
         [Space]

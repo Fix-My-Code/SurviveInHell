@@ -2,7 +2,7 @@ using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
 
-namespace Buffs
+namespace UIContext.PlayerUI.BuffSystem.Items
 {
     internal class BuffMaxSpeed : BaseBuffUIItem, ISpeedBuffRouting
     {

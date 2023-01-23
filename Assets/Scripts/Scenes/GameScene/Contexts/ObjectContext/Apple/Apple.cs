@@ -2,7 +2,7 @@ using Enums;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace Items.Apple
+namespace ObjectContext.Apple
 {
     [RequireComponent(typeof(Collider2D))]
     internal class Apple : MonoBehaviour

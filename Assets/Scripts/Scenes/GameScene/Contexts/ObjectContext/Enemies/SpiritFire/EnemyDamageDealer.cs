@@ -2,10 +2,11 @@ using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using Entities.Heroes;
 using Entities.Interfaces;
+using ObjectContext.Enemies.Abstracts.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-namespace Entities.Enemies
+namespace ObjectContext.Enemies
 {
     internal class EnemyDamageDealer : DamageDealer
     {

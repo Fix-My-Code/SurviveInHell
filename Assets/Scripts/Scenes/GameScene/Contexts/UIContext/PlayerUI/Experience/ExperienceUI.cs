@@ -6,7 +6,7 @@ using Utilities.Behaviours;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 
-namespace UI.Experience
+namespace UIContext.PlayerUI.Experience
 {
     internal class ExperienceUI : KernelEntityBehaviour
     {

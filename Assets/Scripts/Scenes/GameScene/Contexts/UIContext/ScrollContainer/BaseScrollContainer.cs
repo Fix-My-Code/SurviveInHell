@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace UI.ScrollContainer {
+namespace UIContext.PlayerUI.ScrollContainer
+{
     /// <summary>
     /// Базовый контейнер с прокруткой.
     /// </summary>

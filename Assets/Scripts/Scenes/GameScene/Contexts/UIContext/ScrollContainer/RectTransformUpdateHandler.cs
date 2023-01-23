@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UI.ScrollContainer {
-
+namespace UIContext.PlayerUI.ScrollContainer
+{
     [RequireComponent(typeof(RectTransform))]
     internal sealed class RectTransformUpdateHandler : MonoBehaviour {
         internal event Action onSizeUpdated;

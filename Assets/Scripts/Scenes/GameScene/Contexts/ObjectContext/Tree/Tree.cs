@@ -1,10 +1,8 @@
 using DI.Attributes.Register;
-using Entities.Enemies.Interfaces;
-using Entities.Other.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Other
+namespace ObjectContext.Tree
 {
     [Register(typeof(ITreeDataObject))]
     [Register(typeof(IEnemy))]

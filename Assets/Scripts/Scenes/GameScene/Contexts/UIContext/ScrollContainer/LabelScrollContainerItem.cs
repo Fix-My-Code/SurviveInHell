@@ -2,9 +2,9 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace UI.ScrollContainer {
+namespace UIContext.PlayerUI.ScrollContainer
+{
     /// <summary>
     /// Элемент конейнера с прокруткой.
     /// Принимает, возвращает, отображает строку.

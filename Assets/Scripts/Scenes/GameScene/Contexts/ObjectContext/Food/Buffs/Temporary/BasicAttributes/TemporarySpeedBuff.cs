@@ -2,7 +2,7 @@ using Buffs.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
 
-namespace Buffs.Temporary
+namespace ObjectContext.Food.Buffs.Temporary.BasicAttributes
 {
     internal class TemporarySpeedBuff : TemporaryBuff, ISpeedBuffRouting
     {

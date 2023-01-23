@@ -1,9 +1,8 @@
 using System;
-using UI.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UI
+namespace UIContext.Abstracts
 {
     public class PanelClickCallBack : MonoBehaviour, IPanelClickCallBack, IPointerClickHandler
     {

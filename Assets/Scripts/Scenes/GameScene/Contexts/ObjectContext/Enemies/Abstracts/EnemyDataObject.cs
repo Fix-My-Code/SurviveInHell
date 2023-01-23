@@ -2,14 +2,14 @@ using Enums;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace Entities.Enemies
+namespace ObjectContext.Enemies.Abstracts
 {
     [CreateAssetMenu(menuName = "Create/Data/Enemies/Enemy")]
     public class EnemyDataObject : ScriptableObject
     {
-        public int Damage;  
-
         public float MaxHealth;
+
+        public int Damage;  
 
         public float Speed;
 
