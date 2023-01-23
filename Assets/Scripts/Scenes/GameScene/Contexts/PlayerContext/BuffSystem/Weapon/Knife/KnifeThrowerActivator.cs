@@ -1,7 +1,7 @@
-using Buffs.Weapon;
-using DI.Attributes.Register;
-
-internal class KnifeThrowerActivator : WeaponEnabler<IKnifeThroverActivator>
+namespace PlayerContext.BuffSystem.Weapon.KnifeThrower
 {
+    internal class KnifeThrowerActivator : WeaponEnabler<IKnifeThroverActivator>
+    {
 
+    }
 }

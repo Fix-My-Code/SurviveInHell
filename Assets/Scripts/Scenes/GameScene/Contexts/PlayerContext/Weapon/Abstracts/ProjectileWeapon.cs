@@ -1,8 +1,7 @@
-using Buffs.Weapon.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Weapon
+namespace PlayerContext.Weapon.Abstracts
 {
     abstract internal class ProjectileWeapon : KernelEntityBehaviour, IImproveProjectileWeapon
     {

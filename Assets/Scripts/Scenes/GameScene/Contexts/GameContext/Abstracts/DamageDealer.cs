@@ -1,22 +1,23 @@
-using Entities.Interfaces;
 using System.Collections;
-using UnityEngine;
 using Utilities.Behaviours;
 
-internal abstract class DamageDealer : KernelEntityBehaviour, IDamageDealer
+namespace GameContext.Abstracts
 {
-    public float AttackSpeed 
+    internal abstract class DamageDealer : KernelEntityBehaviour, IDamageDealer
     {
-        get => _attackSpeed;
-        set
+        public float AttackSpeed
         {
-            _attackSpeed = value;
+            get => _attackSpeed;
+            set
+            {
+                _attackSpeed = value;
+            }
         }
+        private float _attackSpeed;
+
+        public abstract void Attack(IDamagable damagable);
+
+        public abstract IEnumerator Reloading();
+
     }
-    private float _attackSpeed;
-
-    public abstract void Attack(IDamagable damagable);
-
-     public abstract IEnumerator Reloading();
-
 }

@@ -1,14 +1,13 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Heroes
+namespace PlayerContext.Abstract
 {
-    [Register(typeof(Hero))]
-    [Register(typeof(IHeroData))]
+    [Register(typeof(Hero),
+              typeof(IHeroData))]
     internal abstract class Hero : KernelEntityBehaviour, IHeroData
     {
         [SerializeField]

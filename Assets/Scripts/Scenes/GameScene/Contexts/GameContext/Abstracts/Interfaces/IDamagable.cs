@@ -1,7 +1,4 @@
-using System;
-using UnityEngine;
-
-namespace Entities.Interfaces
+namespace GameContext.Abstracts.Interfaces
 {
     interface IDamagable
     {

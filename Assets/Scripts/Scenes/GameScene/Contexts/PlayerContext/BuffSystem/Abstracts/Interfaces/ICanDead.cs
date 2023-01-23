@@ -1,5 +1,6 @@
 using System;
-namespace Entities.Interfaces
+
+namespace PlayerContext.BuffSystem.Abstracts.Interfaces
 {
     interface ICanDead
     {

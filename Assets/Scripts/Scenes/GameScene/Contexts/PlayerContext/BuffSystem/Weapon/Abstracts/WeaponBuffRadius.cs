@@ -1,18 +1,17 @@
 using Buffs;
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Construct;
 using DI.Kernels;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-internal class WeaponBuffRadius<T> : BaseBuffUIItem where T : IImpoveSplashWeapon
+namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
-    private protected override void Action()
+    internal class WeaponBuffRadius<T> : BaseBuffUIItem where T : IImpoveSplashWeapon
     {
-        _splashWeapon.IncreaseRadius(value);
-    }
+        private protected override void Action()
+        {
+            _splashWeapon.IncreaseRadius(value);
+        }
 
-    [ConstructField(typeof(PlayerKernel))]
-    private T _splashWeapon;
+        [ConstructField(typeof(PlayerKernel))]
+        private T _splashWeapon;
+    }
 }

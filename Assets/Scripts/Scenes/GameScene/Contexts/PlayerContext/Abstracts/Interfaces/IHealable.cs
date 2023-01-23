@@ -1,6 +1,4 @@
-using Items.Apple;
-
-namespace Entities.Interfaces
+namespace PlayerContext.Abstract.Interfaces
 {
     interface IHealable
     {

@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
- interface IHolyFireActivator : IWeaponActivator
+namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
+    interface IHolyFireActivator : IWeaponActivator
+    {
 
+    }
 }

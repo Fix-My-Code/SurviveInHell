@@ -1,16 +1,14 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Interfaces;
-using Items.Gem;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Heroes
+namespace PlayerContext.Controllers
 {
-    [Register(typeof(ILevelView))]
-    [Register(typeof(ILevelUpCallBack))]
+    [Register(typeof(ILevelView),
+              typeof(ILevelUpCallBack))]
     internal class UpgradeController : KernelEntityBehaviour, ILevelView, ILevelUpCallBack
     {
         public event Action onExperienceChanged;

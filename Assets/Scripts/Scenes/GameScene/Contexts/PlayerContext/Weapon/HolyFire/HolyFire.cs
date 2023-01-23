@@ -1,11 +1,9 @@
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Register;
 using Entities.Enemies;
-using Entities.Interfaces;
 using System.Collections;
 using UnityEngine;
 
-namespace Weapon
+namespace PlayerContext.Weapon.HolyFire
 {
     [Register(typeof(IImproveHolyFire))]
     internal class HolyFire : SplashWeapon, IDamageDealer, IImproveHolyFire

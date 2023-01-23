@@ -1,4 +1,4 @@
-namespace Entities.Interfaces
+namespace GameContext.Abstracts.Interfaces
 {
     interface IEditSpeed
     {

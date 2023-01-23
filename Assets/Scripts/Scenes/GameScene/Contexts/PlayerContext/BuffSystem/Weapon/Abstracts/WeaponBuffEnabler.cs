@@ -1,11 +1,9 @@
-using Buffs.Weapon.Interfaces;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Buffs.Weapon
+namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
-
     interface IWeaponBuffEnabler
     {
         public event Action<List<GameObject>, WeaponBuffEnabler> onAction;

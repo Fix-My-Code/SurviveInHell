@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Entities.Heroes
+namespace PlayerContext.Abstract
 {
     [CreateAssetMenu(menuName = "Create/Data/Heroes/Cleric")]
     public class HeroDataObject : ScriptableObject

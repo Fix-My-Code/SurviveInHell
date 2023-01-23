@@ -1,6 +1,6 @@
 using System;
 
-namespace Entities.Interfaces
+namespace PlayerContext.Abstract.Interfaces
 {
     interface ILevelView
     {

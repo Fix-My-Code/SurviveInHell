@@ -1,10 +1,9 @@
-using Buffs.Weapon.Interfaces;
 using DI.Attributes.Register;
 using System.Collections;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace Weapon
+namespace PlayerContext.Weapon.KnifeThrower
 {
     [Register(typeof(IImproveKnifeThrower))]
     internal class KnifeThrower : ProjectileWeapon, IImproveKnifeThrower

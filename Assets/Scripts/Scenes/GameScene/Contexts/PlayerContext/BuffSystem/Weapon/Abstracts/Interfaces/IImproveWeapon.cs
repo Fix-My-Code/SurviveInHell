@@ -1,4 +1,4 @@
-namespace Buffs.Weapon.Interfaces
+namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
     internal interface IImproveWeapon
     {

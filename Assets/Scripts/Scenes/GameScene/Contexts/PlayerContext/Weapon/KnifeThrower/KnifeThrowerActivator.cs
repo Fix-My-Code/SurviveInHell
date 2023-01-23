@@ -2,8 +2,7 @@ using DI.Attributes.Register;
 using UnityEngine;
 using Utilities.Behaviours;
 
-
-namespace Weapon
+namespace PlayerContext.Weapon.KnifeThrower
 {
     [Register(typeof(IKnifeThroverActivator))]
     internal class KnifeThrowerActivator : KernelEntityBehaviour, IKnifeThroverActivator

@@ -1,6 +1,4 @@
-using Buffs.Interfaces;
-
-namespace Entities.ImprovementComponents.Interfaces
+namespace GameContext.Abstracts.Interfaces
 {
     internal interface ISpeedBuff : IBuff, IPropetyChange
     {

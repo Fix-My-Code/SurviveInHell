@@ -1,9 +1,8 @@
-using Entities.Interfaces;
 using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace Entities.Controllers
+namespace GameContext.Components
 {
     internal abstract class BaseHealthController : KernelEntityBehaviour, IEditHealth, IDamagable, IHealthView, ICanDead
     {

@@ -1,20 +1,9 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using Entities.Controllers;
-using Entities.ImprovementComponents.Interfaces;
-using Entities.Interfaces;
 
-namespace Entities.Heroes
+namespace PlayerContext.Controllers
 {
-    //[Register(typeof(IHealthView))]
-    //[Register(typeof(IEditHealth))]
-    //[Register(typeof(IHealable))]
-    //[Register(typeof(IDamagable))]
-    //[Register(typeof(IHealthBuff))]
-    //[Register(typeof(IRegenerationSpeedBuff))]
-    //[Register(typeof(ICanDead))]
-
     [Register(typeof(IHealthView),
               typeof(IEditHealth),
               typeof(IHealable),
