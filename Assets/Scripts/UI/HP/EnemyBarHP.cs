@@ -11,7 +11,6 @@ internal class EnemyBarHP : Bar
     {
         _slider.value = _healthView.CurrentHealth;
         _slider.maxValue = _healthView.MaxHealth;
-
     }
 
     #region Kernel

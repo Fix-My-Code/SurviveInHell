@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Entities.Controllers
 {
-    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerate, IHealthBuff, IHealable
+    internal abstract class AdvancedHealthController : BaseHealthController, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
     {
         public override float CurrentHealth 
         { 
@@ -42,7 +42,7 @@ namespace Entities.Controllers
 
         private float _regenerationSpeed;
 
-        #region Regenerate
+        #region IRegenerate
 
         private IEnumerator _regeneration;
 
@@ -90,6 +90,25 @@ namespace Entities.Controllers
 
         #endregion
 
+        #region IRegenerateBuff
+
+        public void IncreaseRegenerationSpeed(int value)
+        {
+            ChangeRegenerationSpeed(value);
+        }
+
+        public void DecreaseRegenerationSpeed(int value)
+        {
+            ChangeRegenerationSpeed(-value);
+        }
+
+        private void ChangeRegenerationSpeed(int value)
+        {
+            RegenerationSpeed += value;
+        }
+
+        #endregion
+
         #region IHealable
 
         public void Heal(float value)
@@ -106,17 +125,17 @@ namespace Entities.Controllers
 
         #region IHealthBuff
 
-        public void Increase(int value)
+        public void IncreaseHealth(int value)
         {
-            ChangeValue(value);
+            ChangeHealth(value);
         }
 
-        public void Decrease(int value)
+        public void DecreaseHealth(int value)
         {
-            ChangeValue(-value);
+            ChangeHealth(-value);
         }
 
-        private void ChangeValue(int value)
+        private void ChangeHealth(int value)
         {
             MaxHealth += value;
             CurrentHealth += value;

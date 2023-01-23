@@ -13,12 +13,22 @@ namespace Buffs
     {
         public void Increase(IHealthBuffRouting buff)
         {
-            _healthBuff.Increase((int)buff.Value);
+            _healthBuff.IncreaseHealth((int)buff.Value);
         }
 
         public void Decrease(IHealthBuffRouting buff)
         {
-            _healthBuff.Decrease((int)buff.Value);
+            _healthBuff.DecreaseHealth((int)buff.Value);
+        }
+
+        public void Increase(IRegenerateBuffRouting buff)
+        {
+            _regenerationSpeedBuff.IncreaseRegenerationSpeed((int)buff.Value);
+        }
+
+        public void Decrease(IRegenerateBuffRouting buff)
+        {
+            _regenerationSpeedBuff.DecreaseRegenerationSpeed((int)buff.Value);
         }
 
         public void Increase(ISpeedBuffRouting buff)
@@ -36,6 +46,9 @@ namespace Buffs
 
         [ConstructField(typeof(PlayerKernel))]
         private IHealthBuff _healthBuff;
+
+        [ConstructField(typeof(PlayerKernel))]
+        private IRegenerationSpeedBuff _regenerationSpeedBuff;
 
         [ConstructField(typeof(PlayerKernel))]
         private ISpeedBuff _speedBuff;
