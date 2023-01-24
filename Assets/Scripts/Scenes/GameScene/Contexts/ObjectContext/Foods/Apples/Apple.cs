@@ -55,6 +55,5 @@ namespace ObjectContext.Foods.Apples
         {
             SetColorApple();
         }
-
     }
 }

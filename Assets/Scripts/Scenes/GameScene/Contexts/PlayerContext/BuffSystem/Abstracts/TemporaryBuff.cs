@@ -1,15 +1,21 @@
 using ObjectContext.Abstracts;
+using ObjectContext.Foods.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.TimeKeeper;
 
 namespace PlayerContext.BuffSystem.Abstracts
 {
-    internal abstract class TemporaryBuff : BaseBuffItem
+    internal abstract class TemporaryBuff : BaseBuffItem, IPickUp
     {
         [SerializeField]
         private int seconds;
 
         private protected ITimer _timer;
+
+        public void TriggerAction()
+        {
+            Action();
+        }
 
         private protected override void Action()
         {

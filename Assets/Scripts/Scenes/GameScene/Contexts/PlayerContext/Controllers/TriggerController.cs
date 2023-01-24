@@ -1,4 +1,5 @@
 using DI.Attributes.Register;
+using ObjectContext.Foods.Abstracts;
 using ObjectContext.Foods.Apples;
 using ObjectContext.Gems;
 using System;
@@ -33,6 +34,13 @@ namespace PlayerContext.Controllers
                 Spawner.Instance.DispawnObject(apple.gameObject, apple.GetPoolData());
                 return;
             }
+
+            if (collider.gameObject.TryGetComponent<BaseFoodItem>(out var food))
+            {
+                food.GetAction();
+                return;
+            }
+
         }
     }
 }
