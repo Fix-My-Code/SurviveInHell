@@ -1,11 +1,14 @@
+using DI.Attributes.Construct;
+using DI.Kernels;
 using Enums;
+using ObjectContext.Abstracts;
+using PlayerContext.Abstract.Interfaces;
 using UnityEngine;
-using Utilities.ObjectPooller;
 
 namespace ObjectContext.Gems
 {
     [RequireComponent(typeof(Collider2D))]
-    internal class Gem : MonoBehaviour
+    internal class Gem : BasePickUpItem
     {
         [SerializeField]
         private GemTypes type;
@@ -13,15 +16,7 @@ namespace ObjectContext.Gems
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        [SerializeField]
-        private PoolObject poolData;
-
-        public PoolObject GetPoolData() 
-        {
-            return poolData;
-        }
-
-        public int GetExperience()
+        private int GetExperience()
         {
             return (int)type;
         }
@@ -51,14 +46,17 @@ namespace ObjectContext.Gems
             }
         }
 
+        public override void Action()
+        {
+            _experienced.AddExperience(GetExperience());
+        }
+
         private void OnEnable()
         {
             SetColorGem();
         }
 
-        public void Dispawn()
-        {
-            Spawner.Instance.DispawnObject(gameObject, poolData);
-        }
+        [ConstructField(typeof(PlayerKernel))]
+        private IExperienced _experienced;
     }
 }

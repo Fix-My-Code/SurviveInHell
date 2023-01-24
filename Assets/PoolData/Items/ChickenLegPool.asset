@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ChickenLegPool
   m_EditorClassIdentifier: 
   prefab: {fileID: 4913154181550424427, guid: 8b530c32339605e4bbbbf2e282031cce, type: 3}
-  poolCount: 5
+  poolCount: 3
   autoExpand: 1

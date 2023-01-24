@@ -1,8 +1,5 @@
 using DI.Attributes.Register;
-using ObjectContext.Foods.Abstracts;
-using ObjectContext.Foods.Apples;
-using ObjectContext.Gems;
-using System;
+using ObjectContext.Abstracts;
 using UnityEngine;
 using Utilities.Behaviours;
 using Utilities.ObjectPooller;
@@ -13,34 +10,14 @@ namespace PlayerContext.Controllers
     [Register]
     internal class TriggerController : KernelEntityBehaviour
     {
-        public event Action<Gem> onTriggerEnterGem;
-
-        public event Action<Apple> onTriggerEnterApple;
-
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.TryGetComponent<Gem>(out var gem))
+            if (collider.gameObject.TryGetComponent<BasePickUpItem>(out var pickUpItem))
             {
-                onTriggerEnterGem?.Invoke(gem);
-
-                Spawner.Instance.DispawnObject(gem.gameObject, gem.GetPoolData());
+                pickUpItem.Action();
+                pickUpItem.Dispawn();
                 return;
             }
-
-            if (collider.gameObject.TryGetComponent<Apple>(out var apple))
-            {
-                onTriggerEnterApple?.Invoke(apple);
-
-                Spawner.Instance.DispawnObject(apple.gameObject, apple.GetPoolData());
-                return;
-            }
-
-            if (collider.gameObject.TryGetComponent<BaseFoodItem>(out var food))
-            {
-                food.GetAction();
-                return;
-            }
-
         }
     }
 }

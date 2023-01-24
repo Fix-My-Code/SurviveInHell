@@ -1,11 +1,14 @@
+using DI.Attributes.Construct;
+using DI.Kernels;
 using Enums;
+using ObjectContext.Abstracts;
+using PlayerContext.Abstract.Interfaces;
 using UnityEngine;
-using Utilities.ObjectPooller;
 
 namespace ObjectContext.Foods.Apples
 {
     [RequireComponent(typeof(Collider2D))]
-    internal class Apple : MonoBehaviour
+    internal class Apple : BasePickUpItem
     {
         [SerializeField]
         private AppleTypes type;
@@ -13,15 +16,7 @@ namespace ObjectContext.Foods.Apples
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        [SerializeField]
-        private PoolObject poolData;
-
-        public PoolObject GetPoolData()
-        {
-            return poolData;
-        }
-
-        public int GetHealth()
+        private int GetHealth()
         {
             return (int)type;
         }
@@ -51,9 +46,17 @@ namespace ObjectContext.Foods.Apples
             }
         }
 
+        public override void Action()
+        {
+            _healable.Heal(GetHealth() / 100f);
+        }
+
         private void OnEnable()
         {
             SetColorApple();
         }
+
+        [ConstructField(typeof(PlayerKernel))]
+        private IHealable _healable;
     }
 }

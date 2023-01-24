@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5239128810233556323}
   - component: {fileID: 3825519724894774852}
   - component: {fileID: 4149203031442195398}
+  - component: {fileID: 8227786141609243975}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -125,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1490876b20d61641bd479f80f3042cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolData: {fileID: 11400000, guid: 5f2b211e168a9724f98fb6d0c0a96142, type: 2}
   type: 10
   spriteRenderer: {fileID: 3031410305641569126}
-  poolData: {fileID: 11400000, guid: 5f2b211e168a9724f98fb6d0c0a96142, type: 2}
 --- !u!114 &4149203031442195398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +142,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.74
+--- !u!114 &8227786141609243975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039155625014696955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5257c326818c7b6499ec6917216a9297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []

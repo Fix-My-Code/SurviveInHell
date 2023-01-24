@@ -10,7 +10,7 @@ namespace UIContext.PlayerUI.BuffSystem.Items
     {
         public float Value => value;
 
-        private protected override void Action()
+        public override void Action()
         {
             _buffRouter.Increase(this);
         }

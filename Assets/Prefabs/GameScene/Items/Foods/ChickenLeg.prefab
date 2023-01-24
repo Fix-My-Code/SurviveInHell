@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.16862744, g: 0.22092405, b: 0.7529412, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4913154181550424424}
   - component: {fileID: 1878032040456579623}
   - component: {fileID: 1878032040456579617}
-  - component: {fileID: 1878032040456579622}
+  - component: {fileID: 7002824586218473783}
   m_Layer: 0
   m_Name: ChickenLeg
   m_TagString: Untagged
@@ -175,7 +175,7 @@ MonoBehaviour:
   searchInObject: 1
   autoStart: 1
   inspectorKernelEntities: []
---- !u!114 &1878032040456579622
+--- !u!114 &7002824586218473783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,10 +184,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4913154181550424427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8878aafdd1b804ba89873df3a83d93, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f13baf037ebf6d4f8d3fd2df3b24e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolData: {fileID: 0}
+  poolData: {fileID: 11400000, guid: bfe51ea4c603fd24893ce458582b63fa, type: 2}
 --- !u!1 &7002824586994187642
 GameObject:
   m_ObjectHideFlags: 0
