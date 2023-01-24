@@ -1,9 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts.Interfaces;
-using ObjectContext.Apple;
 using PlayerContext.Abstract.Interfaces;
-using PlayerContext.Controllers;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +19,7 @@ namespace GameContext.Components
             }
         }
 
-        public override float MaxHealth 
+        public override float MaxHealth
         { 
             get => base.MaxHealth;
             set
@@ -116,11 +114,6 @@ namespace GameContext.Components
             CurrentHealth += value;
         }
 
-        public void Heal(Apple apple)
-        {
-            CurrentHealth += MaxHealth * (apple.GetHealth() / 100f);
-        }
-
         #endregion
 
         #region IHealthBuff
@@ -147,20 +140,10 @@ namespace GameContext.Components
 
         private IDamagable _damageController;
 
-        [ConstructField]
-        private TriggerController _triggerController;
-
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             _damageController = kernel.GetInjection<IDamagable>();
-
-            _triggerController.onTriggerEnterApple += Heal;
-        }
-
-        protected override void OnDispose()
-        {
-            _triggerController.onTriggerEnterApple -= Heal;
         }
 
         #endregion

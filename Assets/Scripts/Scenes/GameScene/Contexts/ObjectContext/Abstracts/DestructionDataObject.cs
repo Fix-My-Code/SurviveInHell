@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ObjectContext.Abstracts.Interfaces
+namespace ObjectContext.Abstracts
 {
     [CreateAssetMenu(menuName = "Create/Data/DestructionObjects/Object")]
     public class DestructionDataObject : ScriptableObject

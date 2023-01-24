@@ -22,7 +22,7 @@ namespace PlayerContext.BuffSystem.Weapon.Abstracts
             return buffList;
         }
 
-        private protected override void Action()
+        public override void Action()
         {
             onAction?.Invoke(GetBuffs(), this);
             onAction = null;

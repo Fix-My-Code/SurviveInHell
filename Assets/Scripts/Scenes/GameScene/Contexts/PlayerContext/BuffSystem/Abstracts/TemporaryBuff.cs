@@ -11,7 +11,7 @@ namespace PlayerContext.BuffSystem.Abstracts
 
         private protected ITimer _timer;
 
-        private protected override void Action()
+        public override void Action()
         {
             Increase();
             StartTimer();
