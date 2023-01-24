@@ -39,6 +39,7 @@ namespace PlayerContext.Weapon.KnifeThrower
         {
             while (true)
             {
+                yield return new WaitForSeconds(attackSpeed);
                 for (int i = 0; i < projectileCount; i++)
                 {
                     var knifeObject = Spawner.Instance.SpawnObject(_poolData, spawnPoint);
@@ -46,12 +47,10 @@ namespace PlayerContext.Weapon.KnifeThrower
                     var knife = knifeObject.GetComponent<Knife>();
 
                     knife.Damage = projectileDamage;
-
-                    _rb.AddForce(transform.right * projectileSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                    
+                    _rb.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
                     yield return new WaitForSeconds(0.3f);
                 }
-
-                yield return new WaitForSeconds(attackSpeed);
             }
         }
     }

@@ -33,7 +33,7 @@ namespace PlayerContext.Weapon.Abstracts
 
         public virtual void IncreaseRadius(float value)
         {
-            radius += value;
+            Radius += value;
         }
 
         public virtual void IncreaseDamage(int value)
