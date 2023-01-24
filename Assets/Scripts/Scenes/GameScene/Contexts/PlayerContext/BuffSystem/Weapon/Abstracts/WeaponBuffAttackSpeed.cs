@@ -7,7 +7,7 @@ namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
     internal class WeaponBuffAttackSpeed<T> : BaseBuffUIItem where T : IImproveWeapon
     {
-        private protected override void Action()
+        public override void Action()
         {
             _weapon.IncreaseAttackSpeed(value);
         }

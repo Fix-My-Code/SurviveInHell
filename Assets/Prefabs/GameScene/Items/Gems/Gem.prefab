@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5356595682643502455}
   - component: {fileID: 5356595682643502454}
+  - component: {fileID: 7529840194483783833}
   m_Layer: 0
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7529840194483783833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356595682643502452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f793df5130edcb419d3e9826598103c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0.74
 --- !u!1 &5356595683902488880
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +109,7 @@ GameObject:
   - component: {fileID: 5356595683902488883}
   - component: {fileID: 1470822091947813500}
   - component: {fileID: 4205372771902920524}
+  - component: {fileID: -1608421275741127948}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -156,6 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be78560334e2f784abaa29967178a1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolData: {fileID: 11400000, guid: 6a2687c50b13c1a4ca91a39e58d89acf, type: 2}
   type: 1
   spriteRenderer: {fileID: 5356595682643502454}
-  poolData: {fileID: 11400000, guid: 6a2687c50b13c1a4ca91a39e58d89acf, type: 2}
+--- !u!114 &-1608421275741127948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356595683902488880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5257c326818c7b6499ec6917216a9297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []

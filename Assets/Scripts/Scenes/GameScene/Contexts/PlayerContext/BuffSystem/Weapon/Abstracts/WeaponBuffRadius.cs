@@ -7,7 +7,7 @@ namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
     internal class WeaponBuffRadius<T> : BaseBuffUIItem where T : IImpoveSplashWeapon
     {
-        private protected override void Action()
+        public override void Action()
         {
             _splashWeapon.IncreaseRadius(value);
         }

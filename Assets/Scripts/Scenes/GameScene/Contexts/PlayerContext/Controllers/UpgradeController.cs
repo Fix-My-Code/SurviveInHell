@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
+using ObjectContext.Gems;
 using PlayerContext.Abstract.Interfaces;
 using System;
 using UnityEngine;
@@ -10,8 +10,9 @@ using Utilities.Behaviours;
 namespace PlayerContext.Controllers
 {
     [Register(typeof(ILevelView),
-              typeof(ILevelUpCallBack))]
-    internal class UpgradeController : KernelEntityBehaviour, ILevelView, ILevelUpCallBack
+              typeof(ILevelUpCallBack),
+              typeof(IExperienced))]
+    internal class UpgradeController : KernelEntityBehaviour, ILevelView, ILevelUpCallBack, IExperienced
     {
         public event Action onExperienceChanged;
 
@@ -69,9 +70,9 @@ namespace PlayerContext.Controllers
 
         private int _maxExperience;
 
-        private void AddExperience(Gem gem)
+        public void AddExperience(int value)
         {
-            CurrentExperience += gem.GetExperience();
+            CurrentExperience += value;
         }
 
         private void LevelUp()
@@ -93,23 +94,11 @@ namespace PlayerContext.Controllers
 
         private IHeroData _heroData;
 
-        [ConstructField]
-        private TriggerController _triggerController;
-
         [ConstructMethod]
         private void Construct(IKernel kernel)
         {
             _heroData = kernel.GetInjection<IHeroData>();
             MaxExperience = _heroData.Data.FirstLevelExperience;
-
-            _triggerController.onTriggerEnterGem += AddExperience;
-        }
-
-        protected override void OnDispose()
-        {
-            _triggerController.onTriggerEnterGem -= AddExperience;
-
-            base.OnDispose();
         }
 
         #endregion

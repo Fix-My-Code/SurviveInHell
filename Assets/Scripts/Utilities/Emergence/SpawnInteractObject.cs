@@ -1,6 +1,6 @@
 using Enums;
-using ObjectContext.Apple;
-using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
+using ObjectContext.Foods.Apples;
+using ObjectContext.Gems;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
@@ -11,8 +11,21 @@ namespace Utilities.Emergence
         [SerializeField]
         private PoolObject gemPoolData;
 
+        #region Food
+
         [SerializeField]
         private PoolObject applePoolData;
+
+        [SerializeField]
+        private PoolObject milkPoolData;
+
+        [SerializeField]
+        private PoolObject chickenLegPoolData;
+
+        [SerializeField]
+        private PoolObject cheesePoolData;
+
+        #endregion
 
         public void SpawnGem(GemTypes gemType, Transform transform)
         {
@@ -24,6 +37,8 @@ namespace Utilities.Emergence
             }
         }
 
+        #region SpawnFood
+
         public void SpawnApple(AppleTypes appleType, Transform transform)
         {
             var item = Spawner.Instance.SpawnObject(applePoolData, transform);
@@ -34,10 +49,30 @@ namespace Utilities.Emergence
             }
         }
 
+        public void SpawnMilk(Transform transform)
+        {
+            Spawner.Instance.SpawnObject(milkPoolData, transform);
+        }
+
+        public void SpawnChickenLeg(Transform transform)
+        {
+            Spawner.Instance.SpawnObject(chickenLegPoolData, transform);
+        }
+
+        public void SpawnCheese(Transform transform)
+        {
+            Spawner.Instance.SpawnObject(cheesePoolData, transform);
+        }
+
+        #endregion
+
         private void OnEnable()
         {
             Spawner.Instance.PreparationPool(gemPoolData);
             Spawner.Instance.PreparationPool(applePoolData);
+            Spawner.Instance.PreparationPool(milkPoolData);
+            Spawner.Instance.PreparationPool(chickenLegPoolData);
+            Spawner.Instance.PreparationPool(cheesePoolData);
         }
     }
 }
