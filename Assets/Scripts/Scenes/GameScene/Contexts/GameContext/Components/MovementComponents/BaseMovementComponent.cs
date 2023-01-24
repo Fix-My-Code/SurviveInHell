@@ -23,10 +23,13 @@ namespace GameContext.Components
 
         private Rigidbody2D _body;
 
-        private protected bool _isInitialize = false;
-
         public virtual void Move(Vector2 direction)
         {
+            if (!IsInitialize)
+            {
+                return;
+            }
+
             _body.AddForce(direction * _body.mass * Speed * Time.deltaTime);
 
             if (Mathf.Abs(_body.velocity.x) > Speed)
@@ -56,8 +59,6 @@ namespace GameContext.Components
             _body = GetComponentInParent<Rigidbody2D>(true);
             _body.freezeRotation = true;
             _body.gravityScale = 0;
-
-            _isInitialize = true;
         }
 
         #endregion

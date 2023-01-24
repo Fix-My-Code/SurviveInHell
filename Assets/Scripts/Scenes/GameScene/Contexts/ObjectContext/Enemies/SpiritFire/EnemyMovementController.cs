@@ -15,10 +15,11 @@ namespace ObjectContext.Enemies
 
         private void FixedUpdate()
         {
-            if (!_isInitialize)
+            if (!IsInitialize)
             {
                 return;
             }
+
             var direction = new Vector2(_player.transform.position.x - transform.position.x, _player.transform.position.y - transform.position.y).normalized;
             Move(direction);
             spriteRenderer.flipX = isFacingRight(direction);
@@ -36,6 +37,7 @@ namespace ObjectContext.Enemies
         private void Construct(IKernel kernel)
         {
             Speed = _enemyData.Data.Speed;
+            IsInitialize = true;
         }
 
         #endregion
