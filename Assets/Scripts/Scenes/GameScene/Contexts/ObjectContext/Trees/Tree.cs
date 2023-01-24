@@ -1,11 +1,11 @@
 using DI.Attributes.Register;
 using ObjectContext.Enemies.Abstracts.Interfaces;
-using ObjectContext.Tree.Abstarts;
-using ObjectContext.Tree.Abstarts.Interfaces;
+using ObjectContext.Trees.Abstracts;
+using ObjectContext.Trees.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace ObjectContext.Tree
+namespace ObjectContext.Trees
 {
     [Register(typeof(ITreeDataObject),
               typeof(IEnemy))]

@@ -4,7 +4,7 @@ using PlayerContext.BuffSystem.Abstracts;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using PlayerContext.BuffSystem.BuffRouter;
 
-namespace ObjectContext.Food.Buffs.Temporary.BasicAttributes
+namespace ObjectContext.Foods.Buffs.Temporary.BasicAttributes
 {
     internal class TemporaryHealthBuff : TemporaryBuff, IHealthBuffRouting
     {

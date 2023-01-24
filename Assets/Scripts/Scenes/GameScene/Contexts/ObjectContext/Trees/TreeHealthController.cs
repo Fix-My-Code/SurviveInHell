@@ -4,10 +4,10 @@ using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts.Interfaces;
 using GameContext.Components;
 using ObjectContext.Enemies.Abstracts.Interfaces;
-using ObjectContext.Tree.Abstarts.Interfaces;
+using ObjectContext.Trees.Abstracts.Interfaces;
 using Utilities.Emergence;
 
-namespace ObjectContext.Tree.Abstarts
+namespace ObjectContext.Trees.Abstracts
 {
     [Register(typeof(IHealthView),
               typeof(IDamagable))]

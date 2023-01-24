@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
-using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
+using ObjectContext.Gems;
 using PlayerContext.Abstract.Interfaces;
 using System;
 using UnityEngine;

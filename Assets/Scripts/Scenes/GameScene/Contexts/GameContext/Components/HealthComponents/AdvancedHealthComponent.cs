@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts.Interfaces;
-using ObjectContext.Apple;
+using ObjectContext.Foods.Apples;
 using PlayerContext.Abstract.Interfaces;
 using PlayerContext.Controllers;
 using System.Collections;

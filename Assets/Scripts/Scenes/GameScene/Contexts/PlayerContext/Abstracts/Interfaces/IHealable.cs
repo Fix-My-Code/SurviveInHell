@@ -1,4 +1,4 @@
-using ObjectContext.Apple;
+using ObjectContext.Foods.Apples;
 
 namespace PlayerContext.Abstract.Interfaces
 {

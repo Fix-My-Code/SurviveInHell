@@ -2,7 +2,7 @@ using Enums;
 using UnityEngine;
 using Utilities.ObjectPooller;
 
-namespace ObjectContext.Apple
+namespace ObjectContext.Foods.Apples
 {
     [RequireComponent(typeof(Collider2D))]
     internal class Apple : MonoBehaviour

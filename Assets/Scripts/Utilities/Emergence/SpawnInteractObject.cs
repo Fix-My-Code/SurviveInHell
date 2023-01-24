@@ -1,6 +1,6 @@
 using Enums;
-using ObjectContext.Apple;
-using ObjectContext.Food.Buffs.Temporary.BasicAttributes;
+using ObjectContext.Foods.Apples;
+using ObjectContext.Gems;
 using UnityEngine;
 using Utilities.ObjectPooller;
 

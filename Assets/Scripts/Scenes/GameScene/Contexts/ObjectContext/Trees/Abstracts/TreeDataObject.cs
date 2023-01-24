@@ -1,8 +1,8 @@
 using Enums;
-using ObjectContext.Abstracts.Interfaces;
+using ObjectContext.Abstracts;
 using UnityEngine;
 
-namespace ObjectContext.Tree.Abstarts
+namespace ObjectContext.Trees.Abstracts
 {
     [CreateAssetMenu(menuName = "Create/Data/DestructionObjects/Tree")]
     public class TreeDataObject : DestructionDataObject

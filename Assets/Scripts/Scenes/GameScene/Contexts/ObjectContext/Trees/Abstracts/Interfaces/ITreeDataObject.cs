@@ -1,4 +1,4 @@
-namespace ObjectContext.Tree.Abstarts.Interfaces
+namespace ObjectContext.Trees.Abstracts.Interfaces
 {
     interface ITreeDataObject
     {
