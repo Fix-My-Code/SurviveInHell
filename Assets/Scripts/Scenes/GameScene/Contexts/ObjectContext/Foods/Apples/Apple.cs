@@ -48,7 +48,7 @@ namespace ObjectContext.Foods.Apples
 
         public override void Action()
         {
-            _healable.Heal(GetHealth() / 100f);
+            _healable.Heal((int)(GetHealth() / 100f));
         }
 
         private void OnEnable()
