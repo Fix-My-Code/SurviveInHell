@@ -7,10 +7,13 @@ using Utilities.ObjectPooller;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using GameContext.Abstracts.Interfaces;
 using GameContext.Components;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 
 namespace ObjectContext.Enemies
 {
-    [Register(typeof(IHealthView))]
+    [Register(typeof(IHealthView),
+              typeof(ICanDead))]
+
     internal class EnemyHealthController : BaseHealthComponent
     {
         internal virtual void Initialize(IEnemyData entity)

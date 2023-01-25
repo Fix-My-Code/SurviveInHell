@@ -2,11 +2,13 @@ using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
+using LogicSceneContext.Abstracts.Interfaces;
 using ObjectContext.Enemies.Abstracts;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using PlayerContext.Abstract;
-using System;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using UnityEngine;
+using Utilities;
 using Utilities.Behaviours;
 using Utilities.ObjectPooller;
 
@@ -34,15 +36,29 @@ namespace ObjectContext.Enemies
             }
         }
 
+        private void OnDeadHandler()
+        {
+            _killCounter.IncreaseKillCount();
+        }
+
+        #region KernelEntity
 
         private protected Hero _player;
+
+        [ConstructField]
+        private ICanDead _canDead;
+
+        [ConstructField(typeof(LogicSceneKernel))]
+        private IKillCounter _killCounter;
 
         [ConstructMethod(typeof(PlayerKernel))]
         private void Construct(IKernel kernel)
         {
             _player = kernel.GetInjection<Hero>();
+            _canDead.onDead += OnDeadHandler;
             IsInitialize = true;
         }
 
+        #endregion
     }
 }
