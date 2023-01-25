@@ -20,7 +20,7 @@ namespace PlayerContext.BuffSystem.Abstracts
 
         private protected virtual void StartTimer()
         {
-            _timer = TimerFactory.Instance.Get(seconds);
+            _timer = new Timer(seconds);
             _timer.StartTimer();
         }
 
