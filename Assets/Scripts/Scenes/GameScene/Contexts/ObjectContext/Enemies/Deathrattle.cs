@@ -1,10 +1,10 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
+using Enums;
+using LogicSceneContext;
+using LogicSceneContext.Abstracts.Interfaces;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -16,11 +16,11 @@ internal class Deathrattle : KernelEntityBehaviour
     {
         if (!_explosionEnabled)
         {
-            Debug.Log("несработал");
+            Debug.Log("False");
             return;
         }
 
-        Debug.Log("1231231");
+        Debug.Log("True");
     }
 
     private void EnableDeathRattle(DeathrattleArgs deathrattle)
@@ -31,9 +31,7 @@ internal class Deathrattle : KernelEntityBehaviour
                 _damage = deathrattle.damage;
                 _explosionEnabled = true;
                 break;
-
-        }
-        
+        }       
     }
 
     private void OnEnable()

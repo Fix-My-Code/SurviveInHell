@@ -1,4 +1,7 @@
-public enum DeathRattleTypes
+namespace Enums
 {
-    Explosion,
+    public enum DeathRattleTypes
+    {
+        Explosion,
+    }
 }
