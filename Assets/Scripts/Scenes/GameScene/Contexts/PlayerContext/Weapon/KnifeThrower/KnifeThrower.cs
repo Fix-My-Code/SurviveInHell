@@ -10,12 +10,6 @@ namespace PlayerContext.Weapon.KnifeThrower
     [Register(typeof(IImproveKnifeThrower))]
     internal class KnifeThrower : ProjectileWeapon, IImproveKnifeThrower
     {
-        [SerializeField]
-        private protected Transform spawnPoint;
-
-        [SerializeField]
-        private Knife prefab;
-
         private protected PoolObject _poolData;
 
         private void OnEnable()
