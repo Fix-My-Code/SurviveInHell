@@ -1,5 +1,4 @@
 using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
-using PlayerContext.Weapon.MagickWand;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -22,9 +21,6 @@ namespace PlayerContext.Weapon.Abstracts
 
         [SerializeField]
         private protected Transform spawnPoint;
-
-        [SerializeField]
-        private protected Fire prefab;
 
         public void ProjectileCount(int value)
         {
