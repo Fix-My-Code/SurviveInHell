@@ -18,8 +18,7 @@ struct DeathrattleArgs{
 interface IDeathRattleRouter
 {
     event Action<DeathrattleArgs> onExplosionDeathRattleActivate;
-    void Activate(IExplosionDeathRattleActivator deathRattleType);
-
+    void Activate(IExplosionDeathRattle deathRattle);
     int DeathRattleStatus(DeathRattleTypes type, out bool result);
 }
 
@@ -28,22 +27,20 @@ internal class DeathRattleRouter : KernelEntityBehaviour, IDeathRattleRouter
 {
     public event Action<DeathrattleArgs> onExplosionDeathRattleActivate;
 
-    public bool _explosionDeathRattleActivated = false;
     private int _explosionDamage;
 
-    private Dictionary<DeathRattleTypes, bool> deathrattleMap = new Dictionary<DeathRattleTypes, bool>();
+    private IDictionary<DeathRattleTypes, bool> _deathrattleMap = new Dictionary<DeathRattleTypes, bool>();
 
-    public void Activate(IExplosionDeathRattleActivator deathRattleType)
+    public void Activate(IExplosionDeathRattle deathRattleType)
     {
         _explosionDamage = deathRattleType.GetDamage();
-        _explosionDeathRattleActivated = true;
+        _deathrattleMap.Add(DeathRattleTypes.Explosion, true);
         onExplosionDeathRattleActivate?.Invoke(new DeathrattleArgs(DeathRattleTypes.Explosion, deathRattleType.GetDamage()));
-        deathrattleMap.Add(DeathRattleTypes.Explosion, true);
     }
 
     public int DeathRattleStatus(DeathRattleTypes type, out bool result)
     {
-        deathrattleMap.TryGetValue(type, out result);
+        _deathrattleMap.TryGetValue(type, out result);
         return _explosionDamage;
     }
 
