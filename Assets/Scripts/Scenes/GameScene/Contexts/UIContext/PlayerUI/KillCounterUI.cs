@@ -13,7 +13,7 @@ namespace UIContext.PlayerUI
 
         private void OutputStatistics(int value)
         {
-            killTx.text = value.ToString();
+            killTx.text = $"Kills: {value}";
         }
 
         private void OnEnable()
