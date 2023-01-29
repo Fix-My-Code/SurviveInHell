@@ -3,7 +3,7 @@ using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 
 namespace PlayerContext.BuffSystem.Weapon.MagicWand
 {
-    internal class WeaponBuffFireProjectileSpeed : WeaponBuffProjectileSpeed<IImproveMagicWand>
+    internal class WeaponBuffFireProjectileSpeed : WeaponBuffProjectileSpeed<IUpgradeMagickWand>
     {
 
     }

@@ -3,7 +3,7 @@ using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 
 namespace PlayerContext.BuffSystem.Weapon.HolyFire
 {
-    internal class WeaponBuffHolyFireRadius : WeaponBuffRadius<IImproveHolyFire>
+    internal class WeaponBuffHolyFireRadius : WeaponBuffRadius<IUpgradeHolyFire>
     {
 
     }

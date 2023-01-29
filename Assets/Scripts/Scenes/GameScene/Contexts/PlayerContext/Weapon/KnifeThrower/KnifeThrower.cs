@@ -7,8 +7,8 @@ using Utilities.ObjectPooller;
 
 namespace PlayerContext.Weapon.KnifeThrower
 {
-    [Register(typeof(IImproveKnifeThrower))]
-    internal class KnifeThrower : ProjectileWeapon, IImproveKnifeThrower
+    [Register(typeof(IUpgradeKnifeThrower))]
+    internal class KnifeThrower : ProjectileWeapon, IUpgradeKnifeThrower
     {
         [SerializeField]
         private Knife prefab;

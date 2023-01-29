@@ -1,6 +1,6 @@
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
-    internal interface IImproveWeapon
+    internal interface IUpgradeWeapon
     {
         void IncreaseDamage(int value);
 

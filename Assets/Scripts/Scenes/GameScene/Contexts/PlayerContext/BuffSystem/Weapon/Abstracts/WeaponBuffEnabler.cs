@@ -1,3 +1,4 @@
+using PlayerContext.Abstract.Interfaces;
 using System;
 using System.Collections.Generic;
 using UIContext.Abstracts;
@@ -5,12 +6,6 @@ using UnityEngine;
 
 namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
-    interface IWeaponBuffEnabler
-    {
-        public event Action<List<GameObject>, WeaponBuffEnabler> onAction;
-        public List<GameObject> GetBuffs();
-    }
-
     internal abstract class WeaponBuffEnabler : BaseBuffUIItem, IWeaponBuffEnabler
     {
         [SerializeField]

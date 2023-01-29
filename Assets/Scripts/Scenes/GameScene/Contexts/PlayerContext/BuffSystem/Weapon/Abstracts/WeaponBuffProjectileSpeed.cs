@@ -5,14 +5,14 @@ using UIContext.Abstracts;
 
 namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
-    internal class WeaponBuffProjectileSpeed<T> : BaseBuffUIItem where T : IImproveProjectileWeapon
+    internal class WeaponBuffProjectileSpeed<T> : BaseBuffUIItem where T : IUpgradeProjectileWeapon
     {
         public override void Action()
         {
-            _projectileThrower.ProjectileSpeed((int)value);
+            _projectileWeapon.ProjectileSpeed((int)value);
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private T _projectileThrower;
+        private T _projectileWeapon;
     }
 }

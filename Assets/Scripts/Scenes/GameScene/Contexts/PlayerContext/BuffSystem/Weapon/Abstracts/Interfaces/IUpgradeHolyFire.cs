@@ -1,6 +1,6 @@
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
-    internal interface IImproveKnifeThrower : IImproveProjectileWeapon
+    internal interface IUpgradeHolyFire : IUpgradeSplashWeapon
     {
 
     }

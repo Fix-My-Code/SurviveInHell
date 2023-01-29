@@ -5,7 +5,7 @@ using UIContext.Abstracts;
 
 namespace PlayerContext.BuffSystem.Weapon.Abstracts
 {
-    internal class WeaponBuffRadius<T> : BaseBuffUIItem where T : IImpoveSplashWeapon
+    internal class WeaponBuffRadius<T> : BaseBuffUIItem where T : IUpgradeSplashWeapon
     {
         public override void Action()
         {

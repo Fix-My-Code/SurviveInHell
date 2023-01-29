@@ -1,6 +1,6 @@
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
-    internal interface IImpoveSplashWeapon : IImproveWeapon
+    internal interface IUpgradeSplashWeapon : IUpgradeWeapon
     {
         public void IncreaseRadius(float value);
     }

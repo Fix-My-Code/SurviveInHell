@@ -8,11 +8,11 @@ namespace PlayerContext.BuffSystem.Weapon.Abstracts
     {
         public override void Action()
         {
-            _enablerImproveWeapon.SetActive(true);
+            _weaponActivator.SetActive(true);
             base.Action();
         }
 
         [ConstructField(typeof(PlayerKernel))]
-        private T _enablerImproveWeapon;
+        private T _weaponActivator;
     }
 }

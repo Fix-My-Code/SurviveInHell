@@ -1,6 +1,6 @@
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
-    internal interface IImproveProjectileWeapon : IImproveWeapon
+    internal interface IUpgradeProjectileWeapon : IUpgradeWeapon
     {
         void ProjectileCount(int value);
 

@@ -3,7 +3,7 @@ using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 
 namespace PlayerContext.BuffSystem.Weapon.KnifeThrower
 {
-    internal class WeaponBuffKnifeAttackSpeed : WeaponBuffAttackSpeed<IImproveKnifeThrower>
+    internal class WeaponBuffKnifeAttackSpeed : WeaponBuffAttackSpeed<IUpgradeKnifeThrower>
     {
 
     }

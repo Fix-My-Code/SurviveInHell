@@ -8,8 +8,8 @@ using UnityEngine;
 
 namespace PlayerContext.Weapon.HolyFire
 {
-    [Register(typeof(IImproveHolyFire))]
-    internal class HolyFire : SplashWeapon, IDamageDealer, IImproveHolyFire
+    [Register(typeof(IUpgradeHolyFire))]
+    internal class HolyFire : SplashWeapon, IDamageDealer, IUpgradeHolyFire
     {
         private SpriteRenderer spriteRenderer;
 
@@ -44,7 +44,7 @@ namespace PlayerContext.Weapon.HolyFire
             {
                 if (hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
                 {
-                    Attack(enemy.GetComponentInChildren<IDamagable>());
+                    Attack(hitCollider.GetComponentInChildren<IDamagable>());
                 }
             }
         }

@@ -3,7 +3,7 @@ using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 
 namespace PlayerContext.BuffSystem.Weapon.KnifeThrower
 {
-    internal class WeaponBuffKnifeProjectileDamage : WeaponBuffDamage<IImproveKnifeThrower>
+    internal class WeaponBuffKnifeProjectileDamage : WeaponBuffDamage<IUpgradeKnifeThrower>
     {
 
     }
