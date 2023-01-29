@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace Utillities
+namespace Utilities
 {
     public class SpriteSorter : MonoBehaviour
     {

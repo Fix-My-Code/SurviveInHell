@@ -5,7 +5,7 @@ using Utilities.Behaviours;
 
 namespace PlayerContext.Weapon.Abstracts
 {
-    internal class SplashWeapon : KernelEntityBehaviour, IImpoveSplashWeapon
+    internal class SplashWeapon : KernelEntityBehaviour, IUpgradeSplashWeapon
     {
         public event Action onRadiusChanged;
 

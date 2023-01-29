@@ -4,7 +4,7 @@ using Utilities.Behaviours;
 
 namespace PlayerContext.Weapon.Abstracts
 {
-    abstract internal class ProjectileWeapon : KernelEntityBehaviour, IImproveProjectileWeapon
+    abstract internal class ProjectileWeapon : KernelEntityBehaviour, IUpgradeProjectileWeapon
     {
         [SerializeField]
         private protected int projectileCount;

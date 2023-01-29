@@ -10,16 +10,10 @@ namespace Utilities.Emergence
         [SerializeField]
         private PoolObject enemyPoolData;
 
-        [SerializeField]
-        [Range(0,30)]
+        [SerializeField, Range(0, 30)]
         private float viewRadius;
 
         private float spawnRadius = 40f;
-
-        public void SpawnEnemy(Vector2 position)
-        {
-            Spawner.Instance.SpawnObject(enemyPoolData, position);
-        }
 
         protected override IEnumerator Spawn()
         {
@@ -27,7 +21,7 @@ namespace Utilities.Emergence
             {
                 for (int i = 0; i < count; i++)
                 {
-                    var spawn = spawnPoint.position + UnityEngine.Random.insideUnitSphere * spawnRadius;
+                    var spawn = (Vector2)spawnPoint.position + UnityEngine.Random.insideUnitCircle * spawnRadius;
 
                     if (Vector2.Distance(transform.position, spawn) > Vector2.Distance(transform.position, new Vector2(transform.position.x + viewRadius, transform.position.y + viewRadius)))
                     {
@@ -41,10 +35,9 @@ namespace Utilities.Emergence
             };
         }
 
-        private void OnDrawGizmos()
+        public void SpawnEnemy(Vector2 position)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, viewRadius);
+            Spawner.Instance.SpawnObject(enemyPoolData, position);
         }
 
         private void Start()
