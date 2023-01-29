@@ -5,10 +5,10 @@ namespace LogicSceneContext.Abstracts.Interfaces
 {
     interface IDeathRattleRouter
     {
-        public event Action<DeathrattleArgs> onExplosionDeathRattleActivate;
+        public event Action<DeathRattleArgs> onDeathRattleActivate;
 
         public void Activate(IExplosionDeathRattle deathRattle);
 
-        public int DeathRattleStatus(DeathRattleTypes type, out bool result);
+        public bool DeathRattleStatus(DeathRattleTypes type, out DeathRattleArgs result);
     }
 }

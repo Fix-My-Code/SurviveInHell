@@ -1,51 +1,54 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
+using LogicSceneContext;
 using LogicSceneContext.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
-interface IDeathRattleActivator
-{
-    public int GetDamage();
-}
-
 interface IDeathRattle
 {
-
+    public void Action();
 }
 
 interface IExplosionDeathRattle : IDeathRattle
 {
     public int GetDamage();
+    public float GetRadius();
 }
 
 internal class DeathRattleActivator<T> : KernelEntityBehaviour where T : IDeathRattle
 {
     [ConstructField(typeof(LogicSceneKernel))]
-    private IDeathRattleRouter _router;
-} 
+    private protected IDeathRattleRouter _router;
+}
 
 internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDeathRattle>, IExplosionDeathRattle
 {
-    public int damage;
+    [SerializeField]
+    private float radius;
+
+    [SerializeField]
+    private int damage;
 
     [ContextMenu("Enable")]
     public void SetActive()
     {
-        _router.Activate(this);
+        Action();
     }
 
-    private IDeathRattleRouter _router;
-
-    [ConstructMethod(typeof(LogicSceneKernel))]
-    private void Construct(IKernel kernel)
+    public void Action()
     {
-        _router = kernel.GetInjection<IDeathRattleRouter>();
+        _router.Activate(this);
     }
 
     public int GetDamage()
     {
         return damage;
+    }
+
+    public float GetRadius()
+    {
+        return radius;
     }
 }

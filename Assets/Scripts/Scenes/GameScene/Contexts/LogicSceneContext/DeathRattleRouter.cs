@@ -7,38 +7,42 @@ using Utilities.Behaviours;
 
 namespace LogicSceneContext
 {
-    struct DeathrattleArgs
+    public struct DeathRattleArgs
     {
         public DeathRattleTypes type;
+        public float radius;
         public int damage;
 
-        public DeathrattleArgs(DeathRattleTypes type, int damage)
+        public DeathRattleArgs(DeathRattleTypes type, float radius, int damage)
         {
-            this.damage = damage;
             this.type = type;
+            this.radius = radius;
+            this.damage = damage;
+
         }
     }
 
     [Register(typeof(IDeathRattleRouter))]
     internal class DeathRattleRouter : KernelEntityBehaviour, IDeathRattleRouter
     {
-        public event Action<DeathrattleArgs> onExplosionDeathRattleActivate;
+        public event Action<DeathRattleArgs> onDeathRattleActivate;
 
-        private int _explosionDamage;
-
-        private IDictionary<DeathRattleTypes, bool> _deathrattleMap = new Dictionary<DeathRattleTypes, bool>();
+        private IDictionary<DeathRattleTypes, DeathRattleArgs> _deathrattleMap = new Dictionary<DeathRattleTypes, DeathRattleArgs>();
 
         public void Activate(IExplosionDeathRattle deathRattleType)
         {
-            _explosionDamage = deathRattleType.GetDamage();
-            _deathrattleMap.Add(DeathRattleTypes.Explosion, true);
-            onExplosionDeathRattleActivate?.Invoke(new DeathrattleArgs(DeathRattleTypes.Explosion, deathRattleType.GetDamage()));
+            var deathRattleArgs = new DeathRattleArgs(DeathRattleTypes.Explosion, deathRattleType.GetRadius(), deathRattleType.GetDamage());
+            _deathrattleMap.Add(DeathRattleTypes.Explosion, deathRattleArgs);
+            onDeathRattleActivate?.Invoke(deathRattleArgs);
         }
-
-        public int DeathRattleStatus(DeathRattleTypes type, out bool result)
+        public void ExplosionDeathrattleUpdate(IExplosionDeathRattle deathRattle ,DeathRattleTypes type)
         {
-            _deathrattleMap.TryGetValue(type, out result);
-            return _explosionDamage;
+            _deathrattleMap[type] = new DeathRattleArgs(type, deathRattle.GetRadius(), deathRattle.GetDamage());
+        }
+        public bool DeathRattleStatus(DeathRattleTypes type, out DeathRattleArgs result)
+        {
+            return _deathrattleMap.TryGetValue(type, out result);
         }
     }
 }
+
