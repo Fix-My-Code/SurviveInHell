@@ -20,9 +20,6 @@ namespace PlayerContext.Weapon.HolyFire
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        [SerializeField]
-        private bool drawGuzmos;
-
         public override float Radius
         {
             get => base.Radius;
@@ -76,17 +73,6 @@ namespace PlayerContext.Weapon.HolyFire
         private void SpriteRendererUpdate()
         {
             spriteRenderer.transform.localScale = new Vector2(Radius, Radius) * 2;
-        }
-
-        private void OnDrawGizmos()
-        {
-            if(!drawGuzmos)
-            {
-                return;
-            }
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, findRadius);
         }
 
         private void OnEnable()

@@ -13,9 +13,6 @@ namespace Utilities.Emergence
         [SerializeField, Range(0, 30)]
         private float viewRadius;
 
-        [SerializeField]
-        private bool drawGuzmos;
-
         private float spawnRadius = 40f;
 
         protected override IEnumerator Spawn()
@@ -41,17 +38,6 @@ namespace Utilities.Emergence
         public void SpawnEnemy(Vector2 position)
         {
             Spawner.Instance.SpawnObject(enemyPoolData, position);
-        }
-
-        private void OnDrawGizmos()
-        {
-            if (!drawGuzmos)
-            {
-                return;
-            }
-
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, viewRadius);
         }
 
         private void Start()
