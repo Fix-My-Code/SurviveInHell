@@ -7,8 +7,8 @@ using Utilities.ObjectPooller;
 
 namespace PlayerContext.Weapon.MagicWand
 {
-    [Register(typeof(IUpgradeMagickWand))]
-    internal class MagicWand : ProjectileWeapon, IUpgradeMagickWand
+    [Register(typeof(IUpgradeMagicWand))]
+    internal class MagicWand : ProjectileWeapon, IUpgradeMagicWand
     {
         [SerializeField]
         private float searchRadius = 10f;

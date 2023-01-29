@@ -1,6 +1,6 @@
 namespace PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces
 {
-    internal interface IUpgradeMagickWand : IUpgradeProjectileWeapon
+    internal interface IUpgradeMagicWand : IUpgradeProjectileWeapon
     {
 
     }
