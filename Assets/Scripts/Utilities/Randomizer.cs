@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utillities 
+namespace Utilities 
 {
     public static class Randomizer 
     {

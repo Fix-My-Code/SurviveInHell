@@ -10,8 +10,16 @@ namespace Utilities
         [SerializeField]
         private Color color;
 
-        public void OnDrawGizmos()
+        [SerializeField]
+        private bool active; 
+
+        private void OnDrawGizmos()
         {
+            if(!active) 
+            {
+                return;
+            }
+
             Gizmos.color = color;
             Gizmos.DrawWireSphere(transform.position, viewRadius);
         }

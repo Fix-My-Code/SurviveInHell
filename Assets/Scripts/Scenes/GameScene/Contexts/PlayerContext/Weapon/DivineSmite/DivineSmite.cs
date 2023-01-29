@@ -6,7 +6,7 @@ using PlayerContext.Weapon.Abstracts;
 using System.Collections;
 using UnityEngine;
 
-namespace PlayerContext.Weapon.HolyFire
+namespace PlayerContext.Weapon.DivineSmite
 {
     [Register(typeof(IUpgradeDivineSmite))]
     internal class DivineSmite : SplashWeapon, IDamageDealer, IUpgradeDivineSmite
@@ -68,7 +68,6 @@ namespace PlayerContext.Weapon.HolyFire
         {
             damagable.ApplyDamage(damage);
         }
-
 
         private void SpriteRendererUpdate()
         {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1292719014029920157}
   - component: {fileID: 1292719014029920153}
   m_Layer: 5
-  m_Name: ProjectileKnivesActivator
+  m_Name: KniveThrowerActivator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

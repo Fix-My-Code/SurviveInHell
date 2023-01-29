@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UIContext.Abstracts;
 using UnityEngine;
 using Utilities.Behaviours;
-using Utillities;
+using Utilities;
 
 namespace UIContext.ChooseBuffPanel
 {

@@ -226,11 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b65ef376190c19242aece3cb71bdcafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0.1
+  value: 0.4
   descriptins: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444\u0444
     \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0430\u0442\u0430\u043A\u0438
     \u0430\u043D\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043A\u0440\u0443\u0433\u0430
-    \u0435\u0431\u043B\u0438"
+    \u0435\u0431\u043B\u0438 \u043D\u0430"
 --- !u!1 &1570991575175940367
 GameObject:
   m_ObjectHideFlags: 0
