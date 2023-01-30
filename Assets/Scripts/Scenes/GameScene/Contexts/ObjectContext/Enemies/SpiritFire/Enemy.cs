@@ -7,6 +7,8 @@ using ObjectContext.Enemies.Abstracts;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using PlayerContext.Abstract;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
 using Utilities.Behaviours;
@@ -39,6 +41,11 @@ namespace ObjectContext.Enemies
         private void OnDeadHandler()
         {
             _killCounter.IncreaseKillCount();
+        }
+
+        private void OnEnable()
+        {
+            GetComponentsInChildren<Collider2D>(true).ToList().ForEach(x => x.gameObject.SetActive(true));
         }
 
         #region KernelEntity

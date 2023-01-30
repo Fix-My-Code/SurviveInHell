@@ -3,6 +3,8 @@ using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using LogicSceneContext;
 using LogicSceneContext.Abstracts.Interfaces;
+using PlayerContext.BuffSystem.Weapon.Abstracts;
+using PlayerContext.BuffSystem.Weapon.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -11,13 +13,13 @@ interface IDeathRattle
     public void Action();
 }
 
-interface IExplosionDeathRattle : IDeathRattle
+interface IExplosionDeathRattle : IDeathRattle, IWeaponActivator
 {
     public int GetDamage();
     public float GetRadius();
 }
 
-internal class DeathRattleActivator<T> : KernelEntityBehaviour where T : IDeathRattle
+internal class DeathRattleActivator<T> : WeaponEnabler<IExplosionDeathRattle> where T : IDeathRattle
 {
     [ConstructField(typeof(LogicSceneKernel))]
     private protected IDeathRattleRouter _router;
@@ -37,7 +39,12 @@ internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDe
         Action();
     }
 
-    public void Action()
+    public void SetActive(bool value)
+    {
+        Action();
+    }
+
+    public override void Action()
     {
         _router.Activate(this);
     }

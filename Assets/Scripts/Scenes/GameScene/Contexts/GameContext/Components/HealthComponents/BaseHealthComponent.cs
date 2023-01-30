@@ -11,12 +11,15 @@ namespace GameContext.Components
         public event Action onHealthChanged;
         public event Action onDead;
 
+        private protected bool _isDead;
+
         public virtual float MaxHealth
         {
             get => _maxHealth;
             set
             {
                 _maxHealth = value;
+                _isDead = false;
                 onHealthChanged?.Invoke();
             }
         }
@@ -27,8 +30,9 @@ namespace GameContext.Components
             set
             {
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
-                if (_currentHealth == 0 && IsInitialize)
+                if (_currentHealth == 0 && IsInitialize && !_isDead)
                 {
+                    _isDead = true;
                     onDead?.Invoke();
                 }
                 onHealthChanged?.Invoke();
