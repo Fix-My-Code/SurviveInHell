@@ -22,25 +22,15 @@ namespace ObjectContext.Enemies
             CurrentHealth = entity.Data.MaxHealth;
         }
 
-        private void OnDeadHeandler()
-        {
-            SpawnInteractObject.Instance.SpawnGem(_enemyData.Data.GemType, _parent.Instance.transform);
-            Spawner.Instance.DispawnObject(_parent.Instance.gameObject, _enemyData.Data.PoolData);
-        }
-
         private void OnInitializeHandler()
         {
             Initialize(_enemyData);
-            onDead += OnDeadHeandler;
         }
 
         #region KernelEntity
 
         [ConstructField]
         private IEnemyData _enemyData;
-
-        [ConstructField]
-        private IEnemy _parent;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
@@ -57,7 +47,6 @@ namespace ObjectContext.Enemies
         protected void OnDestroy()
         {
             IsInitialize = false;
-            onDead -= OnDeadHeandler;
         }
 
         #endregion

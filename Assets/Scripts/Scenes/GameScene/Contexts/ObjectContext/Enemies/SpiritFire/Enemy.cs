@@ -7,6 +7,8 @@ using ObjectContext.Enemies.Abstracts;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using PlayerContext.Abstract;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
 using Utilities.Behaviours;
@@ -36,26 +38,19 @@ namespace ObjectContext.Enemies
             }
         }
 
-        private void OnDeadHandler()
+        private void OnEnable()
         {
-            _killCounter.IncreaseKillCount();
+            GetComponentsInChildren<Collider2D>(true).ToList().ForEach(x => x.gameObject.SetActive(true));
         }
 
         #region KernelEntity
 
         private protected Hero _player;
 
-        [ConstructField]
-        private ICanDead _canDead;
-
-        [ConstructField(typeof(LogicSceneKernel))]
-        private IKillCounter _killCounter;
-
         [ConstructMethod(typeof(PlayerKernel))]
         private void Construct(IKernel kernel)
         {
             _player = kernel.GetInjection<Hero>();
-            _canDead.onDead += OnDeadHandler;
             IsInitialize = true;
         }
 
