@@ -2,12 +2,8 @@ using Enums;
 using GameContext.Abstracts.Interfaces;
 using LogicSceneContext;
 using ObjectContext.Enemies.Abstracts;
-using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace ObjectContext.Enemies.DeathRattles

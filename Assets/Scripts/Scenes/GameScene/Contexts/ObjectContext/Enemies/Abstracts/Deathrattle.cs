@@ -5,6 +5,7 @@ using LogicSceneContext.Abstracts.Interfaces;
 using LogicSceneContext;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using Utilities.Behaviours;
+using ObjectContext.Enemies.Abstracts.Interfaces;
 
 namespace ObjectContext.Enemies.Abstracts
 {
@@ -16,7 +17,15 @@ namespace ObjectContext.Enemies.Abstracts
 
         private protected abstract void CheckDeathRattleStatus();
 
+        private protected abstract void OnEnable();
 
+        private protected void OnDestroy()
+        {
+            _deadHandler.onDeadCallBack -= Action;
+            _router.onDeathRattleActivate -= Activate;
+        }
+
+        #region KernelEntity
 
         [ConstructField]
         private IDeadHeandler _deadHandler;
@@ -33,11 +42,6 @@ namespace ObjectContext.Enemies.Abstracts
             IsInitialize = true;
         }
 
-        private protected abstract void OnEnable();
-        private void OnDestroy()
-        {
-            _deadHandler.onDeadCallBack -= Action;
-            _router.onDeathRattleActivate -= Activate;
-        }
+        #endregion
     }
 }
