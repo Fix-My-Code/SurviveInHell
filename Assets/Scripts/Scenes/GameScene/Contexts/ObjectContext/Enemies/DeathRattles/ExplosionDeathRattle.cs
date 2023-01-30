@@ -20,8 +20,6 @@ namespace ObjectContext.Enemies.DeathRattles
         private float _radius;
         private bool _explosionEnabled;
 
-        private List<Collider2D> _colliders => GetComponentsInChildren<Collider2D>().ToList();
-
         private protected override void OnEnable()
         {
             if (!IsInitialize)
@@ -67,12 +65,9 @@ namespace ObjectContext.Enemies.DeathRattles
             }
         }
 
-
-
         public void Attack(IDamagable damagable)
         {
-            damagable.ApplyDamage(_damage);
-            Debug.LogError("Explode");
+            damagable.ApplyDamage(_damage); 
         }
 
         public IEnumerator Reloading()
@@ -80,10 +75,5 @@ namespace ObjectContext.Enemies.DeathRattles
             throw new System.NotImplementedException();
         }
 
-        public void OnDrawGizmos()
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(transform.position, _radius);
-        }
     }
 }

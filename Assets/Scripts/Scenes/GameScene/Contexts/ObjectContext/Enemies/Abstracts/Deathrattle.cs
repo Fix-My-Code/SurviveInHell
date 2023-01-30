@@ -16,18 +16,19 @@ namespace ObjectContext.Enemies.Abstracts
 
         private protected abstract void CheckDeathRattleStatus();
 
-        [ConstructField(typeof(LogicSceneKernel))]
-        private protected IDeathRattleRouter _router;
+
 
         [ConstructField]
-        private ICanDead _canDead;
+        private IDeadHeandler _deadHandler;
+
+        private protected IDeathRattleRouter _router;
 
         [ConstructMethod(typeof(LogicSceneKernel))]
         private void Construct(IKernel kernel)
         {
             _router = kernel.GetInjection<IDeathRattleRouter>();
             _router.onDeathRattleActivate += Activate;
-            _canDead.onDead += Action;
+            _deadHandler.onDeadCallBack += Action;
             CheckDeathRattleStatus();
             IsInitialize = true;
         }
@@ -35,7 +36,7 @@ namespace ObjectContext.Enemies.Abstracts
         private protected abstract void OnEnable();
         private void OnDestroy()
         {
-            _canDead.onDead -= Action;
+            _deadHandler.onDeadCallBack -= Action;
             _router.onDeathRattleActivate -= Activate;
         }
     }

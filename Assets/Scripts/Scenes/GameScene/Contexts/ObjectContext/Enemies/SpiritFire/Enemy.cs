@@ -38,11 +38,6 @@ namespace ObjectContext.Enemies
             }
         }
 
-        private void OnDeadHandler()
-        {
-            _killCounter.IncreaseKillCount();
-        }
-
         private void OnEnable()
         {
             GetComponentsInChildren<Collider2D>(true).ToList().ForEach(x => x.gameObject.SetActive(true));
@@ -52,17 +47,10 @@ namespace ObjectContext.Enemies
 
         private protected Hero _player;
 
-        [ConstructField]
-        private ICanDead _canDead;
-
-        [ConstructField(typeof(LogicSceneKernel))]
-        private IKillCounter _killCounter;
-
         [ConstructMethod(typeof(PlayerKernel))]
         private void Construct(IKernel kernel)
         {
             _player = kernel.GetInjection<Hero>();
-            _canDead.onDead += OnDeadHandler;
             IsInitialize = true;
         }
 
