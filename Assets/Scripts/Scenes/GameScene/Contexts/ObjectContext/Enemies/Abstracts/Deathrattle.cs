@@ -21,6 +21,10 @@ namespace ObjectContext.Enemies.Abstracts
 
         private protected void OnDestroy()
         {
+            if(_deadHandler == null)
+            {
+                return;
+            }
             _deadHandler.onDeadCallBack -= Action;
             _router.onDeathRattleActivate -= Activate;
         }

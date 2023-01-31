@@ -46,8 +46,11 @@ namespace ObjectContext.Enemies.Abstracts
 
         private void OnDestroy()
         {
+            if(_canDead == null)
+            {
+                return;
+            }
             _canDead.onDead -= OnDeadHeandler;
         }
-
     }
 }

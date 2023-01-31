@@ -171,8 +171,8 @@ MonoBehaviour:
   descriptins: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0432\u0437\u0440\u044B\u0432\u043D\u043E\u0439
     \u043F\u0440\u0435\u0434\u0441\u043C\u0435\u0440\u0442\u043D\u044B\u0439 \u0445\u0440\u0438\u043F"
   buffList: []
-  radius: 4.99
-  damage: 35
+  radius: 1
+  damage: 10
 --- !u!1 &4521226382496227120
 GameObject:
   m_ObjectHideFlags: 0
