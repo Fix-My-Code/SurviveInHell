@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6726003712235626976}
   - component: {fileID: 6726003712235626983}
   - component: {fileID: 6726003712235626985}
+  - component: {fileID: 738937776640837314}
   m_Layer: 5
   m_Name: MagicWandProjectile
   m_TagString: Untagged
@@ -172,6 +173,21 @@ MonoBehaviour:
     \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u0445
     \u0448\u0430\u0440\u043E\u0432 \u043F\u0430\u043B\u043A\u0438 \u0438\u0441\u0442\u0438\u043D\u044B
     \u043D\u0430"
+--- !u!114 &738937776640837314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726003712235626980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &6726003712660933042
 GameObject:
   m_ObjectHideFlags: 0

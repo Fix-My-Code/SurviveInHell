@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 8293048258694951029}
   - component: {fileID: 8293048258694951026}
   - component: {fileID: 7872266090530822174}
+  - component: {fileID: -2344605959596238934}
   m_Layer: 5
   m_Name: DivineSmiteActivator
   m_TagString: Untagged
@@ -386,3 +387,18 @@ MonoBehaviour:
   - {fileID: 3077936103076108437, guid: c90d971d9311bc24dbbc486c760a6180, type: 3}
   - {fileID: 3668356476059215202, guid: 0b26c59d7afb400478009480f19df843, type: 3}
   - {fileID: 8191140898247228935, guid: 8bd41ebfc2f57b0468dae7c47311564c, type: 3}
+--- !u!114 &-2344605959596238934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293048258694951025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []

@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 459002894791887754}
   - component: {fileID: 459002894791887755}
   - component: {fileID: 459002894791887798}
+  - component: {fileID: 6733498007688358133}
   m_Layer: 5
   m_Name: MagicWandSpeed
   m_TagString: Untagged
@@ -308,6 +309,21 @@ MonoBehaviour:
     \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u0445
     \u0448\u0430\u0440\u043E\u0432 \u043F\u0430\u043B\u043A\u0438 \u0438\u0441\u0442\u0438\u043D\u044B
     \u043D\u0430"
+--- !u!114 &6733498007688358133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459002894791887758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &4158933372100084105
 GameObject:
   m_ObjectHideFlags: 0

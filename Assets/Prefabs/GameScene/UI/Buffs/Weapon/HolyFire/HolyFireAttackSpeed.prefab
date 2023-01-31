@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1570991574778627936}
   - component: {fileID: 1570991574778627939}
   - component: {fileID: 1570991574778627937}
+  - component: {fileID: 5974389468353381530}
   m_Layer: 5
   m_Name: HolyFireAttackSpeed
   m_TagString: Untagged
@@ -231,6 +232,21 @@ MonoBehaviour:
     \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0430\u0442\u0430\u043A\u0438
     \u0430\u043D\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043A\u0440\u0443\u0433\u0430
     \u0435\u0431\u043B\u0438 \u043D\u0430"
+--- !u!114 &5974389468353381530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570991574778627940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &1570991575175940367
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,22 +5,35 @@ using UIContext.Abstracts;
 using UnityEngine;
 using Utilities.Behaviours;
 using Utilities;
+using System.Linq;
+using ObjectContext.Abstracts;
+using UnityEngine.UI;
+using DI.Attributes.Construct;
+using DI.Kernels;
+using GameContext.Abstracts.Interfaces;
 
 namespace UIContext.ChooseBuffPanel
 {
     internal class BuffGiver : KernelEntityBehaviour
     {
+
+        [SerializeField]
+        private Button rerollButton;
+
         [SerializeField]
         private List<GameObject> allBuffs;
 
-        [SerializeField]
-        private List<GameObject> availableBuffList;
-
         private List<GameObject> _baseBuffItems = new List<GameObject>();
+        private List<GameObject> _availableItems = new List<GameObject>();
+
+        private void Start()
+        {
+            rerollButton.onClick.AddListener(RerollBuff);
+        }
 
         private void OnEnable()
         {
-            LoadBuff();
+            Roll();
         }
 
         private void OnDisable()
@@ -28,28 +41,11 @@ namespace UIContext.ChooseBuffPanel
             GetComponentsInChildren<BaseBuffUIItem>(true).ForEach(x => Destroy(x.gameObject));
         }
 
-        private void LoadBuff()
+
+        private void RerollBuff()
         {
-            allBuffs.ForEach(x => _baseBuffItems.Add(x));
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (_baseBuffItems.Count <= 0)
-                {
-                    return;
-                }
-
-                var randomInt = Randomizer.RandomIntValue(0, _baseBuffItems.Count);
-                var buff = Instantiate(_baseBuffItems[randomInt], transform);
-                if (buff.TryGetComponent<WeaponBuffEnabler>(out var weaponEnabler))
-                {
-                    weaponEnabler.onAction += AddBuffsInList;
-                }
-                _baseBuffItems.RemoveAt(randomInt);
-                buff.gameObject.SetActive(true);
-            }
-
-            _baseBuffItems.Clear();
+            Roll();
+            _playerHealth.ApplyDamage((int)((_playerHealth.CurrentHealth / 100) * 20));
         }
 
         private void AddBuffsInList(List<GameObject> buffs, WeaponBuffEnabler weaponBuffEnabler)
@@ -78,6 +74,40 @@ namespace UIContext.ChooseBuffPanel
 
             allBuffs.Remove(currentBuffObject);
         }
+
+        private void Roll()
+        {
+            _baseBuffItems.AddRange(allBuffs);
+
+            if (_availableItems.Any())
+            {
+                _availableItems.ForEach(x => Destroy(x));
+                _availableItems.Clear();
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (_baseBuffItems.Count <= 0)
+                {
+                    return;
+                }
+
+                var randomInt = Randomizer.RandomIntValue(0, _baseBuffItems.Count);
+                var buff = Instantiate(_baseBuffItems[randomInt], transform);
+                if (buff.TryGetComponent<WeaponBuffEnabler>(out var weaponEnabler))
+                {
+                    weaponEnabler.onAction += AddBuffsInList;
+                }
+                _baseBuffItems.RemoveAt(randomInt);
+                buff.gameObject.SetActive(true);
+                _availableItems.Add(buff);
+            }
+
+            _baseBuffItems.Clear();
+        }
+
+        [ConstructField(typeof(PlayerKernel))]
+        private IDamagable _playerHealth;
 
     }
 }
