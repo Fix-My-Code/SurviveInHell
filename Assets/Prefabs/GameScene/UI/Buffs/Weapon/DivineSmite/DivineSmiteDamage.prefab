@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 3668356476059215214}
   - component: {fileID: 3668356476059215215}
   - component: {fileID: 3668356476059215184}
+  - component: {fileID: -575234379055690816}
   m_Layer: 5
   m_Name: DivineSmiteDamage
   m_TagString: Untagged
@@ -383,3 +384,18 @@ MonoBehaviour:
   descriptins: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444\u0444
     \u0434\u0430\u043C\u0430\u0433\u0430 \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u043E\u0439
     \u0435\u0431\u043B\u0438 \u043D\u0430"
+--- !u!114 &-575234379055690816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668356476059215202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []

@@ -16,7 +16,7 @@ namespace ObjectContext.Enemies
         private SpriteRenderer spriteRenderer;
         private NavMeshAgent agent;
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (!IsInitialize)
             {

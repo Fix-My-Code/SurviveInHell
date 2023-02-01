@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1292719014029920154}
   - component: {fileID: 1292719014029920157}
   - component: {fileID: 1292719014029920153}
+  - component: {fileID: 5801710220793384980}
   m_Layer: 5
   m_Name: KniveThrowerActivator
   m_TagString: Untagged
@@ -99,6 +100,21 @@ MonoBehaviour:
   - {fileID: 4083507234613264666, guid: af84177c5d6c8204198ee6dafb016d7e, type: 3}
   - {fileID: 2007474030405616493, guid: 5b4dc6ffa14e7004d8189a783f8eb229, type: 3}
   - {fileID: 4470347865314079485, guid: a755a76e1690b50438be1e0896eaa45e, type: 3}
+--- !u!114 &5801710220793384980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292719014029920158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &1292719014463401928
 GameObject:
   m_ObjectHideFlags: 0

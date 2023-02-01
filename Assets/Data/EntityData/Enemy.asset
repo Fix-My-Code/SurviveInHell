@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a262a4f4ef4d21e408274c7c35da0ba1, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  Damage: 15
   MaxHealth: 30
+  Damage: 10
   Speed: 500
   AttackSpeed: 0.5
   GemType: 1

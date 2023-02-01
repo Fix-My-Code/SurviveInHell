@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2276025134453550633}
   - component: {fileID: 2276025134453550638}
   - component: {fileID: 2276025134453550611}
+  - component: {fileID: -2713838322200426745}
   m_Layer: 5
   m_Name: MagicWandActivator
   m_TagString: Untagged
@@ -99,6 +100,21 @@ MonoBehaviour:
   - {fileID: 6136184102771917673, guid: d91224f1e8e02594cbf2b12ca08fd1a4, type: 3}
   - {fileID: 5854351499429070618, guid: 71bd158e7c63298489109e556ef56d7d, type: 3}
   - {fileID: 459002894791887758, guid: 761d2d474b1d1f84ea308acac773902f, type: 3}
+--- !u!114 &-2713838322200426745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276025134453550637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &2276025135077557883
 GameObject:
   m_ObjectHideFlags: 0

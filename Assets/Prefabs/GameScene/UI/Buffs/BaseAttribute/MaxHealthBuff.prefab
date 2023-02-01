@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2342043526063618594}
   - component: {fileID: 2342043526063618593}
   - component: {fileID: 2039866456745088453}
+  - component: {fileID: -6721974267035194807}
   m_Layer: 5
   m_Name: MaxHealthBuff
   m_TagString: Untagged
@@ -229,6 +230,21 @@ MonoBehaviour:
   value: 20
   descriptins: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444\u0444
     \u0445\u043F \u043D\u0430"
+--- !u!114 &-6721974267035194807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342043526063618598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &2342043526158089072
 GameObject:
   m_ObjectHideFlags: 0

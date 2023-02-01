@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 7403031831350465970}
   - component: {fileID: 7403031831350465973}
   - component: {fileID: 7403031831350465972}
+  - component: {fileID: 8993054081942885371}
   m_Layer: 5
   m_Name: HolyFireActivator
   m_TagString: Untagged
@@ -252,6 +253,21 @@ MonoBehaviour:
   - {fileID: 1570991574778627940, guid: b4ed7142180786d41a6b64025956c231, type: 3}
   - {fileID: 1204892543225625569, guid: 8b52571c04469684b914bedf32217801, type: 3}
   - {fileID: 6101430751531889753, guid: 5b8f5678fdc3e7e41a7cfe7e6dea2878, type: 3}
+--- !u!114 &8993054081942885371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403031831350465974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab688c2213b4df4a9fb4ae70e885c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchInObject: 1
+  autoStart: 1
+  inspectorKernelEntities: []
 --- !u!1 &7403031831782866400
 GameObject:
   m_ObjectHideFlags: 0
