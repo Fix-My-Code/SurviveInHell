@@ -21,6 +21,9 @@ namespace UIContext.ChooseBuffPanel
         private Button rerollButton;
 
         [SerializeField]
+        private Transform container;
+
+        [SerializeField]
         private List<GameObject> allBuffs;
 
         private List<GameObject> _baseBuffItems = new List<GameObject>();
@@ -93,7 +96,7 @@ namespace UIContext.ChooseBuffPanel
                 }
 
                 var randomInt = Randomizer.RandomIntValue(0, _baseBuffItems.Count);
-                var buff = Instantiate(_baseBuffItems[randomInt], transform);
+                var buff = Instantiate(_baseBuffItems[randomInt], container);
                 if (buff.TryGetComponent<WeaponBuffEnabler>(out var weaponEnabler))
                 {
                     weaponEnabler.onAction += AddBuffsInList;
