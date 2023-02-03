@@ -21,7 +21,6 @@ namespace ObjectContext.Enemies.Abstracts
         {
             onDeadCallBack?.Invoke();
             _killCounter.IncreaseKillCount();
-            SpawnInteractObject.Instance.SpawnGem(_enemyData.Data.GemType, _parent.Instance.transform);
             Spawner.Instance.DispawnObject(_parent.Instance.gameObject, _enemyData.Data.PoolData);
         }
 

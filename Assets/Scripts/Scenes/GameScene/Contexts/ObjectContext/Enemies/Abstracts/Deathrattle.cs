@@ -9,11 +9,17 @@ using ObjectContext.Enemies.Abstracts.Interfaces;
 
 namespace ObjectContext.Enemies.Abstracts
 {
-    internal abstract class DeathRattle<T> : KernelEntityBehaviour where T : IDeathRattle
+    internal abstract class DeathRattle : KernelEntityBehaviour
+    {
+        private protected abstract void Action();
+
+        [ConstructField]
+        private protected IDeadHeandler _deadHandler;
+    }
+
+    internal abstract class DeathRattle<T> : DeathRattle where T : IDeathRattle
     {
         private protected abstract void Activate(DeathRattleArgs args);
-
-        private protected abstract void Action();
 
         private protected abstract void CheckDeathRattleStatus();
 
@@ -30,9 +36,6 @@ namespace ObjectContext.Enemies.Abstracts
         }
 
         #region KernelEntity
-
-        [ConstructField]
-        private IDeadHeandler _deadHandler;
 
         private protected IDeathRattleRouter _router;
 
