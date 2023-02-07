@@ -61,9 +61,10 @@ namespace PlayerContext.Weapon.KnifeThrower
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+            var target = collision.gameObject.GetComponentInChildren<IDamagable>();
+            if (target != null)
             {
-                Attack(enemy.GetComponentInChildren<IDamagable>());
+                Attack(target);
             }
         }
     }

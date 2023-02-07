@@ -48,9 +48,10 @@ namespace PlayerContext.Weapon.DivineSmite
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint, Radius, layer);
             foreach (Collider2D hitCollider in hitColliders)
             {
-                if (hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
+                var target = hitCollider.gameObject.GetComponentInChildren<IDamagable>();
+                if (target != null)
                 {
-                    Attack(enemy.GetComponentInChildren<IDamagable>());
+                    Attack(target);
                 }
             }
         }

@@ -42,9 +42,10 @@ namespace PlayerContext.Weapon.HolyFire
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, layer);
             foreach (Collider2D hitCollider in hitColliders)
             {
-                if (hitCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
+                var target = hitCollider.gameObject.GetComponentInChildren<IDamagable>();
+                if (target != null)
                 {
-                    Attack(hitCollider.GetComponentInChildren<IDamagable>());
+                    Attack(target);
                 }
             }
         }
