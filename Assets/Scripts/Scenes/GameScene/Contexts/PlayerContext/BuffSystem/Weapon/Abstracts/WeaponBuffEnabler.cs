@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using PlayerContext.Abstract.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,13 @@ namespace PlayerContext.BuffSystem.Weapon.Abstracts
 
         public override void Action()
         {
-            onAction?.Invoke(GetBuffs(), this);
+            TriggerEvent(GetBuffs(), this);
             onAction = null;
+        }
+
+        private protected void TriggerEvent(List<GameObject> buffs, WeaponBuffEnabler weaponBuff)
+        {
+            onAction?.Invoke(GetBuffs(), this);
         }
     }
 }

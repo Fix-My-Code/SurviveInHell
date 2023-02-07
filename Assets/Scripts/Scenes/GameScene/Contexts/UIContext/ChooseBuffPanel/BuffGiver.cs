@@ -53,7 +53,7 @@ namespace UIContext.ChooseBuffPanel
 
         private void AddBuffsInList(List<GameObject> buffs, WeaponBuffEnabler weaponBuffEnabler)
         {
-            if (!allBuffs.Contains(buffs[0]))
+            if (buffs.Any() && !allBuffs.Contains(buffs[0]) && buffs.Any())
             {
                 allBuffs.AddRange(buffs);
             }

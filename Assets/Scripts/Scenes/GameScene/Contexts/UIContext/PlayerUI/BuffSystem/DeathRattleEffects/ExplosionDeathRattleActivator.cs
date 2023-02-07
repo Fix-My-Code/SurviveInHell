@@ -1,4 +1,5 @@
 using DI.Attributes.Construct;
+using DI.Attributes.Register;
 using DI.Kernels;
 using LogicSceneContext.Abstracts.Interfaces;
 using PlayerContext.BuffSystem.Weapon.Abstracts;
@@ -22,6 +23,7 @@ internal class DeathRattleActivator<T> : WeaponEnabler<IExplosionDeathRattle> wh
     private protected IDeathRattleRouter _router;
 }
 
+[Register(typeof(IExplosionDeathRattle))]
 internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDeathRattle>, IExplosionDeathRattle
 {
     [SerializeField]
@@ -44,6 +46,7 @@ internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDe
     public override void Action()
     {
         _router.Activate(this);
+        TriggerEvent(GetBuffs(), this);
     }
 
     public int GetDamage()

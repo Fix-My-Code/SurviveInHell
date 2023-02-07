@@ -1,8 +1,11 @@
 using DI.Attributes.Construct;
+using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using Enums;
 using ObjectContext.Abstracts;
 using PlayerContext.Abstract.Interfaces;
+using PlayerContext.BuffSystem;
+using System.Collections;
 using UnityEngine;
 
 namespace ObjectContext.Gems
@@ -51,12 +54,47 @@ namespace ObjectContext.Gems
             _experienced.AddExperience(GetExperience());
         }
 
+        private void MoveTo(Transform transform, float speed)
+        {
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(Move(transform, speed));
+            }
+        }
+
+        private IEnumerator Move(Transform transform, float speed)
+        {
+            while(this.transform.position != transform.position)
+            {
+                this.transform.position = Vector2.Lerp(this.transform.position, transform.position, speed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
         private void OnEnable()
         {
             SetColorGem();
         }
 
-        [ConstructField(typeof(PlayerKernel))]
+        private void OnDisable()
+        {
+            StopCoroutine(nameof(Move));
+        }
+
         private IExperienced _experienced;
+        private IGemMagnet _gemMagent;
+
+        [ConstructMethod(typeof(PlayerKernel))]
+        private void Construct(IKernel kernel)
+        {
+            _experienced = kernel.GetInjection<IExperienced>();
+            _gemMagent = kernel.GetInjection<IGemMagnet>();
+            _gemMagent.onMagnetActive += MoveTo;
+        }
+
+        protected override void OnDispose()
+        {
+            _gemMagent.onMagnetActive -= MoveTo;
+        }
     }
 }
