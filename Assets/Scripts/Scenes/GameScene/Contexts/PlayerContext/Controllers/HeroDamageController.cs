@@ -2,6 +2,7 @@ using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts;
 using GameContext.Abstracts.Interfaces;
+using ObjectContext.Enemies;
 using PlayerContext.Abstract.Interfaces;
 using System.Collections;
 using UnityEngine;
@@ -17,17 +18,12 @@ namespace PlayerContext.Controllers
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            Attack(collision.gameObject.GetComponentInChildren<IDamagable>());
-
-            //if (collision.gameObject.TryGetComponent<Enemy>(out var enemy))
-            //{
-            //    Attack(enemy.GetComponentInChildren<IDamagable>());
-            //}
-
-            //if (collision.gameObject.TryGetComponent<Entities.Other.Tree>(out var tree))
-            //{
-            //    Attack(tree.GetComponentInChildren<IDamagable>());
-            //}
+            var target = collision.gameObject.GetComponentInChildren<IDamagable>();
+            if(target != null)
+            {
+                Attack(target);
+            }
+            
         }
 
         public override IEnumerator Reloading()

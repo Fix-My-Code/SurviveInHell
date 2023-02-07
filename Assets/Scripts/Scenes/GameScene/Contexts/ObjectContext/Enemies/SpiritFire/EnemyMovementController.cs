@@ -3,9 +3,6 @@ using DI.Interfaces.KernelInterfaces;
 using UnityEngine;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using GameContext.Components;
-using DI.Kernels;
-using PlayerContext.Abstract;
-using UnityEngine.Experimental.AI;
 using UnityEngine.AI;
 
 namespace ObjectContext.Enemies
@@ -14,9 +11,8 @@ namespace ObjectContext.Enemies
     {
         [SerializeField]
         private SpriteRenderer spriteRenderer;
-        private NavMeshAgent agent;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (!IsInitialize)
             {
@@ -24,24 +20,13 @@ namespace ObjectContext.Enemies
             }
 
             var direction = new Vector2(_player.transform.position.x - transform.position.x, _player.transform.position.y - transform.position.y).normalized;
-            //Move(direction);
-            agent.SetDestination(_player.transform.position);
+            Move(direction);
+            //agent.SetDestination(_player.transform.position);
             spriteRenderer.flipX = isFacingRight(direction);
 
             
         }
 
-        private void OnEnable()
-        {
-            agent = GetComponentInParent<NavMeshAgent>();
-            agent.updateRotation = false;
-            agent.updateUpAxis = false;
-        }
-
-        private void OnDisable()
-        {
-            agent.isStopped = true;
-        }
         #region KernelEntity
 
         [ConstructField]

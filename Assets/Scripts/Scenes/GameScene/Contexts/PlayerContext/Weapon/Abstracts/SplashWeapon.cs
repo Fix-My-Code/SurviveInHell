@@ -38,12 +38,12 @@ namespace PlayerContext.Weapon.Abstracts
 
         public virtual void IncreaseDamage(int value)
         {
-            damage += value;
+            damage -= value;
         }
 
         public virtual void DecreaseDamage(int value)
         {
-            damage -= value;
+            damage += value;
         }
 
         public virtual void IncreaseAttackSpeed(float value)
