@@ -5,7 +5,6 @@ using Utilities.Behaviours;
 
 namespace PlayerContext.BuffSystem
 {
-
     interface IGemMagnet
     {
         public event Action<Transform, float> onMagnetActive;
