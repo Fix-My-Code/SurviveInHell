@@ -6,6 +6,7 @@ using LogicSceneContext.Managers.Abstracts.Interfaces;
 using PlayerContext.Abstract.Interfaces;
 using UIContext.Abstracts.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 using Utilities.Behaviours;
 
 namespace UIContext.ChooseBuffPanel
