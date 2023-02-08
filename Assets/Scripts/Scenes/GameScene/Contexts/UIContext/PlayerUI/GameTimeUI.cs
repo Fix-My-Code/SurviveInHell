@@ -13,9 +13,12 @@ namespace UIContext.PlayerUI
         [SerializeField]
         private TextMeshProUGUI time;
 
+
         private void UpdateTime(int minutes, int seconds)
         {
-            time.text = $"{minutes} : {seconds}";
+            string min = minutes < 10 ? $"0{minutes}" : $"{minutes}";
+            time.text = seconds < 10 ? $"{min} : 0{seconds}" : $"{min} : {seconds}";
+            
         }
 
         private IGameTime gameTime;
