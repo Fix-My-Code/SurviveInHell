@@ -3,6 +3,7 @@ using DI.Attributes.Register;
 using DI.Kernels;
 using GameContext.Abstracts.Interfaces;
 using PlayerContext.BuffSystem.Abstracts.Interfaces;
+using PlayerContext.Controllers;
 using Utilities.Behaviours;
 
 namespace PlayerContext.BuffSystem.BuffRouter
@@ -40,6 +41,16 @@ namespace PlayerContext.BuffSystem.BuffRouter
             _speedBuff.Decrease((int)buff.Value);
         }
 
+        public void Increase(IGemTriggerBuffRouting buff)
+        {
+            _gemTriggerBuff.Increase(buff.Value);
+        }
+
+        public void Decrease(IGemTriggerBuffRouting buff)
+        {
+            _gemTriggerBuff.Decrease(buff.Value);
+        }
+
         #region KernelEntity   
 
         [ConstructField(typeof(PlayerKernel))]
@@ -50,6 +61,9 @@ namespace PlayerContext.BuffSystem.BuffRouter
 
         [ConstructField(typeof(PlayerKernel))]
         private ISpeedBuff _speedBuff;
+
+        [ConstructField(typeof(PlayerKernel))]
+        private IGemTriggerBuff _gemTriggerBuff;
 
         #endregion
     }

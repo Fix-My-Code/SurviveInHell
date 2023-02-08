@@ -52,9 +52,10 @@ namespace ObjectContext.Gems
         public override void Action()
         {
             _experienced.AddExperience(GetExperience());
+            Dispawn();
         }
 
-        private void MoveTo(Transform transform, float speed)
+        public void MoveTo(Transform transform, float speed = 1)
         {
             if (gameObject.activeSelf)
             {

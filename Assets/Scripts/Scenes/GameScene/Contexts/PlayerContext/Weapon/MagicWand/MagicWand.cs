@@ -64,9 +64,9 @@ namespace PlayerContext.Weapon.MagicWand
         {
             while (true)
             {
-                if (FindClosestEnemy(out var closestEnemy))
+                for (int i = 0; i < projectileCount; i++)
                 {
-                    for (int i = 0; i < projectileCount; i++)
+                    if (FindClosestEnemy(out var closestEnemy))
                     {
                         yield return new WaitForSeconds(0.3f);
                         var fireObject = Spawner.Instance.SpawnObject(_poolData, spawnPoint);

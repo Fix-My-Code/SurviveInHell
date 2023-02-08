@@ -15,5 +15,9 @@ namespace PlayerContext.BuffSystem.BuffRouter
         public void Increase(ISpeedBuffRouting value);
 
         public void Decrease(ISpeedBuffRouting value);
+
+        public void Increase(IGemTriggerBuffRouting value);
+
+        public void Decrease(IGemTriggerBuffRouting value);
     }
 }
