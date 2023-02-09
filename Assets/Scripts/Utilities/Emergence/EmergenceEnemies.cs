@@ -19,6 +19,7 @@ namespace Utilities.Emergence
         {
             while (true)
             {
+                yield return new WaitForSeconds(3f);
                 for (int i = 0; i < count; i++)
                 {
                     var spawn = (Vector2)spawnPoint.position + UnityEngine.Random.insideUnitCircle * spawnRadius;
@@ -30,8 +31,6 @@ namespace Utilities.Emergence
 
                     yield return new WaitForSeconds(0.1f);
                 }
-
-                yield return new WaitForSeconds(5f);
             };
         }
 

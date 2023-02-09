@@ -20,7 +20,7 @@ namespace LogicSceneContext
         private int _seconds;
         private int _minutes;
 
-        private void Start()
+        private void Awake()
         {
             StartCoroutine(Time());
         }
