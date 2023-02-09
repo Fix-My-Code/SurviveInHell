@@ -1,3 +1,4 @@
+using DI.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace LogicSceneContext
             new Vector2Int (-1, 1)
         };
 
-        private void Start()
+        private void Awake()
         {
             _currentChunk = new Vector2(Mathf.Round(Camera.main.transform.position.x / chunkScale), Mathf.Round(Camera.main.transform.position.y / chunkScale));
             var chunk = Instantiate(prefab, new Vector3(_currentChunk.x, _currentChunk.y, 0), Quaternion.identity);
@@ -69,6 +70,12 @@ namespace LogicSceneContext
                 }
 
             }
+        }
+
+        private void OnDestroy()
+        {
+            _chunkMap.ForEach(x => Destroy(x.Value));
+            _chunkMap.Clear();
         }
     }
 }
