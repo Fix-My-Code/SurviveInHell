@@ -6,37 +6,31 @@ using UnityEngine;
 using Utilities.Behaviours;
 using Utilities;
 using System.Linq;
-using ObjectContext.Abstracts;
-using UnityEngine.UI;
-using DI.Attributes.Construct;
-using DI.Kernels;
-using GameContext.Abstracts.Interfaces;
 
 namespace UIContext.ChooseBuffPanel
 {
     internal class BuffGiver : KernelEntityBehaviour
     {
-
-        [SerializeField]
-        private Button rerollButton;
-
         [SerializeField]
         private Transform container;
 
         [SerializeField]
         private List<GameObject> allBuffs;
 
+        private RerollButton rerollButton;
+
         private List<GameObject> _baseBuffItems = new List<GameObject>();
         private List<GameObject> _availableItems = new List<GameObject>();
 
-        private void Start()
+        private void Awake()
         {
-            rerollButton.onClick.AddListener(RerollBuff);
+            rerollButton = GetComponentInChildren<RerollButton>(true);
+            rerollButton.onReroll += Roll;
         }
 
         private void OnEnable()
         {
-            Roll();
+            Roll();        
         }
 
         private void OnDisable()
@@ -44,11 +38,9 @@ namespace UIContext.ChooseBuffPanel
             GetComponentsInChildren<BaseBuffUIItem>(true).ForEach(x => Destroy(x.gameObject));
         }
 
-
-        private void RerollBuff()
+        private void OnDestroy()
         {
-            Roll();
-            _playerHealth.ApplyDamage((int)((_playerHealth.CurrentHealth / 100) * 20));
+            rerollButton.onReroll -= Roll;
         }
 
         private void AddBuffsInList(List<GameObject> buffs, WeaponBuffEnabler weaponBuffEnabler)
@@ -108,9 +100,5 @@ namespace UIContext.ChooseBuffPanel
 
             _baseBuffItems.Clear();
         }
-
-        [ConstructField(typeof(PlayerKernel))]
-        private IDamagable _playerHealth;
-
     }
 }
