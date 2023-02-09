@@ -48,7 +48,7 @@ namespace UIContext.ChooseBuffPanel
 
         private void AddReroll()
         {
-            Debug.Log("Реклама");
+            Debug.Log("Advertisement");
         }
 
         [ConstructField(typeof(PlayerKernel))]
