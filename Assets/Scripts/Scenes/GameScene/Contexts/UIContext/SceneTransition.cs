@@ -1,27 +1,29 @@
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using TMPro;
 using UIContext.Abstracts;
 using UnityEngine;
+using Utilities;
 using Utilities.Behaviours;
 
 namespace UIContext
 {
     internal class SceneTransition : KernelEntityBehaviour
     {
-        public TextMeshProUGUI loadingText;
         [SerializeField]
-        private PanelClickCallBack panelClickCallBack;
+        private List<GameObject> images;
 
 
         private void Start()
         {
-            Init().Forget();
+            ViewLoadingScreen().Forget();
         }
-        private async UniTaskVoid Init()
+        private async UniTaskVoid ViewLoadingScreen()
         {
-            panelClickCallBack.gameObject.SetActive(true);
+            var rand = Randomizer.RandomIntValue(0, images.Count);
+            images[rand].SetActive(true);
             await UniTask.Delay(1500);
-            panelClickCallBack.gameObject.SetActive(false);
+            images[rand].SetActive(false);
         }
     }
 }
