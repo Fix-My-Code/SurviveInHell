@@ -1291,11 +1291,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 564167208958040707, guid: 699543db977e8144d9618491c4dc89a2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -9.180786
+      value: -8.94342
       objectReference: {fileID: 0}
     - target: {fileID: 564167208958040707, guid: 699543db977e8144d9618491c4dc89a2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -364.79187
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3117397893635355483, guid: 699543db977e8144d9618491c4dc89a2, type: 3}
       propertyPath: allBuffs.Array.size

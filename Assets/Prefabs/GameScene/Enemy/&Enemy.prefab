@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6974356363118681112}
   - component: {fileID: 6298000027310324845}
   - component: {fileID: 3596082339231349701}
+  - component: {fileID: 9188020260485366026}
   m_Layer: 6
   m_Name: Deathrattles
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
+  _radius: 0
 --- !u!114 &3596082339231349701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +75,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523cb1e637b89f4e8d480e4c369d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9188020260485366026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526541932333715009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9d8bb52f59a4241896a933c822c98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 3
+  color: {r: 1, g: 0, b: 0, a: 1}
+  active: 1
 --- !u!1 &1914098376557583029
 GameObject:
   m_ObjectHideFlags: 0

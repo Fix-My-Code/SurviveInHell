@@ -32,7 +32,7 @@ namespace ObjectContext.Enemies.Abstracts
                 return;
             }
             _deadHandler.onDeadCallBack -= Action;
-            _router.onDeathRattleActivate -= Activate;
+            _router.onDeathRattleChanged -= Activate;
         }
 
         #region KernelEntity
@@ -43,7 +43,7 @@ namespace ObjectContext.Enemies.Abstracts
         private void Construct(IKernel kernel)
         {
             _router = kernel.GetInjection<IDeathRattleRouter>();
-            _router.onDeathRattleActivate += Activate;
+            _router.onDeathRattleChanged += Activate;
             _deadHandler.onDeadCallBack += Action;
             CheckDeathRattleStatus();
             IsInitialize = true;
