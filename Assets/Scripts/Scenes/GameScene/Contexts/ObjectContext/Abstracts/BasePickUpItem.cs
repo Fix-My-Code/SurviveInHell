@@ -22,7 +22,10 @@ namespace ObjectContext.Abstracts
 
         public void Dispawn()
         {
-            Spawner.Instance.DispawnObject(gameObject, poolData);
+            if (!Spawner.Instance.DispawnObject(gameObject, poolData))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
