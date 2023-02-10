@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: e2ae6b4936471fd48adf7c892fcdabdd, type: 2}
-  lifeRange: 40
+  lifeRange: 30
 --- !u!50 &1914098378073428152
 Rigidbody2D:
   serializedVersion: 4
