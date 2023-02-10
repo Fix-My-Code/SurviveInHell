@@ -2,26 +2,31 @@ using System;
 using DI.Attributes.Register;
 using Utilities.Behaviours;
 
-interface ISoulCounter
+namespace GameContext
 {
-    void AddSoul();
-    public int GetSoulCount();
-    public event Action<int> onSoulCountChanged;
-}
-[Register(typeof(ISoulCounter))]
-internal class SoulCounter : KernelEntityBehaviour, ISoulCounter
-{
-    public event Action<int> onSoulCountChanged;
-
-    private int _soulCount;
-    public void AddSoul()
+    interface ISoulCounter
     {
-        _soulCount++;
-        onSoulCountChanged?.Invoke(_soulCount);
+        void AddSoul();
+        public int GetSoulCount();
+        public event Action<int> onSoulCountChanged;
     }
 
-    public int GetSoulCount()
+    [Register(typeof(ISoulCounter))]
+    internal class SoulCounter : KernelEntityBehaviour, ISoulCounter
     {
-        return _soulCount;
+        public event Action<int> onSoulCountChanged;
+
+        private int _soulCount;
+
+        public void AddSoul()
+        {
+            _soulCount++;
+            onSoulCountChanged?.Invoke(_soulCount);
+        }
+
+        public int GetSoulCount()
+        {
+            return _soulCount;
+        }
     }
 }

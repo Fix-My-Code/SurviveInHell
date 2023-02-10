@@ -1,17 +1,20 @@
 using DI.Attributes.Construct;
 using DI.Kernels;
+using GameContext;
 using ObjectContext.Abstracts;
 
-internal class Soul : BasePickUpItem
+namespace ObjectContext.Currency
 {
-    public override void Action()
+    internal class Soul : BasePickUpItem
     {
-        _soulCounter.AddSoul();
-        Dispawn();
+        public override void Action()
+        {
+            _soulCounter.AddSoul();
+            Dispawn();
+        }
+
+
+
+        [ConstructField(typeof(GameKernel))] private ISoulCounter _soulCounter;
     }
-
-
-
-    [ConstructField(typeof(GameKernel))]
-    private ISoulCounter _soulCounter;
 }
