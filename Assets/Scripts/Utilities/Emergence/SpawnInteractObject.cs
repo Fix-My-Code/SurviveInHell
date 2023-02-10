@@ -11,6 +11,8 @@ namespace Utilities.Emergence
         [SerializeField]
         private PoolObject gemPoolData;
 
+        [SerializeField]
+        private PoolObject soulPoolData;
         #region Food
 
         [SerializeField]
@@ -66,6 +68,11 @@ namespace Utilities.Emergence
 
         #endregion
 
+        public void SpawnSoul(Transform transform)
+        {
+            Spawner.Instance.SpawnObject(soulPoolData, transform);
+        }
+
         private void OnEnable()
         {
             Spawner.Instance.PreparationPool(gemPoolData);
@@ -73,6 +80,7 @@ namespace Utilities.Emergence
             Spawner.Instance.PreparationPool(milkPoolData);
             Spawner.Instance.PreparationPool(chickenLegPoolData);
             Spawner.Instance.PreparationPool(cheesePoolData);
+            Spawner.Instance.PreparationPool(soulPoolData);
         }
     }
 }
