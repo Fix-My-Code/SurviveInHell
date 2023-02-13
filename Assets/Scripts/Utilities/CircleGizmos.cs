@@ -5,7 +5,7 @@ namespace Utilities
     public class CircleGizmos : MonoBehaviour
     {
         [SerializeField, Range(0, 70f)]
-        private float viewRadius;
+        public float viewRadius;
 
         [SerializeField]
         private Color color;

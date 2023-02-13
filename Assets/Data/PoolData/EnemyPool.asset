@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyPool
   m_EditorClassIdentifier: 
   prefab: {fileID: 1914098378073428150, guid: 7f402aa3aa570964e96c2dbfa98e528e, type: 3}
-  poolCount: 50
-  autoExpand: 1
+  poolCount: 200
+  autoExpand: 0

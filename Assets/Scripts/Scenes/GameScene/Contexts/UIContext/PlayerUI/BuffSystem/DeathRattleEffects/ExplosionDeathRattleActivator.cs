@@ -16,46 +16,48 @@ interface IExplosionDeathRattle : IDeathRattle, IWeaponActivator
     public int GetDamage();
     public float GetRadius();
 }
-
-internal class DeathRattleActivator<T> : WeaponEnabler<IExplosionDeathRattle> where T : IDeathRattle
+namespace UIContext.PlayerUI.BuffSystem.DeathRattleEffects
 {
-    [ConstructField(typeof(LogicSceneKernel))]
-    private protected IDeathRattleRouter _router;
-}
-
-[Register(typeof(IExplosionDeathRattle))]
-internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDeathRattle>, IExplosionDeathRattle
-{
-    [SerializeField]
-    private float radius;
-
-    [SerializeField]
-    private int damage;
-
-    [ContextMenu("Enable")]
-    public void SetActive()
+    internal class DeathRattleActivator<T> : WeaponEnabler<IExplosionDeathRattle> where T : IDeathRattle
     {
-        Action();
+        [ConstructField(typeof(LogicSceneKernel))]
+        private protected IDeathRattleRouter _router;
     }
 
-    public void SetActive(bool value)
+    [Register(typeof(IExplosionDeathRattle))]
+    internal class ExplosionDeathRattleActivator : DeathRattleActivator<IExplosionDeathRattle>, IExplosionDeathRattle
     {
-        Action();
-    }
+        [SerializeField]
+        private float radius;
 
-    public override void Action()
-    {
-        _router.Activate(this);
-        TriggerEvent(GetBuffs(), this);
-    }
+        [SerializeField]
+        private int damage;
 
-    public int GetDamage()
-    {
-        return damage;
-    }
+        [ContextMenu("Enable")]
+        public void SetActive()
+        {
+            Action();
+        }
 
-    public float GetRadius()
-    {
-        return radius;
+        public void SetActive(bool value)
+        {
+            Action();
+        }
+
+        public override void Action()
+        {
+            _router.Activate(this);
+            TriggerEvent(GetBuffs(), this);
+        }
+
+        public int GetDamage()
+        {
+            return damage;
+        }
+
+        public float GetRadius()
+        {
+            return radius;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Utilities.ObjectPooller
         public GameObject SpawnObject(PoolObject poolData) 
         {
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
-            GameObject poolObject = pool.GetFreeElement();
+            pool.GetFreeElement(out var poolObject);
             poolObject.transform.position = transform.position;
             poolObject.SetActive(true);
             return poolObject;
@@ -29,7 +29,7 @@ namespace Utilities.ObjectPooller
         public GameObject SpawnObject(PoolObject poolData, Transform parent)
         {
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
-            GameObject poolObject = pool.GetFreeElement();
+            pool.GetFreeElement(out var poolObject);
             poolObject.transform.position = parent.transform.position;
             poolObject.transform.rotation = parent.transform.rotation;
             poolObject.SetActive(true);
@@ -39,10 +39,16 @@ namespace Utilities.ObjectPooller
         public GameObject SpawnObject(PoolObject poolData, Vector2 position)
         {
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
-            GameObject poolObject = pool.GetFreeElement();
+            pool.GetFreeElement(out var poolObject);
             poolObject.transform.position = position;
             poolObject.SetActive(true);
             return poolObject;
+        }
+
+        public bool HasFreeElement(PoolObject poolData)
+        {
+            _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
+            return pool.HasFreeElement();
         }
 
         public void DispawnObject(GameObject poolObject, PoolObject poolData)

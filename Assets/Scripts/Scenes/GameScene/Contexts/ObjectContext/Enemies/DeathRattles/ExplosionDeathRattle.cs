@@ -5,6 +5,7 @@ using ObjectContext.Enemies.Abstracts;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Utilities;
 
 namespace ObjectContext.Enemies.DeathRattles
 {
@@ -13,8 +14,11 @@ namespace ObjectContext.Enemies.DeathRattles
         [SerializeField]
         private LayerMask layer;
         private int _damage;
+        [SerializeField]
         private float _radius;
         private bool _explosionEnabled;
+
+        private CircleGizmos circleGizmos => GetComponent<CircleGizmos>();
 
         private protected override void OnEnable()
         {
@@ -40,6 +44,7 @@ namespace ObjectContext.Enemies.DeathRattles
             _explosionEnabled = true;
             _damage = args.damage;
             _radius = args.radius;
+            circleGizmos.viewRadius = _radius;
         }
 
         private protected override void Action()

@@ -19,8 +19,7 @@ namespace PlayerContext.Controllers
         public event Action<int> onLevelChanged;
 
         [SerializeField]
-        [Range(0f, 3f)]
-        private float levelScale = 1.2f;
+        private int step = 20;
 
         public int Level
         { 
@@ -78,9 +77,8 @@ namespace PlayerContext.Controllers
         private void LevelUp()
         {
             Level++;
-
-            MaxExperience += (int)(MaxExperience * levelScale);
-
+            MaxExperience += step;
+            step += (int)(step * 0.3f);
             onLevelChanged?.Invoke(Level);
             onExperienceChanged?.Invoke();
            

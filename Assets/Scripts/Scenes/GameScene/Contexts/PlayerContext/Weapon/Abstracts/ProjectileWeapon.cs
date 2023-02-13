@@ -44,12 +44,12 @@ namespace PlayerContext.Weapon.Abstracts
 
         public void IncreaseAttackSpeed(float value)
         {
-            attackSpeed += value;
+            attackSpeed -= value;
         }
 
         public void DecreaseAttackSpeed(int value)
         {
-            attackSpeed -= value;
+            attackSpeed += value;
         }
     }
 }
