@@ -1,48 +1,48 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using Utilities;
 
-[System.Serializable]
-public class RandomObject
+namespace Utilities
 {
-    public GameObject gameObject;
-    public int priority;
-}
-
-public class RandomizerPercent : MonoBehaviour
-{
-    public List<RandomObject> randomObjects;
-
-    [ContextMenu("Calculate percent")]
-    private void CalculatePercent()
+    [System.Serializable]
+    public class RandomObject
     {
-        int totalPriority = 0;
-        foreach (RandomObject randomObject in randomObjects)
-        {
-            totalPriority += randomObject.priority;
-        }
-
-        foreach (RandomObject randomObject in randomObjects)
-        {
-            randomObject.priority = (int)Mathf.Round((float)randomObject.priority / totalPriority * 100);
-        }
+        public GameObject gameObject;
+        public int priority;
     }
-    [ContextMenu("Test")]
-    public void RandomizeList()
-    {
-        int randomNumber = Randomizer.RandomIntValue(1, 100);
 
-        int cumulativePercent = 0;
-        foreach (RandomObject randomObject in randomObjects)
+    public class RandomizerPercent : MonoBehaviour
+    {
+        public List<RandomObject> randomObjects;
+
+        [ContextMenu("Calculate percent")]
+        private void CalculatePercent()
         {
-            cumulativePercent += randomObject.priority;
-            if (randomNumber <= cumulativePercent)
+            int totalPriority = 0;
+            foreach (RandomObject randomObject in randomObjects)
             {
-                Debug.Log($"{randomObject.gameObject.name} : {randomNumber}");
-                break;
+                totalPriority += randomObject.priority;
+            }
+
+            foreach (RandomObject randomObject in randomObjects)
+            {
+                randomObject.priority = (int)Mathf.Round((float)randomObject.priority / totalPriority * 100);
+            }
+        }
+        [ContextMenu("Test")]
+        public void RandomizeList()
+        {
+            int randomNumber = Randomizer.RandomIntValue(1, 100);
+
+            int cumulativePercent = 0;
+            foreach (RandomObject randomObject in randomObjects)
+            {
+                cumulativePercent += randomObject.priority;
+                if (randomNumber <= cumulativePercent)
+                {
+                    Debug.Log($"{randomObject.gameObject.name} : {randomNumber}");
+                    break;
+                }
             }
         }
     }
-
 }
