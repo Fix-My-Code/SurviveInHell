@@ -36,19 +36,22 @@ namespace Utilities.ObjectPooller
             return elements;
         }
 
-        public GameObject GetFreeElement() 
+        public bool GetFreeElement(out GameObject objectElement) 
         {
             if (HasFreeElement(out var element)) {
-
-                return element;
+                objectElement = element;
+                return true;
             }
 
             if (autoExpand) 
             {
-                return CreateObject(isActive: true);
+                objectElement = CreateObject(isActive: true);
+                return true;
             }
 
-            throw new System.Exception(message: $"There is no free element in pool of type {nameof(GameObject)}");
+            objectElement = null;
+
+            return false;
         }
 
         private void CreatePool(int count) 
@@ -81,6 +84,20 @@ namespace Utilities.ObjectPooller
             }
 
             element = null;
+            return false;
+        }
+
+        public bool HasFreeElement()
+        {
+            foreach (var Object in _pool)
+            {
+                if (!Object.gameObject.activeInHierarchy)
+                {
+
+                    return true;
+                }
+            }
+
             return false;
         }
     }
