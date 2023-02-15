@@ -4,7 +4,7 @@ using Utilities.ObjectPooller;
 
 namespace GameContext.Chest
 {
-    [CreateAssetMenu(menuName = "Create/Data/DestructionObjects/Chest")]
+    [CreateAssetMenu(menuName = "Create/Data/Objects/Chest")]
     public class ChestDataObject : ScriptableObject
     {
         public List<PoolObject> objects;
