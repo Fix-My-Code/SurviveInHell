@@ -4,7 +4,7 @@ namespace GameContext.Abstracts.Interfaces
 {
     interface IHealthBuff : IBuff
     {
-        public void IncreaseHealth(int value);
-        public void DecreaseHealth(int value);
+        public void IncreaseHealth(float value);
+        public void DecreaseHealth(float value);
     }
 }

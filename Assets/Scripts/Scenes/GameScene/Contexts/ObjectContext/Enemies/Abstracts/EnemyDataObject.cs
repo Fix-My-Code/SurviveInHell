@@ -16,6 +16,12 @@ namespace ObjectContext.Enemies.Abstracts
         [Range(0.2f, 3)]
         public float AttackSpeed;
 
+        [Header("Time Upgrade")]
+
+        public float HealthUpgradePercent;
+        public float DamageUpgradePercent;
+        public float SpeedUpgradePercent;
+
         public GemTypes GemType;
 
         public PoolObject PoolData;

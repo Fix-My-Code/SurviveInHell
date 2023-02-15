@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344ec210d6930a640b05152e8830784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 20
+  value: 0.1
   descriptins: "\u0411\u043B\u044F\u0434\u0441\u043A\u0438\u0439 \u0431\u0430\u0444\u0444
     \u0445\u043F \u043D\u0430"
 --- !u!114 &-6721974267035194807

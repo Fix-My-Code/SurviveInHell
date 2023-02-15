@@ -23,12 +23,12 @@ namespace PlayerContext.BuffSystem.BuffRouter
 
         public void Increase(IRegenerationSpeedBuffRouting buff)
         {
-            _regenerationSpeedBuff.IncreaseRegenerationSpeed((int)buff.Value);
+            _regenerationSpeedBuff.IncreaseRegenerationSpeed(buff.Value);
         }
 
         public void Decrease(IRegenerationSpeedBuffRouting buff)
         {
-            _regenerationSpeedBuff.DecreaseRegenerationSpeed((int)buff.Value);
+            _regenerationSpeedBuff.DecreaseRegenerationSpeed(buff.Value);
         }
 
         public void Increase(ISpeedBuffRouting buff)
