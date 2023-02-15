@@ -1,8 +1,9 @@
 using DI.Attributes.Register;
+using GameContext.Chest;
 using ObjectContext.Abstracts;
 using UnityEngine;
 using Utilities.Behaviours;
-using Utilities.ObjectPooller;
+
 
 namespace PlayerContext.Controllers
 {
@@ -16,6 +17,11 @@ namespace PlayerContext.Controllers
             {
                 pickUpItem.Action();
                 pickUpItem.Dispawn();
+                return;
+            }
+            if(collider.gameObject.TryGetComponent<Chest>(out var chest))
+            {
+                chest.Action();
                 return;
             }
         }

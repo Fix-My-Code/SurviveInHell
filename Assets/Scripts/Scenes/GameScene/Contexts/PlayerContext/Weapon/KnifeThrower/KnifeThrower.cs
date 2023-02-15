@@ -40,12 +40,12 @@ namespace PlayerContext.Weapon.KnifeThrower
                 {
                     yield return new WaitForSeconds(0.3f);
                     var knifeObject = Spawner.Instance.SpawnObject(_poolData, spawnPoint);
-                    var _rb = knifeObject.GetComponent<Rigidbody2D>();
+                    var rb = knifeObject.GetComponent<Rigidbody2D>();
                     var knife = knifeObject.GetComponent<Knife>();
 
                     knife.Damage = projectileDamage;
                     
-                    _rb.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
+                    rb.AddForce(transform.right * projectileSpeed, ForceMode2D.Impulse);
                 }
                 yield return new WaitForSeconds(attackSpeed);
             }
