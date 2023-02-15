@@ -72,6 +72,10 @@ namespace Utilities.Emergence
         {
             Spawner.Instance.SpawnObject(soulPoolData, transform);
         }
+        public GameObject SpawnRandomObject(PoolObject pool, Transform transform)
+        {
+            return Spawner.Instance.SpawnObject(pool, transform);
+        }
 
         private void OnEnable()
         {

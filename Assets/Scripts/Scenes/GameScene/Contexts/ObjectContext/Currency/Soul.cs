@@ -12,9 +12,8 @@ namespace ObjectContext.Currency
             _soulCounter.AddSoul();
             Dispawn();
         }
-
-
-
-        [ConstructField(typeof(GameKernel))] private ISoulCounter _soulCounter;
+        
+        [ConstructField(typeof(GameKernel))]
+        private ISoulCounter _soulCounter;
     }
 }

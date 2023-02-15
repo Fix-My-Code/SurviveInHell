@@ -1,5 +1,7 @@
 using DI.Attributes.Register;
 using ObjectContext.Abstracts;
+using ObjectContext.Currency;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utilities.Behaviours;
 using Utilities.ObjectPooller;
@@ -16,6 +18,11 @@ namespace PlayerContext.Controllers
             {
                 pickUpItem.Action();
                 pickUpItem.Dispawn();
+                return;
+            }
+            if(collider.gameObject.TryGetComponent<Chest>(out var chest))
+            {
+                chest.Action();
                 return;
             }
         }
