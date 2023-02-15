@@ -2,8 +2,6 @@ using DI.Attributes.Construct;
 using DI.Attributes.Register;
 using DI.Interfaces.KernelInterfaces;
 using Cysharp.Threading.Tasks;
-using Utilities.Emergence;
-using Utilities.ObjectPooller;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using GameContext.Abstracts.Interfaces;
 using GameContext.Components;
@@ -12,9 +10,10 @@ using PlayerContext.BuffSystem.Abstracts.Interfaces;
 namespace ObjectContext.Enemies
 {
     [Register(typeof(IHealthView),
+              typeof(IHealthBuff),
               typeof(ICanDead))]
 
-    internal class EnemyHealthController : BaseHealthComponent
+    internal class EnemyHealthController : AdvancedHealthComponent
     {
         internal virtual void Initialize(IEnemyData entity)
         {
