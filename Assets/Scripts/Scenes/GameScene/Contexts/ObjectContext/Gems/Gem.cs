@@ -55,7 +55,7 @@ namespace ObjectContext.Gems
             Dispawn();
         }
 
-        public void MoveTo(Transform transform, float speed = 1)
+        public void MoveTo(Transform transform, float speed = 2)
         {
             if (gameObject.activeSelf)
             {

@@ -4,10 +4,13 @@ using UnityEngine;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using GameContext.Components;
 using UnityEngine.AI;
+using GameContext.Abstracts.Interfaces;
+using DI.Attributes.Register;
 
 namespace ObjectContext.Enemies
 {
-    internal class EnemyMovementController : BaseMovementComponent
+    [Register(typeof(ISpeedBuff))]
+    internal class EnemyMovementController : BaseMovementComponent, ISpeedBuff
     {
         [SerializeField]
         private SpriteRenderer spriteRenderer;
@@ -26,6 +29,20 @@ namespace ObjectContext.Enemies
 
             
         }
+
+        #region ISpeedBuff
+
+        public void Increase(float value)
+        {
+            Speed += Speed * value;
+        }
+
+        public void Decrease(float value)
+        {
+            Speed -= Speed * value;
+        }
+
+        #endregion
 
         #region KernelEntity
 

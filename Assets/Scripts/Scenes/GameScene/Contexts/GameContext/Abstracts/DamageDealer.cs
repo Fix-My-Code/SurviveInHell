@@ -6,7 +6,7 @@ namespace GameContext.Abstracts
 {
     internal abstract class DamageDealer : KernelEntityBehaviour, IDamageDealer
     {
-        public float AttackSpeed
+        private protected float AttackSpeed
         {
             get => _attackSpeed;
             set
@@ -14,6 +14,8 @@ namespace GameContext.Abstracts
                 _attackSpeed = value;
             }
         }
+        private protected float Damage { get; set; }
+
         private float _attackSpeed;
 
         public abstract void Attack(IDamagable damagable);

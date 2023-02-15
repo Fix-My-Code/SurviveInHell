@@ -90,20 +90,16 @@ namespace GameContext.Components
 
         #region IRegenerateBuff
 
-        public void IncreaseRegenerationSpeed(int value)
+        public void IncreaseRegenerationSpeed(float value)
         {
-            ChangeRegenerationSpeed(value);
+            RegenerationSpeed += RegenerationSpeed * value;
         }
 
-        public void DecreaseRegenerationSpeed(int value)
+        public void DecreaseRegenerationSpeed(float value)
         {
-            ChangeRegenerationSpeed(-value);
+            RegenerationSpeed -= RegenerationSpeed * value;
         }
 
-        private void ChangeRegenerationSpeed(int value)
-        {
-            RegenerationSpeed += value;
-        }
 
         #endregion
 
@@ -118,32 +114,16 @@ namespace GameContext.Components
 
         #region IHealthBuff
 
-        public void IncreaseHealth(int value)
+        public void IncreaseHealth(float value)
         {
-            ChangeHealth(value);
+            MaxHealth += MaxHealth * value;
+            CurrentHealth += MaxHealth * value;
         }
 
-        public void DecreaseHealth(int value)
+        public void DecreaseHealth(float value)
         {
-            ChangeHealth(-value);
-        }
-
-        private void ChangeHealth(int value)
-        {
-            MaxHealth += value;
-            CurrentHealth += value;
-        }
-
-        #endregion
-
-        #region KernelEntity
-
-        private IDamagable _damageController;
-
-        [ConstructMethod]
-        private void Construct(IKernel kernel)
-        {
-            _damageController = kernel.GetInjection<IDamagable>();
+            MaxHealth -= MaxHealth * value;
+            CurrentHealth -= MaxHealth * value;
         }
 
         #endregion

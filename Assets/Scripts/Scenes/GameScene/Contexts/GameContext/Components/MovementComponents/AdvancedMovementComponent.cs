@@ -24,19 +24,14 @@ namespace GameContext.Components
 
         #region ISpeedBuff
 
-        public void Increase(int value)
+        public void Increase(float value)
         {
-            ChangeValue(value);
+            Speed += Speed * value;
         }
 
-        public void Decrease(int value)
+        public void Decrease(float value)
         {
-            ChangeValue(-value);
-        }
-
-        private void ChangeValue(int value)
-        {
-            Speed += value;
+            Speed -= Speed * value;
         }
 
         #endregion
