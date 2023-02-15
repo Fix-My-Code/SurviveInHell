@@ -51,20 +51,21 @@ namespace Utilities.ObjectPooller
             return pool.HasFreeElement();
         }
 
-        public void DispawnObject(GameObject poolObject, PoolObject poolData)
+        public bool DispawnObject(GameObject poolObject, PoolObject poolData)
         {
             _pools.TryGetValue(poolData.prefab.name, out GameObjectPool pool);
 
             var element = pool.GetBusyElements().Where(x => x == poolObject).FirstOrDefault();
             if(element == null)
             {
-                return;
+                return false;
             }
 
             element.transform.position = ObjectPoolContainer.transform.position;
             element.transform.parent = ObjectPoolContainer.transform;
             element.transform.rotation = new Quaternion(0, 0, 0, 0);
             element.SetActive(false);
+            return true;
         }
 
         public void DispawnAll() 
