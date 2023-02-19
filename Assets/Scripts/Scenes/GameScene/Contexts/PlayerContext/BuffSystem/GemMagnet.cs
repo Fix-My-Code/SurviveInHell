@@ -7,6 +7,7 @@ namespace PlayerContext.BuffSystem
 {
     interface IGemMagnet
     {
+        public void Action();
         public event Action<Transform, float> onMagnetActive;
     }
 
@@ -17,18 +18,9 @@ namespace PlayerContext.BuffSystem
         [SerializeField]
         private float speed;
 
-        [ContextMenu("Active")]
         public void Action()
         {
             onMagnetActive?.Invoke(transform, speed);
-        }
-
-        public void Update()
-        {
-            if (Input.GetKeyDown("1"))
-            {
-                Action();
-            }
         }
     }
 }

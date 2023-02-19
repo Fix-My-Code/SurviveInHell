@@ -61,10 +61,6 @@ namespace LogicSceneContext
             onDeathRattleChanged?.Invoke(_deathrattleMap[deathRattle.type]);
         }
 
-        public bool DeathRattleStatus(DeathRattleTypes type, out DeathRattleArgs result)
-        {
-            return _deathrattleMap.TryGetValue(type, out result);
-        }
     }
 }
 

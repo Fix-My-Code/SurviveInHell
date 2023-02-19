@@ -1,6 +1,8 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
+using DI.Kernels;
 using GameContext.Abstracts.Interfaces;
+using LogicSceneContext;
 using ObjectContext.Enemies.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities;
@@ -10,17 +12,9 @@ namespace ObjectContext.Enemies
 {
     internal class EnemyUpgradeController : KernelEntityBehaviour
     {
-
         public void OnTimeUpgradeHandler()
         {
             RandomUpgrade();
-        }
-        private void OnEnable()
-        {
-            if (IsInitialize)
-            {
-                RandomUpgrade();
-            }
         }
 
         private void RandomUpgrade()
@@ -48,6 +42,8 @@ namespace ObjectContext.Enemies
         private ISpeedBuff _speedBuff;
 
         private IEnemyData _enemyData;
+        [ConstructField(typeof(LogicSceneKernel))]
+        private IEnemyTimeUpgradeRouter _upgradeRouter;
 
         [ConstructMethod]
         private void Construct(IKernel kernel)
@@ -56,7 +52,13 @@ namespace ObjectContext.Enemies
             _healthBuff = kernel.GetInjection<IHealthBuff>();
             _speedBuff = kernel.GetInjection<ISpeedBuff>();
             _enemyData = kernel.GetInjection<IEnemyData>();
+            _upgradeRouter.onTimeUpgrade += OnTimeUpgradeHandler;
             IsInitialize = true;
+        }
+
+        protected override void OnDispose()
+        {
+            _upgradeRouter.onTimeUpgrade -= OnTimeUpgradeHandler;
         }
     }
 }

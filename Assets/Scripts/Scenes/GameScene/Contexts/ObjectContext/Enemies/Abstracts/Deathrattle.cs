@@ -3,9 +3,9 @@ using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using LogicSceneContext.Abstracts.Interfaces;
 using LogicSceneContext;
-using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using Utilities.Behaviours;
 using ObjectContext.Enemies.Abstracts.Interfaces;
+using UnityEngine;
 
 namespace ObjectContext.Enemies.Abstracts
 {
@@ -21,19 +21,7 @@ namespace ObjectContext.Enemies.Abstracts
     {
         private protected abstract void Activate(DeathRattleArgs args);
 
-        private protected abstract void CheckDeathRattleStatus();
-
         private protected abstract void OnEnable();
-
-        private protected void OnDestroy()
-        {
-            if(_deadHandler == null)
-            {
-                return;
-            }
-            _deadHandler.onDeadCallBack -= Action;
-            _router.onDeathRattleChanged -= Activate;
-        }
 
         #region KernelEntity
 
@@ -45,8 +33,17 @@ namespace ObjectContext.Enemies.Abstracts
             _router = kernel.GetInjection<IDeathRattleRouter>();
             _router.onDeathRattleChanged += Activate;
             _deadHandler.onDeadCallBack += Action;
-            CheckDeathRattleStatus();
             IsInitialize = true;
+        }
+
+        protected override void OnDispose()
+        {
+            if (_deadHandler == null)
+            {
+                return;
+            }
+            _deadHandler.onDeadCallBack -= Action;
+            _router.onDeathRattleChanged -= Activate;
         }
 
         #endregion

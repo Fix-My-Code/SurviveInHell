@@ -1,5 +1,8 @@
+using DI.Attributes.Construct;
 using DI.Attributes.Register;
+using DI.Kernels;
 using ObjectContext.Gems;
+using PlayerContext.Abstract;
 using UnityEngine;
 using Utilities.Behaviours;
 
@@ -45,8 +48,11 @@ namespace PlayerContext.Controllers
         {
             if (collision.gameObject.TryGetComponent<Gem>(out var gem))
             {
-                gem.MoveTo(Camera.main.transform);
+                gem.MoveTo(_palyer.transform);
             }
         }
+
+        [ConstructField(typeof(PlayerKernel))]
+        private Hero _palyer; 
     }
 }

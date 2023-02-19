@@ -175,7 +175,7 @@ MonoBehaviour:
   - {fileID: 6799378840673791024, guid: 9d6dd46918621c343b6d45c5e9232afa, type: 3}
   - {fileID: 5968117119306208579, guid: 6045607e376a438479134712346ffd7d, type: 3}
   radius: 1
-  damage: 10
+  damage: 5
 --- !u!114 &1875319137861185871
 MonoBehaviour:
   m_ObjectHideFlags: 0
