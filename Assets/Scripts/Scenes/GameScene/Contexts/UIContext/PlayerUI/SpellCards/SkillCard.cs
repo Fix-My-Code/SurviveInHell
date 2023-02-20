@@ -16,10 +16,6 @@ namespace UIContext.PlayerUI.SkillCards
         private Vector2 _startPosition;
         private Vector2 _difference;
 
-        private void Start()
-        {
-            _rectTransform = GetComponent<RectTransform>();
-        }
 
         public void OnDrag(PointerEventData eventData)
         {
@@ -55,7 +51,7 @@ namespace UIContext.PlayerUI.SkillCards
         private bool IsOutsideBorder(Vector2 position)
         {
             var parentRect = parentPanel.rect;
-            return !parentRect.Contains(position);
+            return !RectTransformUtility.RectangleContainsScreenPoint(parentPanel, position);
         }
 
         private protected virtual void Action()
