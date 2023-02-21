@@ -2,20 +2,22 @@ using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
 using PlayerContext.BuffSystem;
-using UIContext.PlayerUI.SkillCards;
 
-internal class GemMagnetCard : SkillCard
+namespace UIContext.PlayerUI.SkillCards
 {
-    private protected override void Action()
+    internal class GemMagnetCard : SkillCard
     {
-        _gemMagnet.Action();
-        base.Action();
-    }
+        private protected override void Action()
+        {
+            _gemMagnet.Action();
+            base.Action();
+        }
 
-    private IGemMagnet _gemMagnet;
-    [ConstructMethod(typeof(PlayerKernel))]
-    private void Construct(IKernel kernel)
-    {
-        _gemMagnet = kernel.GetInjection<IGemMagnet>();
+        private IGemMagnet _gemMagnet;
+        [ConstructMethod(typeof(PlayerKernel))]
+        private void Construct(IKernel kernel)
+        {
+            _gemMagnet = kernel.GetInjection<IGemMagnet>();
+        }
     }
 }

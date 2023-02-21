@@ -20,7 +20,7 @@ namespace UIContext.PlayerUI.SkillCards
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position + _difference;
-            Debug.Log(IsOutsideBorder(eventData.pressPosition));
+
         }
 
         public void OnPointerDown(PointerEventData eventData)
