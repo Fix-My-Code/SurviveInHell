@@ -10,8 +10,8 @@ namespace PlayerContext.Abstract.Interfaces
 
         public int Level { get; }
 
-        public int CurrentExperience { get; }
+        public float CurrentExperience { get; }
 
-        public int MaxExperience { get; }
+        public float MaxExperience { get; }
     }
 }

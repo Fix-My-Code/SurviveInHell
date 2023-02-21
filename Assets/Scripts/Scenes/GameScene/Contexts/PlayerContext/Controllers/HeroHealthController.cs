@@ -14,6 +14,7 @@ namespace PlayerContext.Controllers
               typeof(IDamagable),
               typeof(IHealthBuff),
               typeof(IRegenerationSpeedBuff),
+              typeof(ICanImmortality),
               typeof(ICanDead))]
     internal class HeroHealthController : AdvancedHealthComponent
     {

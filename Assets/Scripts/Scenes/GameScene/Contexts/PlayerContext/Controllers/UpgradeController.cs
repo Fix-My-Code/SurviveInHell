@@ -33,7 +33,7 @@ namespace PlayerContext.Controllers
             }
         }
 
-        public int CurrentExperience
+        public float CurrentExperience
         { 
             get
             {
@@ -51,7 +51,7 @@ namespace PlayerContext.Controllers
             }
         }
 
-        public int MaxExperience
+        public float MaxExperience
         {
             get 
             {
@@ -65,11 +65,11 @@ namespace PlayerContext.Controllers
 
         private int _level;
 
-        private int _currentExperience;
+        private float _currentExperience;
 
-        private int _maxExperience;
+        private float _maxExperience;
 
-        public void AddExperience(int value)
+        public void AddExperience(float value)
         {
             CurrentExperience += value;
         }

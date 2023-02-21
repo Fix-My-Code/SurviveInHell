@@ -1,5 +1,3 @@
-using DI.Attributes.Construct;
-using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts.Interfaces;
 using PlayerContext.Abstract.Interfaces;
 using System.Collections;
@@ -7,7 +5,7 @@ using UnityEngine;
 
 namespace GameContext.Components
 {
-    internal abstract class AdvancedHealthComponent : BaseHealthComponent, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
+    internal abstract class AdvancedHealthComponent : BaseHealthComponent, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable, ICanImmortality
     {
         public override float CurrentHealth 
         { 
@@ -124,6 +122,27 @@ namespace GameContext.Components
         {
             MaxHealth -= MaxHealth * value;
             CurrentHealth -= MaxHealth * value;
+        }
+
+        #endregion
+
+        #region ICanImmortality
+
+        public void BecomeImmortal(float seconds)
+        {
+            StartCoroutine(ImmortalStatus(seconds));
+        }
+
+        private void ChangeImmortalityStatus(bool isImmortality)
+        {
+            _isDead = isImmortality;
+        }
+
+        private IEnumerator ImmortalStatus(float seconds)
+        {
+            ChangeImmortalityStatus(true);
+            yield return new WaitForSeconds(seconds);
+            ChangeImmortalityStatus(false);
         }
 
         #endregion
