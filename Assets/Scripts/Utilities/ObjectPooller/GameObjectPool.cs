@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -64,11 +65,12 @@ namespace Utilities.ObjectPooller
             }
         }
 
-        private GameObject CreateObject(bool isActive = false) 
+        private GameObject CreateObject(bool isActive = true) 
         {
             var createdObject = Object.Instantiate(this.prefab, this.container);
             createdObject.SetActive(isActive);
             _pool.Add(createdObject);
+            DisableGameobject(createdObject).Forget();
             return createdObject;
         }
 
@@ -99,6 +101,12 @@ namespace Utilities.ObjectPooller
             }
 
             return false;
+        }
+
+        private async UniTaskVoid DisableGameobject(GameObject gameObject)
+        {
+            await UniTask.DelayFrame(4);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace PlayerContext.Weapon.Abstracts
         private protected float projectileSpeed;
 
         [SerializeField]
-        [Range(0, 2)]
+        [Range(0, 5)]
         private protected float attackSpeed;
 
         [SerializeField]

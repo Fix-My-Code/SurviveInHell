@@ -26,17 +26,6 @@ namespace ObjectContext.Enemies.DeathRattles
             {
                 return;
             }
-            CheckDeathRattleStatus();
-        }
-
-        private protected override void CheckDeathRattleStatus()
-        {
-            if (!_router.DeathRattleStatus(DeathRattleTypes.Explosion, out var deathRattleArgs))
-            {
-                return;
-            }
-
-            Activate(deathRattleArgs);
         }
 
         private protected override void Activate(DeathRattleArgs args)
@@ -54,7 +43,6 @@ namespace ObjectContext.Enemies.DeathRattles
             {
                 return;
             }
-
             GetComponentsInChildren<Collider2D>().ToList().ForEach(x => x.gameObject.SetActive(false));
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _radius, layer);
             foreach (Collider2D hitCollider in hitColliders)

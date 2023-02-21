@@ -1,27 +1,58 @@
 using Cysharp.Threading.Tasks;
+using DI.Attributes.Register;
 using System.Collections.Generic;
+using UIContext.Abstracts.Interfaces;
 using UnityEngine;
 using Utilities;
 using Utilities.Behaviours;
 
-namespace UIContext
+namespace GameContext
 {
-    internal class SceneTransition : KernelEntityBehaviour
+    interface ILoadingScreen
+    {
+        public UniTaskVoid EnableLoadingScreen(AsyncOperation loadingScene);
+        public void DisableLoadingScreen();
+    }
+
+    [Register(typeof(ILoadingScreen))]
+    internal class SceneTransition : KernelEntityBehaviour, ILoadingScreen
     {
         [SerializeField]
         private List<GameObject> images;
 
+        private UniTaskCompletionSource _completionSource;
+        private int _screenIndex;
 
-        private void Start()
+        private void Awake()
         {
-            ViewLoadingScreen().Forget();
+            images.ForEach(image =>
+            {
+                image.GetComponentInChildren<IPanelClickCallBack>().onClick += DisableLoadingScreen;
+            });
         }
-        private async UniTaskVoid ViewLoadingScreen()
+
+        private void OnDestroy()
         {
-            var rand = Randomizer.RandomIntValue(0, images.Count);
-            images[rand].SetActive(true);
+            images.ForEach(image =>
+            {
+                image.GetComponentInChildren<IPanelClickCallBack>().onClick -= DisableLoadingScreen;
+            });
+        }
+
+        public async UniTaskVoid EnableLoadingScreen(AsyncOperation loadingScene)
+        {
+            _screenIndex = Randomizer.RandomIntValue(0, images.Count);
+            images[_screenIndex].SetActive(true);
+            await loadingScene;
             await UniTask.Delay(1500);
-            images[rand].SetActive(false);
+            _completionSource = new UniTaskCompletionSource();
+            await _completionSource.Task;
+            images[_screenIndex].SetActive(false);
+        }
+
+        public void DisableLoadingScreen()
+        {
+            _completionSource.TrySetResult();
         }
     }
 }

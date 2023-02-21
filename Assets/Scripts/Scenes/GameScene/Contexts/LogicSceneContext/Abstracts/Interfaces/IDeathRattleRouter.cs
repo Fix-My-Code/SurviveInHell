@@ -9,8 +9,6 @@ namespace LogicSceneContext.Abstracts.Interfaces
 
         public void Activate(IExplosionDeathRattle deathRattle);
 
-        public bool DeathRattleStatus(DeathRattleTypes type, out DeathRattleArgs result);
-
         public void ExplosionDeathrattleUpdate(DeathRattleArgs deathRattle);
     }
 }

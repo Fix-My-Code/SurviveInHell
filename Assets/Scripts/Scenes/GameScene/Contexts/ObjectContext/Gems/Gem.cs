@@ -67,8 +67,11 @@ namespace ObjectContext.Gems
         {
             while(this.transform.position != transform.position)
             {
-                this.transform.position = Vector2.Lerp(this.transform.position, transform.position, speed * Time.deltaTime);
-                yield return new WaitForEndOfFrame();
+                Vector3 desiredVelocity = Vector3.zero;
+                float distanceToPlayer = Vector3.Distance(this.transform.position, transform.position);
+                desiredVelocity = (transform.position - this.transform.position).normalized * speed;
+                this.transform.position += desiredVelocity * Time.deltaTime;
+                yield return new WaitForFixedUpdate();
             }
         }
 
