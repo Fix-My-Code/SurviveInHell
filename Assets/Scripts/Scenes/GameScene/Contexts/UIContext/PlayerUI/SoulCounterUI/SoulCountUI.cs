@@ -17,9 +17,10 @@ namespace UIContext.PlayerUI.SoulCounterUI
             soulCount.text = $"Souls : {count}";
         }
 
-        private void OnEnable()
+        private void Awake()
         {
             soulCount = GetComponentInChildren<TextMeshProUGUI>();
+            OutputSoulCounter(0);
         }
 
         private ISoulCounter _soulCounter;
