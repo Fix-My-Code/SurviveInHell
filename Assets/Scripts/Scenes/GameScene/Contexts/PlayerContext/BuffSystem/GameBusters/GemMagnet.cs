@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Utilities.Behaviours;
 
-namespace PlayerContext.BuffSystem
+namespace PlayerContext.BuffSystem.GameBusters
 {
     interface IGemMagnet
     {
@@ -15,6 +15,7 @@ namespace PlayerContext.BuffSystem
     internal class GemMagnet : KernelEntityBehaviour, IGemMagnet
     {
         public event Action<Transform, float> onMagnetActive;
+
         [SerializeField]
         private float speed;
 

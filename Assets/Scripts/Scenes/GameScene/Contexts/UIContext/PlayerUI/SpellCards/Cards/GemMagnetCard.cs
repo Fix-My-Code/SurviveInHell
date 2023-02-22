@@ -1,7 +1,7 @@
 using DI.Attributes.Construct;
 using DI.Interfaces.KernelInterfaces;
 using DI.Kernels;
-using PlayerContext.BuffSystem;
+using PlayerContext.BuffSystem.GameBusters;
 
 namespace UIContext.PlayerUI.SkillCards
 {
@@ -14,6 +14,7 @@ namespace UIContext.PlayerUI.SkillCards
         }
 
         private IGemMagnet _gemMagnet;
+
         [ConstructMethod(typeof(PlayerKernel))]
         private void Construct(IKernel kernel)
         {
