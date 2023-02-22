@@ -52,9 +52,10 @@ namespace UIContext.ChooseBuffPanel
             SetActive(false);
         }
 
-        private void OnLevelChangedHandler(int level)
+        private async void OnLevelChangedHandler(int level)
         {
-            SetActive(true);
+            //SetActive(true);
+            await ShowUpgradePanel();
         }
 
         #region Kernel
