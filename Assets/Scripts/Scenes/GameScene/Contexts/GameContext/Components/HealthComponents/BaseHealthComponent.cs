@@ -12,6 +12,7 @@ namespace GameContext.Components
         public event Action onDead;
 
         private protected bool _isDead;
+        private protected bool _isUnbreakable;
 
         public virtual float MaxHealth
         {
@@ -29,12 +30,19 @@ namespace GameContext.Components
             get => _currentHealth;
             set
             {
+                if (_isUnbreakable)
+                {
+                    return;
+                }
+
                 _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+
                 if (_currentHealth == 0 && IsInitialize && !_isDead)
                 {
                     _isDead = true;
                     onDead?.Invoke();
                 }
+
                 onHealthChanged?.Invoke();
             }
         }

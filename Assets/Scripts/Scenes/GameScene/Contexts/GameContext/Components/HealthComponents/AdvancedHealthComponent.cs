@@ -1,13 +1,12 @@
-using DI.Attributes.Construct;
-using DI.Interfaces.KernelInterfaces;
 using GameContext.Abstracts.Interfaces;
 using PlayerContext.Abstract.Interfaces;
+using PlayerContext.BuffSystem.Abstracts.Interfaces;
 using System.Collections;
 using UnityEngine;
 
 namespace GameContext.Components
 {
-    internal abstract class AdvancedHealthComponent : BaseHealthComponent, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable
+    internal abstract class AdvancedHealthComponent : BaseHealthComponent, IRegenerationSpeedBuff, IRegenerate, IHealthBuff, IHealable, IUnbreakable
     {
         public override float CurrentHealth 
         { 
@@ -124,6 +123,15 @@ namespace GameContext.Components
         {
             MaxHealth -= MaxHealth * value;
             CurrentHealth -= MaxHealth * value;
+        }
+
+        #endregion
+
+        #region IUnbreakable
+
+        public void SwitchUnbreakableStatus(bool status)
+        {
+            _isUnbreakable = status;
         }
 
         #endregion
