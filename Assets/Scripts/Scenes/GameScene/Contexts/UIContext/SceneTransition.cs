@@ -52,6 +52,11 @@ namespace GameContext
 
         public void DisableLoadingScreen()
         {
+            if(_completionSource == null)
+            {
+                return;
+            }
+
             _completionSource.TrySetResult();
         }
     }
