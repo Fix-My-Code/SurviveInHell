@@ -31,7 +31,7 @@ namespace UIContext.ChooseBuffPanel
             content.SetActive(value);
             _pauseManager.Pause(value);
 
-            if(value)
+            if(value || _completionSource == null)
             {
                 return;
             }
