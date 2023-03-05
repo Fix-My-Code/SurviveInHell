@@ -1,14 +1,24 @@
-using UnityEngine;
+using DI.Attributes.Construct;
+using DI.Kernels;
+using GameContext;
+using LogicSceneContext.Managers.Abstracts.Interfaces;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using Utilities.Behaviours;
 
 namespace UIContext.GameOver
 {
-    public class RestartGame : MonoBehaviour, IPointerClickHandler
+    internal class RestartGame : KernelEntityBehaviour, IPointerClickHandler
     {
         public void OnPointerClick(PointerEventData eventData)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _pauseManager.Pause(false);
+            _sceneSwitcher.SwitchScene(Scenes.Game);
         }
+
+        [ConstructField(typeof(GameKernel))]
+        private ISceneSwitcher _sceneSwitcher;
+
+        [ConstructField(typeof(LogicSceneKernel))]
+        private IPauseManager _pauseManager;
     }
 }
